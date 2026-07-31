@@ -23,28 +23,49 @@ from pinn_losses import pde_residual
 
 
 @torch.no_grad()
-def predict_on_grid(model, x_grid, t_grid, device, dtype):
+def predict_on_grid(model, x_grid, t_grid, device, dtype, batch_size=4000):
     """
     x_grid: (nx,) ndarray
     t_grid: (nt,) ndarray
     Returns U_pred: (nt, nx) ndarray, matching reference solution layout.
+
+    Processes the (possibly large) full evaluation grid in chunks of
+    `batch_size` points rather than a single forward pass. For a small
+    classical MLP a single pass would be fine, but a quantum circuit's
+    per-point computational cost/memory is much higher, so chunking here
+    keeps evaluation memory-safe for both models without changing results.
     """
     X, T = np.meshgrid(x_grid, t_grid)  # shapes (nt, nx)
     x_flat = torch.tensor(X.reshape(-1, 1), device=device, dtype=dtype)
     t_flat = torch.tensor(T.reshape(-1, 1), device=device, dtype=dtype)
 
-    u_flat = model(x_flat, t_flat).cpu().numpy().reshape(X.shape)
+    n = x_flat.shape[0]
+    outputs = []
+    for start in range(0, n, batch_size):
+        end = min(start + batch_size, n)
+        outputs.append(model(x_flat[start:end], t_flat[start:end]))
+    u_flat = torch.cat(outputs, dim=0).cpu().numpy().reshape(X.shape)
     return u_flat
 
 
-def compute_pde_residual_grid(model, x_grid, t_grid, nu, device, dtype):
-    """PDE residual evaluated on a grid (requires grad, so no @torch.no_grad)."""
+def compute_pde_residual_grid(model, x_grid, t_grid, nu, device, dtype, batch_size=2000):
+    """
+    PDE residual evaluated on a grid (requires grad, so no @torch.no_grad).
+    Chunked for the same memory reasons as predict_on_grid — the residual
+    computation additionally keeps a backward graph alive (for u_xx), so
+    it needs a smaller default batch size than plain prediction.
+    """
     X, T = np.meshgrid(x_grid, t_grid)
     x_flat = torch.tensor(X.reshape(-1, 1), device=device, dtype=dtype)
     t_flat = torch.tensor(T.reshape(-1, 1), device=device, dtype=dtype)
 
-    f = pde_residual(model, x_flat, t_flat, nu)
-    return f.detach().cpu().numpy().reshape(X.shape)
+    n = x_flat.shape[0]
+    residuals = []
+    for start in range(0, n, batch_size):
+        end = min(start + batch_size, n)
+        f = pde_residual(model, x_flat[start:end], t_flat[start:end], nu)
+        residuals.append(f.detach())
+    return torch.cat(residuals, dim=0).cpu().numpy().reshape(X.shape)
 
 
 def evaluate_model(model, cfg, x_ref, t_ref, U_ref, training_stats=None, logger=None):

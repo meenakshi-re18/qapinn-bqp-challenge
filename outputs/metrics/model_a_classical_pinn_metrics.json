@@ -1,18 +1,18 @@
 {
-  "l2_relative_error": 0.04005813219366665,
+  "l2_relative_error": 0.040058132193491,
   "max_abs_error": 0.4995288496643213,
-  "mean_abs_error": 0.004057694815193634,
+  "mean_abs_error": 0.004057694811865872,
   "shock_region_l2_relative_error": 0.11829410723070764,
   "shock_region_max_abs_error": 0.46021198731886526,
-  "pde_residual_mean_abs": 0.007039845455437899,
+  "pde_residual_mean_abs": 0.007039844058454037,
   "pde_residual_max_abs": 0.505218505859375,
   "pde_residual_rmse": 0.01675652526319027,
-  "fourier_spectrum_l2_relative_error": 0.013499886740858188,
+  "fourier_spectrum_l2_relative_error": 0.01349988922891089,
   "num_trainable_parameters": 16897,
   "training": {
-    "adam_time_sec": 10609.812047999818,
-    "lbfgs_time_sec": 1.6207622000947595,
-    "total_time_sec": 10611.5055846998,
+    "adam_time_sec": 1419.5712685002945,
+    "lbfgs_time_sec": 2.257435899693519,
+    "total_time_sec": 1421.9131085001864,
     "best_loss": 0.00020218626013956964
   }
 }

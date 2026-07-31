@@ -61,7 +61,15 @@ class Config:
     GRAD_CLIP_NORM = 0.0      # 0 = disabled
 
     LOG_EVERY = 200           # epochs between console/CSV log lines
-    CHECKPOINT_EVERY = 500    # epochs between checkpoint saves
+    CHECKPOINT_EVERY = 500    # epochs between periodic (resume-safe) checkpoint saves
+
+    RESUME = False            # if True, continue from the last periodic checkpoint if one exists
+    EARLY_STOPPING_PATIENCE = None   # None/0 = disabled (default). If set, stop after this many
+                                       # epochs with no improvement > EARLY_STOPPING_MIN_DELTA.
+                                       # Left OFF by default — see train.py module docstring for why
+                                       # a flat loss curve on a quantum model should be diagnosed
+                                       # (barren plateau?) before being treated as "converged."
+    EARLY_STOPPING_MIN_DELTA = 1e-6
 
     # ------------------------------------------------------------------
     # Reference (ground-truth) solution — high-resolution numerical solve

@@ -1,0 +1,42 @@
+13:40:57 | INFO    | ======================================================================
+13:40:57 | INFO    | MODEL B — Quantum-Assisted PINN (QAPINN) — Burgers' Equation
+13:40:57 | INFO    | ======================================================================
+13:40:57 | INFO    | Device: cpu
+13:40:57 | INFO    | Quantum config: 4 qubits, depth=3, encoding=amplitude, entanglement=circular, input_mode=direct
+13:40:58 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+13:40:58 | INFO    | Sampling training points: 2000 collocation, 200 IC, 200x2 BC
+13:40:58 | INFO    | Trainable parameters: 85
+13:41:00 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+13:41:01 | INFO    | [Adam     1/300] total=6.225e-01 pde=8.503e-02 ic=4.284e-01 bc=1.091e-01 lr=1.00e-03 q_grad_norm=3.398e-01 t=3.1s
+13:41:37 | INFO    | [Adam   100/300] total=3.680e-01 pde=5.567e-02 ic=3.030e-01 bc=9.324e-03 lr=1.00e-03 q_grad_norm=1.243e-01 t=39.8s
+13:42:14 | INFO    | [Adam   200/300] total=3.239e-01 pde=5.441e-02 ic=2.554e-01 bc=1.403e-02 lr=1.00e-03 q_grad_norm=7.913e-02 t=77.0s
+13:42:51 | INFO    | [Adam   300/300] total=2.998e-01 pde=6.102e-02 ic=2.195e-01 bc=1.932e-02 lr=1.00e-03 q_grad_norm=5.316e-02 t=113.8s
+13:42:51 | INFO    | Phase 2/2: L-BFGS — up to 100 iterations
+13:42:52 | INFO    | [LBFGS     1] total=2.996e-01 pde=6.108e-02 ic=2.192e-01 bc=1.934e-02 q_grad_norm=5.319e-02 t=0.4s
+13:43:27 | INFO    | [LBFGS   100] total=1.490e-01 pde=6.109e-02 ic=8.508e-02 bc=2.841e-03 q_grad_norm=5.335e-02 t=35.8s
+13:43:29 | INFO    | Training complete. Total time: 151.9s (Adam: 113.8s, LBFGS: 38.0s). Best total loss: 1.463e-01
+13:43:35 | INFO    | Evaluation metrics:
+13:43:35 | INFO    |   l2_relative_error: 0.5777295723376141
+13:43:35 | INFO    |   max_abs_error: 0.9638116615807669
+13:43:35 | INFO    |   mean_abs_error: 0.24610715386166998
+13:43:35 | INFO    |   shock_region_l2_relative_error: 0.9045013179591463
+13:43:35 | INFO    |   shock_region_max_abs_error: 0.9340718495118987
+13:43:35 | INFO    |   pde_residual_mean_abs: 0.19549085199832916
+13:43:35 | INFO    |   pde_residual_max_abs: 0.9508197903633118
+13:43:35 | INFO    |   pde_residual_rmse: 0.2475011944770813
+13:43:35 | INFO    |   fourier_spectrum_l2_relative_error: 0.5755526793396095
+13:43:35 | INFO    |   num_trainable_parameters: 85
+13:43:35 | INFO    | Metrics saved to outputs\metrics\coloc2000_metrics.json
+13:43:35 | INFO    | Generating figures...
+13:43:37 | INFO    | Figures saved to outputs\figures\coloc2000/
+13:43:37 | INFO    | ======================================================================
+13:43:37 | INFO    | SUMMARY — Model B (QAPINN)
+13:43:37 | INFO    | ======================================================================
+13:43:37 | INFO    | L2 relative error (global):        5.7773e-01
+13:43:37 | INFO    | L2 relative error (shock region):  9.0450e-01
+13:43:37 | INFO    | Max absolute error:                9.6381e-01
+13:43:37 | INFO    | PDE residual RMSE:                 2.4750e-01
+13:43:37 | INFO    | Fourier spectrum L2 error:          5.7555e-01
+13:43:37 | INFO    | Trainable parameters:                85
+13:43:37 | INFO    | Full metrics JSON: outputs\metrics\coloc2000_metrics.json
+13:43:37 | INFO    | Compare this against outputs/metrics/model_a_classical_pinn_metrics.json

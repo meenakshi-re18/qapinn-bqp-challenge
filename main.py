@@ -26,7 +26,7 @@ from sampling import build_training_tensors
 from model import build_model
 from train import train
 from evaluate import evaluate_model
-from visualize import generate_all_figures
+from visualize import generate_all_figures, figures_dir_for
 
 
 def parse_args():
@@ -36,6 +36,11 @@ def parse_args():
     p.add_argument("--no_lbfgs", action="store_true")
     p.add_argument("--collocation", type=int, default=None)
     p.add_argument("--seed", type=int, default=None)
+    p.add_argument("--resume", action="store_true",
+                    help="Continue from the last periodic checkpoint if one exists.")
+    p.add_argument("--early_stopping_patience", type=int, default=None,
+                    help="Stop Adam phase after this many epochs with no improvement. "
+                         "Off by default.")
     return p.parse_args()
 
 
@@ -50,6 +55,10 @@ def apply_overrides(cfg, args):
         cfg.N_COLLOCATION = args.collocation
     if args.seed is not None:
         cfg.SEED = args.seed
+    if args.resume:
+        cfg.RESUME = True
+    if args.early_stopping_patience is not None:
+        cfg.EARLY_STOPPING_PATIENCE = args.early_stopping_patience
     return cfg
 
 
@@ -90,8 +99,8 @@ def main():
     # 6. Visualize
     logger.info("Generating figures...")
     generate_all_figures(cfg, x_ref, t_ref, U_ref, U_pred)
-    logger.info(f"Figures saved to {cfg.FIGURES_DIR}/")
-
+    logger.info(f"Figures saved to {figures_dir_for(cfg)}/")
+    
     # 7. Summary
     logger.info("=" * 70)
     logger.info("SUMMARY — Model A (Classical PINN)")

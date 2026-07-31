@@ -1,0 +1,716 @@
+17:45:30 | INFO    | ======================================================================
+17:45:30 | INFO    | QAPINN ABLATION STUDIES
+17:45:30 | INFO    | Budget per run: 300 Adam epochs, 800 collocation points, LBFGS=off
+17:45:30 | INFO    | ======================================================================
+17:45:30 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+17:45:30 | INFO    | --- Ablation [qubits] run: nq2_d3_angle_reuploading_circular ---
+17:45:30 | INFO    | Device: cpu
+17:45:30 | INFO    | Quantum config: 2 qubits, depth=3, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+17:45:30 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+17:45:30 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+17:45:30 | INFO    | Trainable parameters: 51
+17:45:35 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+17:45:35 | INFO    | [Adam     1/300] total=2.078e+00 pde=1.437e+00 ic=5.778e-01 bc=6.300e-02 lr=1.00e-03 q_grad_norm=7.991e-01 t=5.4s
+17:46:05 | INFO    | [Adam    60/300] total=5.573e-01 pde=4.187e-02 ic=4.925e-01 bc=2.294e-02 lr=1.00e-03 q_grad_norm=8.963e-02 t=35.0s
+17:46:33 | INFO    | [Adam   120/300] total=5.034e-01 pde=2.269e-02 ic=4.747e-01 bc=6.018e-03 lr=1.00e-03 q_grad_norm=5.480e-02 t=62.9s
+17:47:03 | INFO    | [Adam   180/300] total=4.892e-01 pde=1.604e-02 ic=4.714e-01 bc=1.726e-03 lr=1.00e-03 q_grad_norm=3.567e-02 t=93.5s
+17:47:32 | INFO    | [Adam   240/300] total=4.827e-01 pde=1.155e-02 ic=4.705e-01 bc=6.948e-04 lr=1.00e-03 q_grad_norm=2.283e-02 t=122.4s
+17:48:02 | INFO    | [Adam   300/300] total=4.793e-01 pde=8.829e-03 ic=4.701e-01 bc=3.659e-04 lr=1.00e-03 q_grad_norm=1.627e-02 t=151.8s
+17:48:02 | INFO    | Training complete. Total time: 151.8s (Adam: 151.8s, LBFGS: 0.0s). Best total loss: 4.793e-01
+17:48:12 | INFO    | Evaluation metrics:
+17:48:12 | INFO    |   l2_relative_error: 0.9983541077954862
+17:48:12 | INFO    |   max_abs_error: 1.022391825914383
+17:48:12 | INFO    |   mean_abs_error: 0.5352999957738886
+17:48:12 | INFO    |   shock_region_l2_relative_error: 0.9982476691118984
+17:48:12 | INFO    |   shock_region_max_abs_error: 0.9591863063837949
+17:48:12 | INFO    |   pde_residual_mean_abs: 0.06802865862846375
+17:48:12 | INFO    |   pde_residual_max_abs: 0.4967063069343567
+17:48:12 | INFO    |   pde_residual_rmse: 0.09446801245212555
+17:48:12 | INFO    |   fourier_spectrum_l2_relative_error: 0.9954954956552301
+17:48:12 | INFO    |   num_trainable_parameters: 51
+17:48:12 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq2_d3_angle_reuploading_circular_metrics.json
+17:48:12 | INFO    | Generating figures...
+17:48:17 | INFO    | Figures saved to outputs\figures/
+17:48:17 | INFO    | --- Ablation [qubits] run: nq4_d3_angle_reuploading_circular ---
+17:48:17 | INFO    | Device: cpu
+17:48:17 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+17:48:18 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+17:48:18 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+17:48:18 | INFO    | Trainable parameters: 85
+17:48:18 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+17:48:19 | INFO    | [Adam     1/300] total=3.337e+00 pde=2.557e+00 ic=6.494e-01 bc=1.309e-01 lr=1.00e-03 q_grad_norm=2.311e+00 t=1.5s
+17:49:53 | INFO    | [Adam    60/300] total=1.199e+00 pde=6.101e-01 ic=5.487e-01 bc=3.998e-02 lr=1.00e-03 q_grad_norm=6.437e-01 t=95.0s
+17:51:24 | INFO    | [Adam   120/300] total=7.002e-01 pde=1.970e-01 ic=4.966e-01 bc=6.623e-03 lr=1.00e-03 q_grad_norm=2.343e-01 t=186.2s
+17:52:56 | INFO    | [Adam   180/300] total=5.600e-01 pde=7.897e-02 ic=4.800e-01 bc=1.046e-03 lr=1.00e-03 q_grad_norm=1.015e-01 t=278.7s
+17:54:28 | INFO    | [Adam   240/300] total=5.083e-01 pde=3.443e-02 ic=4.737e-01 bc=1.592e-04 lr=1.00e-03 q_grad_norm=4.915e-02 t=370.1s
+17:55:58 | INFO    | [Adam   300/300] total=4.861e-01 pde=1.526e-02 ic=4.708e-01 bc=2.518e-05 lr=1.00e-03 q_grad_norm=2.554e-02 t=460.8s
+17:55:58 | INFO    | Training complete. Total time: 460.8s (Adam: 460.8s, LBFGS: 0.0s). Best total loss: 4.861e-01
+17:56:39 | INFO    | Evaluation metrics:
+17:56:39 | INFO    |   l2_relative_error: 1.0004232059368663
+17:56:39 | INFO    |   max_abs_error: 1.0233093938904654
+17:56:39 | INFO    |   mean_abs_error: 0.5365617247020229
+17:56:39 | INFO    |   shock_region_l2_relative_error: 0.9992432728676297
+17:56:39 | INFO    |   shock_region_max_abs_error: 0.9610254225995007
+17:56:39 | INFO    |   pde_residual_mean_abs: 0.09622172266244888
+17:56:39 | INFO    |   pde_residual_max_abs: 0.40268397331237793
+17:56:39 | INFO    |   pde_residual_rmse: 0.12394630908966064
+17:56:39 | INFO    |   fourier_spectrum_l2_relative_error: 0.9880168621716187
+17:56:39 | INFO    |   num_trainable_parameters: 85
+17:56:39 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_reuploading_circular_metrics.json
+17:56:39 | INFO    | Generating figures...
+17:56:44 | INFO    | Figures saved to outputs\figures/
+17:56:44 | INFO    | --- Ablation [qubits] run: nq6_d3_angle_reuploading_circular ---
+17:56:44 | INFO    | Device: cpu
+17:56:44 | INFO    | Quantum config: 6 qubits, depth=3, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+17:56:44 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+17:56:44 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+17:56:44 | INFO    | Trainable parameters: 119
+17:56:44 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+17:56:49 | INFO    | [Adam     1/300] total=1.209e+00 pde=7.561e-01 ic=4.466e-01 bc=6.280e-03 lr=1.00e-03 q_grad_norm=7.809e-01 t=4.9s
+18:01:22 | INFO    | [Adam    60/300] total=6.154e-01 pde=1.648e-01 ic=4.498e-01 bc=8.034e-04 lr=1.00e-03 q_grad_norm=1.928e-01 t=278.0s
+18:05:57 | INFO    | [Adam   120/300] total=5.013e-01 pde=4.549e-02 ic=4.553e-01 bc=5.523e-04 lr=1.00e-03 q_grad_norm=6.916e-02 t=552.9s
+18:10:31 | INFO    | [Adam   180/300] total=4.719e-01 pde=1.125e-02 ic=4.605e-01 bc=1.899e-04 lr=1.00e-03 q_grad_norm=2.544e-02 t=827.3s
+18:13:43 | INFO    | [Adam   240/300] total=4.677e-01 pde=4.583e-03 ic=4.631e-01 bc=9.216e-05 lr=1.00e-03 q_grad_norm=1.291e-02 t=1019.0s
+18:15:32 | INFO    | [Adam   300/300] total=4.671e-01 pde=4.197e-03 ic=4.629e-01 bc=8.073e-05 lr=1.00e-03 q_grad_norm=1.144e-02 t=1128.2s
+18:15:32 | INFO    | Training complete. Total time: 1128.2s (Adam: 1128.2s, LBFGS: 0.0s). Best total loss: 4.671e-01
+18:16:55 | INFO    | Evaluation metrics:
+18:16:55 | INFO    |   l2_relative_error: 0.9977367791724345
+18:16:55 | INFO    |   max_abs_error: 1.000503270833339
+18:16:55 | INFO    |   mean_abs_error: 0.5348398501695246
+18:16:55 | INFO    |   shock_region_l2_relative_error: 1.000344823882896
+18:16:55 | INFO    |   shock_region_max_abs_error: 0.9508334604765836
+18:16:55 | INFO    |   pde_residual_mean_abs: 0.055368199944496155
+18:16:55 | INFO    |   pde_residual_max_abs: 0.31329986453056335
+18:16:55 | INFO    |   pde_residual_rmse: 0.07103138417005539
+18:16:55 | INFO    |   fourier_spectrum_l2_relative_error: 0.9840001090808957
+18:16:55 | INFO    |   num_trainable_parameters: 119
+18:16:55 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq6_d3_angle_reuploading_circular_metrics.json
+18:16:55 | INFO    | Generating figures...
+18:17:01 | INFO    | Figures saved to outputs\figures/
+18:17:01 | INFO    | --- Ablation [encoding] run: nq4_d3_angle_circular ---
+18:17:01 | INFO    | Device: cpu
+18:17:01 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle, entanglement=circular, input_mode=direct
+18:17:01 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:17:01 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+18:17:01 | INFO    | Trainable parameters: 85
+18:17:01 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+18:17:02 | INFO    | [Adam     1/300] total=1.087e+00 pde=3.955e-01 ic=5.711e-01 bc=1.203e-01 lr=1.00e-03 q_grad_norm=7.999e-01 t=1.0s
+18:17:53 | INFO    | [Adam    60/300] total=5.782e-01 pde=1.060e-01 ic=4.628e-01 bc=9.400e-03 lr=1.00e-03 q_grad_norm=1.992e-01 t=51.3s
+18:18:44 | INFO    | [Adam   120/300] total=5.003e-01 pde=4.456e-02 ic=4.554e-01 bc=3.398e-04 lr=1.00e-03 q_grad_norm=8.468e-02 t=102.2s
+18:19:35 | INFO    | [Adam   180/300] total=4.798e-01 pde=2.184e-02 ic=4.579e-01 bc=5.972e-05 lr=1.00e-03 q_grad_norm=4.600e-02 t=153.4s
+18:20:24 | INFO    | [Adam   240/300] total=4.724e-01 pde=1.249e-02 ic=4.599e-01 bc=5.042e-05 lr=1.00e-03 q_grad_norm=2.866e-02 t=202.2s
+18:21:09 | INFO    | [Adam   300/300] total=4.694e-01 pde=8.154e-03 ic=4.612e-01 bc=5.789e-05 lr=1.00e-03 q_grad_norm=1.991e-02 t=247.7s
+18:21:09 | INFO    | Training complete. Total time: 247.7s (Adam: 247.7s, LBFGS: 0.0s). Best total loss: 4.694e-01
+18:21:30 | INFO    | Evaluation metrics:
+18:21:30 | INFO    |   l2_relative_error: 0.9959224725344986
+18:21:30 | INFO    |   max_abs_error: 1.0091681405901909
+18:21:30 | INFO    |   mean_abs_error: 0.5332119667221297
+18:21:30 | INFO    |   shock_region_l2_relative_error: 0.9978751161050994
+18:21:30 | INFO    |   shock_region_max_abs_error: 0.9577643779780332
+18:21:30 | INFO    |   pde_residual_mean_abs: 0.07304036617279053
+18:21:30 | INFO    |   pde_residual_max_abs: 0.2929427921772003
+18:21:30 | INFO    |   pde_residual_rmse: 0.09224807471036911
+18:21:30 | INFO    |   fourier_spectrum_l2_relative_error: 0.9771485335304243
+18:21:30 | INFO    |   num_trainable_parameters: 85
+18:21:30 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_circular_metrics.json
+18:21:30 | INFO    | Generating figures...
+18:21:34 | INFO    | Figures saved to outputs\figures/
+18:21:34 | INFO    | --- Ablation [encoding] run: nq4_d3_angle_reuploading_circular ---
+18:21:34 | INFO    | Device: cpu
+18:21:34 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+18:21:34 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:21:34 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+18:21:34 | INFO    | Trainable parameters: 85
+18:21:34 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+18:21:35 | INFO    | [Adam     1/300] total=3.337e+00 pde=2.557e+00 ic=6.494e-01 bc=1.309e-01 lr=1.00e-03 q_grad_norm=2.311e+00 t=0.6s
+18:22:07 | INFO    | [Adam    60/300] total=1.199e+00 pde=6.101e-01 ic=5.487e-01 bc=3.998e-02 lr=1.00e-03 q_grad_norm=6.437e-01 t=32.7s
+18:22:39 | INFO    | [Adam   120/300] total=7.002e-01 pde=1.970e-01 ic=4.966e-01 bc=6.623e-03 lr=1.00e-03 q_grad_norm=2.343e-01 t=65.3s
+18:23:16 | INFO    | [Adam   180/300] total=5.600e-01 pde=7.897e-02 ic=4.800e-01 bc=1.046e-03 lr=1.00e-03 q_grad_norm=1.015e-01 t=101.9s
+18:23:51 | INFO    | [Adam   240/300] total=5.083e-01 pde=3.443e-02 ic=4.737e-01 bc=1.592e-04 lr=1.00e-03 q_grad_norm=4.915e-02 t=136.8s
+18:24:24 | INFO    | [Adam   300/300] total=4.861e-01 pde=1.526e-02 ic=4.708e-01 bc=2.518e-05 lr=1.00e-03 q_grad_norm=2.554e-02 t=170.2s
+18:24:24 | INFO    | Training complete. Total time: 170.3s (Adam: 170.3s, LBFGS: 0.0s). Best total loss: 4.861e-01
+18:24:40 | INFO    | Evaluation metrics:
+18:24:40 | INFO    |   l2_relative_error: 1.0004232059368663
+18:24:40 | INFO    |   max_abs_error: 1.0233093938904654
+18:24:40 | INFO    |   mean_abs_error: 0.5365617247020229
+18:24:40 | INFO    |   shock_region_l2_relative_error: 0.9992432728676297
+18:24:40 | INFO    |   shock_region_max_abs_error: 0.9610254225995007
+18:24:40 | INFO    |   pde_residual_mean_abs: 0.09622172266244888
+18:24:40 | INFO    |   pde_residual_max_abs: 0.40268397331237793
+18:24:40 | INFO    |   pde_residual_rmse: 0.12394630908966064
+18:24:40 | INFO    |   fourier_spectrum_l2_relative_error: 0.9880168621716187
+18:24:40 | INFO    |   num_trainable_parameters: 85
+18:24:40 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_reuploading_circular_metrics.json
+18:24:40 | INFO    | Generating figures...
+18:24:42 | INFO    | Figures saved to outputs\figures/
+18:24:42 | INFO    | --- Ablation [encoding] run: nq4_d3_amplitude_circular ---
+18:24:42 | INFO    | Device: cpu
+18:24:42 | INFO    | Quantum config: 4 qubits, depth=3, encoding=amplitude, entanglement=circular, input_mode=direct
+18:24:42 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:24:42 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+18:24:42 | INFO    | Trainable parameters: 85
+18:24:42 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+18:24:42 | INFO    | [Adam     1/300] total=6.248e-01 pde=8.727e-02 ic=4.284e-01 bc=1.091e-01 lr=1.00e-03 q_grad_norm=3.456e-01 t=0.2s
+18:24:54 | INFO    | [Adam    60/300] total=3.903e-01 pde=5.320e-02 ic=3.251e-01 bc=1.201e-02 lr=1.00e-03 q_grad_norm=1.544e-01 t=12.5s
+18:25:07 | INFO    | [Adam   120/300] total=3.562e-01 pde=5.464e-02 ic=2.912e-01 bc=1.039e-02 lr=1.00e-03 q_grad_norm=1.145e-01 t=25.2s
+18:25:19 | INFO    | [Adam   180/300] total=3.305e-01 pde=5.330e-02 ic=2.641e-01 bc=1.310e-02 lr=1.00e-03 q_grad_norm=9.301e-02 t=37.8s
+18:25:32 | INFO    | [Adam   240/300] total=3.095e-01 pde=5.516e-02 ic=2.377e-01 bc=1.669e-02 lr=1.00e-03 q_grad_norm=6.190e-02 t=50.8s
+18:25:46 | INFO    | [Adam   300/300] total=2.945e-01 pde=5.720e-02 ic=2.176e-01 bc=1.977e-02 lr=1.00e-03 q_grad_norm=5.613e-02 t=64.2s
+18:25:46 | INFO    | Training complete. Total time: 64.2s (Adam: 64.2s, LBFGS: 0.0s). Best total loss: 2.945e-01
+18:25:50 | INFO    | Evaluation metrics:
+18:25:50 | INFO    |   l2_relative_error: 0.7995833600228586
+18:25:50 | INFO    |   max_abs_error: 1.0326496602522937
+18:25:50 | INFO    |   mean_abs_error: 0.39679003832193543
+18:25:51 | INFO    |   shock_region_l2_relative_error: 0.9864008036078159
+18:25:51 | INFO    |   shock_region_max_abs_error: 1.0210548298824202
+18:25:51 | INFO    |   pde_residual_mean_abs: 0.2030450403690338
+18:25:51 | INFO    |   pde_residual_max_abs: 0.6339238882064819
+18:25:51 | INFO    |   pde_residual_rmse: 0.24555055797100067
+18:25:51 | INFO    |   fourier_spectrum_l2_relative_error: 0.7658937024653251
+18:25:51 | INFO    |   num_trainable_parameters: 85
+18:25:51 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_amplitude_circular_metrics.json
+18:25:51 | INFO    | Generating figures...
+18:25:52 | INFO    | Figures saved to outputs\figures/
+18:25:52 | INFO    | --- Ablation [depth] run: nq4_d1_angle_reuploading_circular ---
+18:25:52 | INFO    | Device: cpu
+18:25:52 | INFO    | Quantum config: 4 qubits, depth=1, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+18:25:52 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:25:52 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+18:25:52 | INFO    | Trainable parameters: 61
+18:25:52 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+18:25:52 | INFO    | [Adam     1/300] total=6.726e-01 pde=1.703e-01 ic=4.874e-01 bc=1.493e-02 lr=1.00e-03 q_grad_norm=1.407e-01 t=0.2s
+18:26:07 | INFO    | [Adam    60/300] total=4.791e-01 pde=1.088e-02 ic=4.682e-01 bc=1.859e-05 lr=1.00e-03 q_grad_norm=1.521e-02 t=15.3s
+18:26:23 | INFO    | [Adam   120/300] total=4.718e-01 pde=4.830e-03 ic=4.670e-01 bc=3.055e-05 lr=1.00e-03 q_grad_norm=1.089e-02 t=30.8s
+18:26:37 | INFO    | [Adam   180/300] total=4.698e-01 pde=3.208e-03 ic=4.665e-01 bc=3.414e-05 lr=1.00e-03 q_grad_norm=9.055e-03 t=45.4s
+18:26:52 | INFO    | [Adam   240/300] total=4.689e-01 pde=2.893e-03 ic=4.660e-01 bc=3.668e-05 lr=1.00e-03 q_grad_norm=8.692e-03 t=60.0s
+18:27:06 | INFO    | [Adam   300/300] total=4.681e-01 pde=3.093e-03 ic=4.650e-01 bc=3.745e-05 lr=1.00e-03 q_grad_norm=9.229e-03 t=74.1s
+18:27:06 | INFO    | Training complete. Total time: 74.2s (Adam: 74.2s, LBFGS: 0.0s). Best total loss: 4.681e-01
+18:27:13 | INFO    | Evaluation metrics:
+18:27:13 | INFO    |   l2_relative_error: 0.9992653170781913
+18:27:13 | INFO    |   max_abs_error: 1.00794168561697
+18:27:13 | INFO    |   mean_abs_error: 0.5353912033713089
+18:27:13 | INFO    |   shock_region_l2_relative_error: 1.0002429863809073
+18:27:13 | INFO    |   shock_region_max_abs_error: 0.9583223668600771
+18:27:13 | INFO    |   pde_residual_mean_abs: 0.03712045028805733
+18:27:13 | INFO    |   pde_residual_max_abs: 0.3714870512485504
+18:27:13 | INFO    |   pde_residual_rmse: 0.05755188316106796
+18:27:13 | INFO    |   fourier_spectrum_l2_relative_error: 0.9793272887148229
+18:27:13 | INFO    |   num_trainable_parameters: 61
+18:27:13 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d1_angle_reuploading_circular_metrics.json
+18:27:13 | INFO    | Generating figures...
+18:27:14 | INFO    | Figures saved to outputs\figures/
+18:27:14 | INFO    | --- Ablation [depth] run: nq4_d2_angle_reuploading_circular ---
+18:27:14 | INFO    | Device: cpu
+18:27:14 | INFO    | Quantum config: 4 qubits, depth=2, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+18:27:14 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:27:14 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+18:27:14 | INFO    | Trainable parameters: 73
+18:27:14 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+18:27:15 | INFO    | [Adam     1/300] total=2.272e+00 pde=1.049e+00 ic=8.338e-01 bc=3.901e-01 lr=1.00e-03 q_grad_norm=9.184e-01 t=0.4s
+18:27:43 | INFO    | [Adam    60/300] total=1.071e+00 pde=2.459e-01 ic=6.435e-01 bc=1.815e-01 lr=1.00e-03 q_grad_norm=2.917e-01 t=28.6s
+18:28:12 | INFO    | [Adam   120/300] total=7.024e-01 pde=7.041e-02 ic=5.488e-01 bc=8.323e-02 lr=1.00e-03 q_grad_norm=8.983e-02 t=57.8s
+18:28:41 | INFO    | [Adam   180/300] total=5.601e-01 pde=2.297e-02 ic=5.013e-01 bc=3.587e-02 lr=1.00e-03 q_grad_norm=3.380e-02 t=86.9s
+18:29:10 | INFO    | [Adam   240/300] total=5.014e-01 pde=9.371e-03 ic=4.784e-01 bc=1.358e-02 lr=1.00e-03 q_grad_norm=1.808e-02 t=115.7s
+18:29:39 | INFO    | [Adam   300/300] total=4.784e-01 pde=5.988e-03 ic=4.682e-01 bc=4.279e-03 lr=1.00e-03 q_grad_norm=1.357e-02 t=144.3s
+18:29:39 | INFO    | Training complete. Total time: 144.3s (Adam: 144.3s, LBFGS: 0.0s). Best total loss: 4.784e-01
+18:29:52 | INFO    | Evaluation metrics:
+18:29:52 | INFO    |   l2_relative_error: 1.0019988202086663
+18:29:52 | INFO    |   max_abs_error: 1.0628790008601874
+18:29:52 | INFO    |   mean_abs_error: 0.5355800183656947
+18:29:52 | INFO    |   shock_region_l2_relative_error: 0.9999421716597688
+18:29:52 | INFO    |   shock_region_max_abs_error: 1.005649438288376
+18:29:52 | INFO    |   pde_residual_mean_abs: 0.06269892305135727
+18:29:52 | INFO    |   pde_residual_max_abs: 0.2533327639102936
+18:29:52 | INFO    |   pde_residual_rmse: 0.07914745062589645
+18:29:52 | INFO    |   fourier_spectrum_l2_relative_error: 1.0017881517021043
+18:29:52 | INFO    |   num_trainable_parameters: 73
+18:29:52 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d2_angle_reuploading_circular_metrics.json
+18:29:52 | INFO    | Generating figures...
+18:29:53 | INFO    | Figures saved to outputs\figures/
+18:29:53 | INFO    | --- Ablation [depth] run: nq4_d4_angle_reuploading_circular ---
+18:29:53 | INFO    | Device: cpu
+18:29:53 | INFO    | Quantum config: 4 qubits, depth=4, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+18:29:53 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:29:53 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+18:29:53 | INFO    | Trainable parameters: 97
+18:29:53 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+18:29:54 | INFO    | [Adam     1/300] total=4.090e+00 pde=3.308e+00 ic=5.390e-01 bc=2.425e-01 lr=1.00e-03 q_grad_norm=2.934e+00 t=1.0s
+18:30:52 | INFO    | [Adam    60/300] total=1.245e+00 pde=5.866e-01 ic=5.260e-01 bc=1.322e-01 lr=1.00e-03 q_grad_norm=5.444e-01 t=58.9s
+18:31:50 | INFO    | [Adam   120/300] total=6.923e-01 pde=1.128e-01 ic=5.109e-01 bc=6.864e-02 lr=1.00e-03 q_grad_norm=1.087e-01 t=116.5s
+18:32:45 | INFO    | [Adam   180/300] total=5.441e-01 pde=1.895e-02 ic=4.936e-01 bc=3.158e-02 lr=1.00e-03 q_grad_norm=2.562e-02 t=171.6s
+18:33:37 | INFO    | [Adam   240/300] total=4.978e-01 pde=4.346e-03 ic=4.808e-01 bc=1.265e-02 lr=1.00e-03 q_grad_norm=1.010e-02 t=223.8s
+18:34:29 | INFO    | [Adam   300/300] total=4.804e-01 pde=2.567e-03 ic=4.734e-01 bc=4.413e-03 lr=1.00e-03 q_grad_norm=7.266e-03 t=275.9s
+18:34:29 | INFO    | Training complete. Total time: 275.9s (Adam: 275.9s, LBFGS: 0.0s). Best total loss: 4.804e-01
+18:34:54 | INFO    | Evaluation metrics:
+18:34:54 | INFO    |   l2_relative_error: 1.0053354935265362
+18:34:54 | INFO    |   max_abs_error: 1.0601938039375787
+18:34:54 | INFO    |   mean_abs_error: 0.5382953188783941
+18:34:54 | INFO    |   shock_region_l2_relative_error: 1.0009656236822768
+18:34:54 | INFO    |   shock_region_max_abs_error: 1.0044577328230593
+18:34:54 | INFO    |   pde_residual_mean_abs: 0.03869923576712608
+18:34:54 | INFO    |   pde_residual_max_abs: 0.2399410605430603
+18:34:54 | INFO    |   pde_residual_rmse: 0.05016015097498894
+18:34:54 | INFO    |   fourier_spectrum_l2_relative_error: 1.010934907281626
+18:34:54 | INFO    |   num_trainable_parameters: 97
+18:34:54 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d4_angle_reuploading_circular_metrics.json
+18:34:54 | INFO    | Generating figures...
+18:34:55 | INFO    | Figures saved to outputs\figures/
+18:34:55 | INFO    | --- Ablation [entanglement] run: nq4_d3_angle_reuploading_linear ---
+18:34:55 | INFO    | Device: cpu
+18:34:55 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle_reuploading, entanglement=linear, input_mode=direct
+18:34:55 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:34:55 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+18:34:55 | INFO    | Trainable parameters: 85
+18:34:55 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+18:34:56 | INFO    | [Adam     1/300] total=2.237e+00 pde=1.670e+00 ic=4.340e-01 bc=1.336e-01 lr=1.00e-03 q_grad_norm=1.741e+00 t=0.6s
+18:35:38 | INFO    | [Adam    60/300] total=9.019e-01 pde=4.461e-01 ic=4.240e-01 bc=3.180e-02 lr=1.00e-03 q_grad_norm=4.524e-01 t=42.5s
+18:36:20 | INFO    | [Adam   120/300] total=6.087e-01 pde=1.776e-01 ic=4.257e-01 bc=5.512e-03 lr=1.00e-03 q_grad_norm=1.574e-01 t=84.5s
+18:37:03 | INFO    | [Adam   180/300] total=5.200e-01 pde=8.406e-02 ic=4.346e-01 bc=1.420e-03 lr=1.00e-03 q_grad_norm=7.050e-02 t=128.0s
+18:37:43 | INFO    | [Adam   240/300] total=4.854e-01 pde=4.508e-02 ic=4.399e-01 bc=4.246e-04 lr=1.00e-03 q_grad_norm=4.018e-02 t=168.1s
+18:38:23 | INFO    | [Adam   300/300] total=4.705e-01 pde=2.708e-02 ic=4.433e-01 bc=1.496e-04 lr=1.00e-03 q_grad_norm=2.942e-02 t=207.7s
+18:38:23 | INFO    | Training complete. Total time: 207.8s (Adam: 207.8s, LBFGS: 0.0s). Best total loss: 4.705e-01
+18:38:41 | INFO    | Evaluation metrics:
+18:38:41 | INFO    |   l2_relative_error: 0.9902045239922094
+18:38:41 | INFO    |   max_abs_error: 1.020457646400448
+18:38:41 | INFO    |   mean_abs_error: 0.5280883426297477
+18:38:41 | INFO    |   shock_region_l2_relative_error: 0.9930541804822929
+18:38:41 | INFO    |   shock_region_max_abs_error: 0.9440548030401918
+18:38:41 | INFO    |   pde_residual_mean_abs: 0.13940675556659698
+18:38:41 | INFO    |   pde_residual_max_abs: 0.6870753765106201
+18:38:41 | INFO    |   pde_residual_rmse: 0.1752985566854477
+18:38:41 | INFO    |   fourier_spectrum_l2_relative_error: 0.9487440501092248
+18:38:41 | INFO    |   num_trainable_parameters: 85
+18:38:41 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_reuploading_linear_metrics.json
+18:38:41 | INFO    | Generating figures...
+18:38:42 | INFO    | Figures saved to outputs\figures/
+18:38:42 | INFO    | --- Ablation [entanglement] run: nq4_d3_angle_reuploading_circular ---
+18:38:42 | INFO    | Device: cpu
+18:38:42 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+18:38:42 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:38:42 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+18:38:42 | INFO    | Trainable parameters: 85
+18:38:42 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+18:38:43 | INFO    | [Adam     1/300] total=3.337e+00 pde=2.557e+00 ic=6.494e-01 bc=1.309e-01 lr=1.00e-03 q_grad_norm=2.311e+00 t=0.7s
+18:39:26 | INFO    | [Adam    60/300] total=1.199e+00 pde=6.101e-01 ic=5.487e-01 bc=3.998e-02 lr=1.00e-03 q_grad_norm=6.437e-01 t=43.2s
+18:40:08 | INFO    | [Adam   120/300] total=7.002e-01 pde=1.970e-01 ic=4.966e-01 bc=6.623e-03 lr=1.00e-03 q_grad_norm=2.343e-01 t=85.5s
+18:40:50 | INFO    | [Adam   180/300] total=5.600e-01 pde=7.897e-02 ic=4.800e-01 bc=1.046e-03 lr=1.00e-03 q_grad_norm=1.015e-01 t=127.7s
+18:41:32 | INFO    | [Adam   240/300] total=5.083e-01 pde=3.443e-02 ic=4.737e-01 bc=1.592e-04 lr=1.00e-03 q_grad_norm=4.915e-02 t=169.8s
+18:42:11 | INFO    | [Adam   300/300] total=4.861e-01 pde=1.526e-02 ic=4.708e-01 bc=2.518e-05 lr=1.00e-03 q_grad_norm=2.554e-02 t=208.6s
+18:42:11 | INFO    | Training complete. Total time: 208.6s (Adam: 208.6s, LBFGS: 0.0s). Best total loss: 4.861e-01
+18:42:29 | INFO    | Evaluation metrics:
+18:42:29 | INFO    |   l2_relative_error: 1.0004232059368663
+18:42:29 | INFO    |   max_abs_error: 1.0233093938904654
+18:42:29 | INFO    |   mean_abs_error: 0.5365617247020229
+18:42:29 | INFO    |   shock_region_l2_relative_error: 0.9992432728676297
+18:42:29 | INFO    |   shock_region_max_abs_error: 0.9610254225995007
+18:42:29 | INFO    |   pde_residual_mean_abs: 0.09622172266244888
+18:42:29 | INFO    |   pde_residual_max_abs: 0.40268397331237793
+18:42:29 | INFO    |   pde_residual_rmse: 0.12394630908966064
+18:42:29 | INFO    |   fourier_spectrum_l2_relative_error: 0.9880168621716187
+18:42:29 | INFO    |   num_trainable_parameters: 85
+18:42:29 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_reuploading_circular_metrics.json
+18:42:29 | INFO    | Generating figures...
+18:42:31 | INFO    | Figures saved to outputs\figures/
+18:42:31 | INFO    | --- Ablation [entanglement] run: nq4_d3_angle_reuploading_full ---
+18:42:31 | INFO    | Device: cpu
+18:42:31 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle_reuploading, entanglement=full, input_mode=direct
+18:42:31 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:42:31 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+18:42:31 | INFO    | Trainable parameters: 85
+18:42:31 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+18:42:32 | INFO    | [Adam     1/300] total=2.840e+00 pde=2.187e+00 ic=5.408e-01 bc=1.120e-01 lr=1.00e-03 q_grad_norm=1.205e+00 t=0.7s
+18:43:16 | INFO    | [Adam    60/300] total=1.082e+00 pde=6.025e-01 ic=4.559e-01 bc=2.362e-02 lr=1.00e-03 q_grad_norm=3.555e-01 t=45.1s
+18:44:00 | INFO    | [Adam   120/300] total=6.444e-01 pde=2.059e-01 ic=4.361e-01 bc=2.389e-03 lr=1.00e-03 q_grad_norm=1.346e-01 t=89.7s
+18:44:44 | INFO    | [Adam   180/300] total=5.224e-01 pde=8.073e-02 ic=4.413e-01 bc=3.925e-04 lr=1.00e-03 q_grad_norm=6.381e-02 t=133.1s
+18:45:27 | INFO    | [Adam   240/300] total=4.840e-01 pde=3.597e-02 ic=4.479e-01 bc=8.211e-05 lr=1.00e-03 q_grad_norm=3.518e-02 t=175.9s
+18:45:59 | INFO    | [Adam   300/300] total=4.715e-01 pde=1.871e-02 ic=4.527e-01 bc=2.457e-05 lr=1.00e-03 q_grad_norm=2.254e-02 t=208.3s
+18:45:59 | INFO    | Training complete. Total time: 208.3s (Adam: 208.3s, LBFGS: 0.0s). Best total loss: 4.715e-01
+18:46:14 | INFO    | Evaluation metrics:
+18:46:14 | INFO    |   l2_relative_error: 0.9965156146847021
+18:46:14 | INFO    |   max_abs_error: 1.032254901556045
+18:46:14 | INFO    |   mean_abs_error: 0.5335588597406187
+18:46:14 | INFO    |   shock_region_l2_relative_error: 0.9906056757266689
+18:46:14 | INFO    |   shock_region_max_abs_error: 0.9555231539275113
+18:46:14 | INFO    |   pde_residual_mean_abs: 0.10825338214635849
+18:46:14 | INFO    |   pde_residual_max_abs: 0.4469888508319855
+18:46:14 | INFO    |   pde_residual_rmse: 0.13991326093673706
+18:46:14 | INFO    |   fourier_spectrum_l2_relative_error: 0.9624260744288058
+18:46:14 | INFO    |   num_trainable_parameters: 85
+18:46:14 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_reuploading_full_metrics.json
+18:46:14 | INFO    | Generating figures...
+18:46:16 | INFO    | Figures saved to outputs\figures/
+18:46:16 | INFO    | ======================================================================
+18:46:16 | INFO    | Ablation studies complete in 3646.1s
+18:46:16 | INFO    | Summary JSON: outputs/metrics\ablation_summary.json
+18:46:16 | INFO    | Summary CSV:  outputs/metrics\ablation_summary.csv
+18:46:16 | INFO    | ======================================================================
+18:46:16 | INFO    | [qubits      ] nq2_d3_angle_reuploading_circular   L2=0.9984  shock_L2=0.9982  fourier=0.9955
+18:46:16 | INFO    | [qubits      ] nq4_d3_angle_reuploading_circular   L2=1.0004  shock_L2=0.9992  fourier=0.9880
+18:46:16 | INFO    | [qubits      ] nq6_d3_angle_reuploading_circular   L2=0.9977  shock_L2=1.0003  fourier=0.9840
+18:46:16 | INFO    | [encoding    ] nq4_d3_angle_circular               L2=0.9959  shock_L2=0.9979  fourier=0.9771
+18:46:16 | INFO    | [encoding    ] nq4_d3_angle_reuploading_circular   L2=1.0004  shock_L2=0.9992  fourier=0.9880
+18:46:16 | INFO    | [encoding    ] nq4_d3_amplitude_circular           L2=0.7996  shock_L2=0.9864  fourier=0.7659
+18:46:16 | INFO    | [depth       ] nq4_d1_angle_reuploading_circular   L2=0.9993  shock_L2=1.0002  fourier=0.9793
+18:46:16 | INFO    | [depth       ] nq4_d2_angle_reuploading_circular   L2=1.0020  shock_L2=0.9999  fourier=1.0018
+18:46:16 | INFO    | [depth       ] nq4_d4_angle_reuploading_circular   L2=1.0053  shock_L2=1.0010  fourier=1.0109
+18:46:16 | INFO    | [entanglement] nq4_d3_angle_reuploading_linear     L2=0.9902  shock_L2=0.9931  fourier=0.9487
+18:46:16 | INFO    | [entanglement] nq4_d3_angle_reuploading_circular   L2=1.0004  shock_L2=0.9992  fourier=0.9880
+18:46:16 | INFO    | [entanglement] nq4_d3_angle_reuploading_full       L2=0.9965  shock_L2=0.9906  fourier=0.9624
+13:54:01 | INFO    | ======================================================================
+13:54:02 | INFO    | QAPINN ABLATION STUDIES
+13:54:02 | INFO    | Budget per run: 300 Adam epochs, 800 collocation points, LBFGS=off
+13:54:02 | INFO    | ======================================================================
+13:54:02 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+13:54:02 | INFO    | --- Ablation [qubits] run: nq2_d3_angle_reuploading_circular ---
+13:54:02 | INFO    | Device: cpu
+13:54:02 | INFO    | Quantum config: 2 qubits, depth=3, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+13:54:02 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+13:54:02 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+13:54:02 | INFO    | Trainable parameters: 51
+13:54:03 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+13:54:03 | INFO    | [Adam     1/300] total=2.078e+00 pde=1.437e+00 ic=5.778e-01 bc=6.300e-02 lr=1.00e-03 q_grad_norm=7.991e-01 t=1.3s
+13:54:12 | INFO    | [Adam    60/300] total=5.573e-01 pde=4.187e-02 ic=4.925e-01 bc=2.294e-02 lr=1.00e-03 q_grad_norm=8.963e-02 t=10.9s
+13:54:25 | INFO    | [Adam   120/300] total=5.034e-01 pde=2.269e-02 ic=4.747e-01 bc=6.018e-03 lr=1.00e-03 q_grad_norm=5.480e-02 t=23.6s
+13:54:37 | INFO    | [Adam   180/300] total=4.892e-01 pde=1.604e-02 ic=4.714e-01 bc=1.726e-03 lr=1.00e-03 q_grad_norm=3.567e-02 t=35.8s
+13:54:50 | INFO    | [Adam   240/300] total=4.827e-01 pde=1.155e-02 ic=4.705e-01 bc=6.948e-04 lr=1.00e-03 q_grad_norm=2.283e-02 t=48.8s
+13:55:03 | INFO    | [Adam   300/300] total=4.793e-01 pde=8.829e-03 ic=4.701e-01 bc=3.659e-04 lr=1.00e-03 q_grad_norm=1.627e-02 t=61.7s
+13:55:03 | INFO    | Training complete. Total time: 61.8s (Adam: 61.8s, LBFGS: 0.0s). Best total loss: 4.793e-01
+13:55:08 | INFO    | Evaluation metrics:
+13:55:08 | INFO    |   l2_relative_error: 0.9983541077954862
+13:55:08 | INFO    |   max_abs_error: 1.022391825914383
+13:55:08 | INFO    |   mean_abs_error: 0.5352999957738886
+13:55:08 | INFO    |   shock_region_l2_relative_error: 0.9982476691118984
+13:55:08 | INFO    |   shock_region_max_abs_error: 0.9591863063837949
+13:55:08 | INFO    |   pde_residual_mean_abs: 0.06802865862846375
+13:55:08 | INFO    |   pde_residual_max_abs: 0.4967063069343567
+13:55:08 | INFO    |   pde_residual_rmse: 0.09446801245212555
+13:55:08 | INFO    |   fourier_spectrum_l2_relative_error: 0.9954954956552301
+13:55:08 | INFO    |   num_trainable_parameters: 51
+13:55:08 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq2_d3_angle_reuploading_circular_metrics.json
+13:55:08 | INFO    | Generating figures...
+13:55:10 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq2_d3_angle_reuploading_circular/
+13:55:10 | INFO    | --- Ablation [qubits] run: nq4_d3_angle_reuploading_circular ---
+13:55:10 | INFO    | Device: cpu
+13:55:10 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+13:55:10 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+13:55:10 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+13:55:10 | INFO    | Trainable parameters: 85
+13:55:10 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+13:55:10 | INFO    | [Adam     1/300] total=3.337e+00 pde=2.557e+00 ic=6.494e-01 bc=1.309e-01 lr=1.00e-03 q_grad_norm=2.311e+00 t=0.6s
+13:55:47 | INFO    | [Adam    60/300] total=1.199e+00 pde=6.101e-01 ic=5.487e-01 bc=3.998e-02 lr=1.00e-03 q_grad_norm=6.437e-01 t=37.1s
+13:56:24 | INFO    | [Adam   120/300] total=7.002e-01 pde=1.970e-01 ic=4.966e-01 bc=6.623e-03 lr=1.00e-03 q_grad_norm=2.343e-01 t=74.8s
+13:57:01 | INFO    | [Adam   180/300] total=5.600e-01 pde=7.897e-02 ic=4.800e-01 bc=1.046e-03 lr=1.00e-03 q_grad_norm=1.015e-01 t=111.8s
+13:57:39 | INFO    | [Adam   240/300] total=5.083e-01 pde=3.443e-02 ic=4.737e-01 bc=1.592e-04 lr=1.00e-03 q_grad_norm=4.915e-02 t=149.0s
+13:58:18 | INFO    | [Adam   300/300] total=4.861e-01 pde=1.526e-02 ic=4.708e-01 bc=2.518e-05 lr=1.00e-03 q_grad_norm=2.554e-02 t=188.1s
+13:58:18 | INFO    | Training complete. Total time: 188.1s (Adam: 188.1s, LBFGS: 0.0s). Best total loss: 4.861e-01
+13:58:36 | INFO    | Evaluation metrics:
+13:58:36 | INFO    |   l2_relative_error: 1.0004232059368663
+13:58:36 | INFO    |   max_abs_error: 1.0233093938904654
+13:58:36 | INFO    |   mean_abs_error: 0.5365617247020229
+13:58:36 | INFO    |   shock_region_l2_relative_error: 0.9992432728676297
+13:58:36 | INFO    |   shock_region_max_abs_error: 0.9610254225995007
+13:58:36 | INFO    |   pde_residual_mean_abs: 0.09622172266244888
+13:58:36 | INFO    |   pde_residual_max_abs: 0.40268397331237793
+13:58:36 | INFO    |   pde_residual_rmse: 0.12394630908966064
+13:58:36 | INFO    |   fourier_spectrum_l2_relative_error: 0.9880168621716187
+13:58:36 | INFO    |   num_trainable_parameters: 85
+13:58:36 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_reuploading_circular_metrics.json
+13:58:36 | INFO    | Generating figures...
+13:58:38 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq4_d3_angle_reuploading_circular/
+13:58:38 | INFO    | --- Ablation [qubits] run: nq6_d3_angle_reuploading_circular ---
+13:58:38 | INFO    | Device: cpu
+13:58:38 | INFO    | Quantum config: 6 qubits, depth=3, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+13:58:38 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+13:58:38 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+13:58:38 | INFO    | Trainable parameters: 119
+13:58:38 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+13:58:40 | INFO    | [Adam     1/300] total=1.209e+00 pde=7.561e-01 ic=4.466e-01 bc=6.280e-03 lr=1.00e-03 q_grad_norm=7.809e-01 t=2.3s
+14:00:49 | INFO    | [Adam    60/300] total=6.154e-01 pde=1.648e-01 ic=4.498e-01 bc=8.034e-04 lr=1.00e-03 q_grad_norm=1.928e-01 t=131.1s
+14:03:09 | INFO    | [Adam   120/300] total=5.013e-01 pde=4.549e-02 ic=4.553e-01 bc=5.523e-04 lr=1.00e-03 q_grad_norm=6.916e-02 t=271.4s
+14:05:45 | INFO    | [Adam   180/300] total=4.719e-01 pde=1.125e-02 ic=4.605e-01 bc=1.899e-04 lr=1.00e-03 q_grad_norm=2.544e-02 t=427.6s
+14:08:10 | INFO    | [Adam   240/300] total=4.677e-01 pde=4.583e-03 ic=4.631e-01 bc=9.216e-05 lr=1.00e-03 q_grad_norm=1.291e-02 t=572.2s
+14:10:21 | INFO    | [Adam   300/300] total=4.671e-01 pde=4.197e-03 ic=4.629e-01 bc=8.073e-05 lr=1.00e-03 q_grad_norm=1.144e-02 t=702.8s
+14:10:21 | INFO    | Training complete. Total time: 702.8s (Adam: 702.8s, LBFGS: 0.0s). Best total loss: 4.671e-01
+14:11:21 | INFO    | Evaluation metrics:
+14:11:21 | INFO    |   l2_relative_error: 0.9977367791724345
+14:11:21 | INFO    |   max_abs_error: 1.000503270833339
+14:11:21 | INFO    |   mean_abs_error: 0.5348398501695246
+14:11:21 | INFO    |   shock_region_l2_relative_error: 1.000344823882896
+14:11:21 | INFO    |   shock_region_max_abs_error: 0.9508334604765836
+14:11:21 | INFO    |   pde_residual_mean_abs: 0.055368199944496155
+14:11:21 | INFO    |   pde_residual_max_abs: 0.31329986453056335
+14:11:21 | INFO    |   pde_residual_rmse: 0.07103138417005539
+14:11:21 | INFO    |   fourier_spectrum_l2_relative_error: 0.9840001090808957
+14:11:21 | INFO    |   num_trainable_parameters: 119
+14:11:21 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq6_d3_angle_reuploading_circular_metrics.json
+14:11:21 | INFO    | Generating figures...
+14:11:23 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq6_d3_angle_reuploading_circular/
+14:11:23 | INFO    | --- Ablation [encoding] run: nq4_d3_angle_circular ---
+14:11:23 | INFO    | Device: cpu
+14:11:23 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle, entanglement=circular, input_mode=direct
+14:11:23 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+14:11:23 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+14:11:23 | INFO    | Trainable parameters: 85
+14:11:23 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+14:11:23 | INFO    | [Adam     1/300] total=1.087e+00 pde=3.955e-01 ic=5.711e-01 bc=1.203e-01 lr=1.00e-03 q_grad_norm=7.999e-01 t=0.4s
+14:11:43 | INFO    | [Adam    60/300] total=5.782e-01 pde=1.060e-01 ic=4.628e-01 bc=9.400e-03 lr=1.00e-03 q_grad_norm=1.992e-01 t=19.6s
+14:12:02 | INFO    | [Adam   120/300] total=5.003e-01 pde=4.456e-02 ic=4.554e-01 bc=3.398e-04 lr=1.00e-03 q_grad_norm=8.468e-02 t=39.4s
+14:12:23 | INFO    | [Adam   180/300] total=4.798e-01 pde=2.184e-02 ic=4.579e-01 bc=5.972e-05 lr=1.00e-03 q_grad_norm=4.600e-02 t=60.0s
+14:12:43 | INFO    | [Adam   240/300] total=4.724e-01 pde=1.249e-02 ic=4.599e-01 bc=5.042e-05 lr=1.00e-03 q_grad_norm=2.866e-02 t=79.8s
+14:13:03 | INFO    | [Adam   300/300] total=4.694e-01 pde=8.154e-03 ic=4.612e-01 bc=5.789e-05 lr=1.00e-03 q_grad_norm=1.991e-02 t=100.0s
+14:13:03 | INFO    | Training complete. Total time: 100.0s (Adam: 100.0s, LBFGS: 0.0s). Best total loss: 4.694e-01
+14:13:12 | INFO    | Evaluation metrics:
+14:13:12 | INFO    |   l2_relative_error: 0.9959224725344986
+14:13:12 | INFO    |   max_abs_error: 1.0091681405901909
+14:13:12 | INFO    |   mean_abs_error: 0.5332119667221297
+14:13:12 | INFO    |   shock_region_l2_relative_error: 0.9978751161050994
+14:13:12 | INFO    |   shock_region_max_abs_error: 0.9577643779780332
+14:13:12 | INFO    |   pde_residual_mean_abs: 0.07304036617279053
+14:13:12 | INFO    |   pde_residual_max_abs: 0.2929427921772003
+14:13:12 | INFO    |   pde_residual_rmse: 0.09224807471036911
+14:13:12 | INFO    |   fourier_spectrum_l2_relative_error: 0.9771485335304243
+14:13:12 | INFO    |   num_trainable_parameters: 85
+14:13:12 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_circular_metrics.json
+14:13:12 | INFO    | Generating figures...
+14:13:14 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq4_d3_angle_circular/
+14:13:14 | INFO    | --- Ablation [encoding] run: nq4_d3_angle_reuploading_circular ---
+14:13:14 | INFO    | Device: cpu
+14:13:14 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+14:13:14 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+14:13:14 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+14:13:14 | INFO    | Trainable parameters: 85
+14:13:14 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+14:13:14 | INFO    | [Adam     1/300] total=3.337e+00 pde=2.557e+00 ic=6.494e-01 bc=1.309e-01 lr=1.00e-03 q_grad_norm=2.311e+00 t=0.7s
+14:13:52 | INFO    | [Adam    60/300] total=1.199e+00 pde=6.101e-01 ic=5.487e-01 bc=3.998e-02 lr=1.00e-03 q_grad_norm=6.437e-01 t=37.8s
+14:14:31 | INFO    | [Adam   120/300] total=7.002e-01 pde=1.970e-01 ic=4.966e-01 bc=6.623e-03 lr=1.00e-03 q_grad_norm=2.343e-01 t=77.4s
+14:15:10 | INFO    | [Adam   180/300] total=5.600e-01 pde=7.897e-02 ic=4.800e-01 bc=1.046e-03 lr=1.00e-03 q_grad_norm=1.015e-01 t=116.6s
+14:15:49 | INFO    | [Adam   240/300] total=5.083e-01 pde=3.443e-02 ic=4.737e-01 bc=1.592e-04 lr=1.00e-03 q_grad_norm=4.915e-02 t=155.4s
+14:16:29 | INFO    | [Adam   300/300] total=4.861e-01 pde=1.526e-02 ic=4.708e-01 bc=2.518e-05 lr=1.00e-03 q_grad_norm=2.554e-02 t=195.1s
+14:16:29 | INFO    | Training complete. Total time: 195.1s (Adam: 195.1s, LBFGS: 0.0s). Best total loss: 4.861e-01
+14:16:47 | INFO    | Evaluation metrics:
+14:16:47 | INFO    |   l2_relative_error: 1.0004232059368663
+14:16:47 | INFO    |   max_abs_error: 1.0233093938904654
+14:16:47 | INFO    |   mean_abs_error: 0.5365617247020229
+14:16:47 | INFO    |   shock_region_l2_relative_error: 0.9992432728676297
+14:16:47 | INFO    |   shock_region_max_abs_error: 0.9610254225995007
+14:16:47 | INFO    |   pde_residual_mean_abs: 0.09622172266244888
+14:16:47 | INFO    |   pde_residual_max_abs: 0.40268397331237793
+14:16:47 | INFO    |   pde_residual_rmse: 0.12394630908966064
+14:16:47 | INFO    |   fourier_spectrum_l2_relative_error: 0.9880168621716187
+14:16:47 | INFO    |   num_trainable_parameters: 85
+14:16:47 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_reuploading_circular_metrics.json
+14:16:47 | INFO    | Generating figures...
+14:16:49 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq4_d3_angle_reuploading_circular/
+14:16:49 | INFO    | --- Ablation [encoding] run: nq4_d3_amplitude_circular ---
+14:16:49 | INFO    | Device: cpu
+14:16:49 | INFO    | Quantum config: 4 qubits, depth=3, encoding=amplitude, entanglement=circular, input_mode=direct
+14:16:49 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+14:16:49 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+14:16:49 | INFO    | Trainable parameters: 85
+14:16:49 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+14:16:49 | INFO    | [Adam     1/300] total=6.248e-01 pde=8.727e-02 ic=4.284e-01 bc=1.091e-01 lr=1.00e-03 q_grad_norm=3.456e-01 t=0.3s
+14:17:02 | INFO    | [Adam    60/300] total=3.903e-01 pde=5.320e-02 ic=3.251e-01 bc=1.201e-02 lr=1.00e-03 q_grad_norm=1.544e-01 t=13.0s
+14:17:15 | INFO    | [Adam   120/300] total=3.562e-01 pde=5.464e-02 ic=2.912e-01 bc=1.039e-02 lr=1.00e-03 q_grad_norm=1.145e-01 t=26.0s
+14:17:28 | INFO    | [Adam   180/300] total=3.305e-01 pde=5.330e-02 ic=2.641e-01 bc=1.310e-02 lr=1.00e-03 q_grad_norm=9.301e-02 t=39.5s
+14:17:41 | INFO    | [Adam   240/300] total=3.095e-01 pde=5.516e-02 ic=2.377e-01 bc=1.669e-02 lr=1.00e-03 q_grad_norm=6.190e-02 t=52.1s
+14:17:54 | INFO    | [Adam   300/300] total=2.945e-01 pde=5.720e-02 ic=2.176e-01 bc=1.977e-02 lr=1.00e-03 q_grad_norm=5.613e-02 t=65.4s
+14:17:54 | INFO    | Training complete. Total time: 65.4s (Adam: 65.4s, LBFGS: 0.0s). Best total loss: 2.945e-01
+14:17:59 | INFO    | Evaluation metrics:
+14:17:59 | INFO    |   l2_relative_error: 0.7995833600228586
+14:17:59 | INFO    |   max_abs_error: 1.0326496602522937
+14:17:59 | INFO    |   mean_abs_error: 0.39679003832193543
+14:17:59 | INFO    |   shock_region_l2_relative_error: 0.9864008036078159
+14:17:59 | INFO    |   shock_region_max_abs_error: 1.0210548298824202
+14:17:59 | INFO    |   pde_residual_mean_abs: 0.2030450403690338
+14:17:59 | INFO    |   pde_residual_max_abs: 0.6339238882064819
+14:17:59 | INFO    |   pde_residual_rmse: 0.24555055797100067
+14:17:59 | INFO    |   fourier_spectrum_l2_relative_error: 0.7658937024653251
+14:17:59 | INFO    |   num_trainable_parameters: 85
+14:17:59 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_amplitude_circular_metrics.json
+14:17:59 | INFO    | Generating figures...
+14:18:00 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq4_d3_amplitude_circular/
+14:18:00 | INFO    | --- Ablation [depth] run: nq4_d1_angle_reuploading_circular ---
+14:18:00 | INFO    | Device: cpu
+14:18:00 | INFO    | Quantum config: 4 qubits, depth=1, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+14:18:00 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+14:18:00 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+14:18:00 | INFO    | Trainable parameters: 61
+14:18:00 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+14:18:01 | INFO    | [Adam     1/300] total=6.726e-01 pde=1.703e-01 ic=4.874e-01 bc=1.493e-02 lr=1.00e-03 q_grad_norm=1.407e-01 t=0.3s
+14:18:15 | INFO    | [Adam    60/300] total=4.791e-01 pde=1.088e-02 ic=4.682e-01 bc=1.859e-05 lr=1.00e-03 q_grad_norm=1.521e-02 t=14.6s
+14:18:31 | INFO    | [Adam   120/300] total=4.718e-01 pde=4.830e-03 ic=4.670e-01 bc=3.055e-05 lr=1.00e-03 q_grad_norm=1.089e-02 t=30.6s
+14:18:46 | INFO    | [Adam   180/300] total=4.698e-01 pde=3.208e-03 ic=4.665e-01 bc=3.414e-05 lr=1.00e-03 q_grad_norm=9.055e-03 t=45.2s
+14:19:00 | INFO    | [Adam   240/300] total=4.689e-01 pde=2.893e-03 ic=4.660e-01 bc=3.668e-05 lr=1.00e-03 q_grad_norm=8.692e-03 t=59.9s
+14:19:15 | INFO    | [Adam   300/300] total=4.681e-01 pde=3.093e-03 ic=4.650e-01 bc=3.745e-05 lr=1.00e-03 q_grad_norm=9.229e-03 t=74.3s
+14:19:15 | INFO    | Training complete. Total time: 74.3s (Adam: 74.3s, LBFGS: 0.0s). Best total loss: 4.681e-01
+14:19:22 | INFO    | Evaluation metrics:
+14:19:22 | INFO    |   l2_relative_error: 0.9992653170781913
+14:19:22 | INFO    |   max_abs_error: 1.00794168561697
+14:19:22 | INFO    |   mean_abs_error: 0.5353912033713089
+14:19:22 | INFO    |   shock_region_l2_relative_error: 1.0002429863809073
+14:19:22 | INFO    |   shock_region_max_abs_error: 0.9583223668600771
+14:19:22 | INFO    |   pde_residual_mean_abs: 0.03712045028805733
+14:19:22 | INFO    |   pde_residual_max_abs: 0.3714870512485504
+14:19:22 | INFO    |   pde_residual_rmse: 0.05755188316106796
+14:19:22 | INFO    |   fourier_spectrum_l2_relative_error: 0.9793272887148229
+14:19:22 | INFO    |   num_trainable_parameters: 61
+14:19:22 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d1_angle_reuploading_circular_metrics.json
+14:19:22 | INFO    | Generating figures...
+14:19:24 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq4_d1_angle_reuploading_circular/
+14:19:24 | INFO    | --- Ablation [depth] run: nq4_d2_angle_reuploading_circular ---
+14:19:24 | INFO    | Device: cpu
+14:19:24 | INFO    | Quantum config: 4 qubits, depth=2, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+14:19:24 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+14:19:24 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+14:19:24 | INFO    | Trainable parameters: 73
+14:19:24 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+14:19:24 | INFO    | [Adam     1/300] total=2.272e+00 pde=1.049e+00 ic=8.338e-01 bc=3.901e-01 lr=1.00e-03 q_grad_norm=9.184e-01 t=0.5s
+14:19:50 | INFO    | [Adam    60/300] total=1.071e+00 pde=2.459e-01 ic=6.435e-01 bc=1.815e-01 lr=1.00e-03 q_grad_norm=2.917e-01 t=26.7s
+14:20:17 | INFO    | [Adam   120/300] total=7.024e-01 pde=7.041e-02 ic=5.488e-01 bc=8.323e-02 lr=1.00e-03 q_grad_norm=8.983e-02 t=53.5s
+14:20:43 | INFO    | [Adam   180/300] total=5.601e-01 pde=2.297e-02 ic=5.013e-01 bc=3.587e-02 lr=1.00e-03 q_grad_norm=3.380e-02 t=79.7s
+14:21:10 | INFO    | [Adam   240/300] total=5.014e-01 pde=9.371e-03 ic=4.784e-01 bc=1.358e-02 lr=1.00e-03 q_grad_norm=1.808e-02 t=106.4s
+14:21:38 | INFO    | [Adam   300/300] total=4.784e-01 pde=5.988e-03 ic=4.682e-01 bc=4.279e-03 lr=1.00e-03 q_grad_norm=1.357e-02 t=134.2s
+14:21:38 | INFO    | Training complete. Total time: 134.2s (Adam: 134.2s, LBFGS: 0.0s). Best total loss: 4.784e-01
+14:21:51 | INFO    | Evaluation metrics:
+14:21:51 | INFO    |   l2_relative_error: 1.0019988202086663
+14:21:51 | INFO    |   max_abs_error: 1.0628790008601874
+14:21:51 | INFO    |   mean_abs_error: 0.5355800183656947
+14:21:51 | INFO    |   shock_region_l2_relative_error: 0.9999421716597688
+14:21:51 | INFO    |   shock_region_max_abs_error: 1.005649438288376
+14:21:51 | INFO    |   pde_residual_mean_abs: 0.06269892305135727
+14:21:51 | INFO    |   pde_residual_max_abs: 0.2533327639102936
+14:21:51 | INFO    |   pde_residual_rmse: 0.07914745062589645
+14:21:51 | INFO    |   fourier_spectrum_l2_relative_error: 1.0017881517021043
+14:21:51 | INFO    |   num_trainable_parameters: 73
+14:21:51 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d2_angle_reuploading_circular_metrics.json
+14:21:51 | INFO    | Generating figures...
+14:21:52 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq4_d2_angle_reuploading_circular/
+14:21:52 | INFO    | --- Ablation [depth] run: nq4_d4_angle_reuploading_circular ---
+14:21:52 | INFO    | Device: cpu
+14:21:52 | INFO    | Quantum config: 4 qubits, depth=4, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+14:21:52 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+14:21:52 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+14:21:52 | INFO    | Trainable parameters: 97
+14:21:52 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+14:21:53 | INFO    | [Adam     1/300] total=4.090e+00 pde=3.308e+00 ic=5.390e-01 bc=2.425e-01 lr=1.00e-03 q_grad_norm=2.934e+00 t=1.0s
+14:22:44 | INFO    | [Adam    60/300] total=1.245e+00 pde=5.866e-01 ic=5.260e-01 bc=1.322e-01 lr=1.00e-03 q_grad_norm=5.444e-01 t=52.1s
+14:23:38 | INFO    | [Adam   120/300] total=6.923e-01 pde=1.128e-01 ic=5.109e-01 bc=6.864e-02 lr=1.00e-03 q_grad_norm=1.087e-01 t=105.4s
+14:24:33 | INFO    | [Adam   180/300] total=5.441e-01 pde=1.895e-02 ic=4.936e-01 bc=3.158e-02 lr=1.00e-03 q_grad_norm=2.562e-02 t=160.7s
+14:25:24 | INFO    | [Adam   240/300] total=4.978e-01 pde=4.346e-03 ic=4.808e-01 bc=1.265e-02 lr=1.00e-03 q_grad_norm=1.010e-02 t=212.2s
+14:26:16 | INFO    | [Adam   300/300] total=4.804e-01 pde=2.567e-03 ic=4.734e-01 bc=4.413e-03 lr=1.00e-03 q_grad_norm=7.266e-03 t=263.9s
+14:26:16 | INFO    | Training complete. Total time: 263.9s (Adam: 263.9s, LBFGS: 0.0s). Best total loss: 4.804e-01
+14:26:41 | INFO    | Evaluation metrics:
+14:26:41 | INFO    |   l2_relative_error: 1.0053354935265362
+14:26:41 | INFO    |   max_abs_error: 1.0601938039375787
+14:26:41 | INFO    |   mean_abs_error: 0.5382953188783941
+14:26:41 | INFO    |   shock_region_l2_relative_error: 1.0009656236822768
+14:26:41 | INFO    |   shock_region_max_abs_error: 1.0044577328230593
+14:26:41 | INFO    |   pde_residual_mean_abs: 0.03869923576712608
+14:26:41 | INFO    |   pde_residual_max_abs: 0.2399410605430603
+14:26:41 | INFO    |   pde_residual_rmse: 0.05016015097498894
+14:26:41 | INFO    |   fourier_spectrum_l2_relative_error: 1.010934907281626
+14:26:41 | INFO    |   num_trainable_parameters: 97
+14:26:41 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d4_angle_reuploading_circular_metrics.json
+14:26:41 | INFO    | Generating figures...
+14:26:43 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq4_d4_angle_reuploading_circular/
+14:26:43 | INFO    | --- Ablation [entanglement] run: nq4_d3_angle_reuploading_linear ---
+14:26:43 | INFO    | Device: cpu
+14:26:43 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle_reuploading, entanglement=linear, input_mode=direct
+14:26:43 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+14:26:43 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+14:26:43 | INFO    | Trainable parameters: 85
+14:26:43 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+14:26:44 | INFO    | [Adam     1/300] total=2.237e+00 pde=1.670e+00 ic=4.340e-01 bc=1.336e-01 lr=1.00e-03 q_grad_norm=1.741e+00 t=0.7s
+14:27:22 | INFO    | [Adam    60/300] total=9.019e-01 pde=4.461e-01 ic=4.240e-01 bc=3.180e-02 lr=1.00e-03 q_grad_norm=4.524e-01 t=39.6s
+14:28:02 | INFO    | [Adam   120/300] total=6.087e-01 pde=1.776e-01 ic=4.257e-01 bc=5.512e-03 lr=1.00e-03 q_grad_norm=1.574e-01 t=78.8s
+14:28:41 | INFO    | [Adam   180/300] total=5.200e-01 pde=8.406e-02 ic=4.346e-01 bc=1.420e-03 lr=1.00e-03 q_grad_norm=7.050e-02 t=117.7s
+14:29:19 | INFO    | [Adam   240/300] total=4.854e-01 pde=4.508e-02 ic=4.399e-01 bc=4.246e-04 lr=1.00e-03 q_grad_norm=4.018e-02 t=156.3s
+14:29:57 | INFO    | [Adam   300/300] total=4.705e-01 pde=2.708e-02 ic=4.433e-01 bc=1.496e-04 lr=1.00e-03 q_grad_norm=2.942e-02 t=194.5s
+14:29:57 | INFO    | Training complete. Total time: 194.5s (Adam: 194.5s, LBFGS: 0.0s). Best total loss: 4.705e-01
+14:30:16 | INFO    | Evaluation metrics:
+14:30:16 | INFO    |   l2_relative_error: 0.9902045239922094
+14:30:16 | INFO    |   max_abs_error: 1.020457646400448
+14:30:16 | INFO    |   mean_abs_error: 0.5280883426297477
+14:30:16 | INFO    |   shock_region_l2_relative_error: 0.9930541804822929
+14:30:16 | INFO    |   shock_region_max_abs_error: 0.9440548030401918
+14:30:16 | INFO    |   pde_residual_mean_abs: 0.13940675556659698
+14:30:16 | INFO    |   pde_residual_max_abs: 0.6870753765106201
+14:30:16 | INFO    |   pde_residual_rmse: 0.1752985566854477
+14:30:16 | INFO    |   fourier_spectrum_l2_relative_error: 0.9487440501092248
+14:30:16 | INFO    |   num_trainable_parameters: 85
+14:30:16 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_reuploading_linear_metrics.json
+14:30:16 | INFO    | Generating figures...
+14:30:18 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq4_d3_angle_reuploading_linear/
+14:30:18 | INFO    | --- Ablation [entanglement] run: nq4_d3_angle_reuploading_circular ---
+14:30:18 | INFO    | Device: cpu
+14:30:18 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle_reuploading, entanglement=circular, input_mode=direct
+14:30:18 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+14:30:18 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+14:30:18 | INFO    | Trainable parameters: 85
+14:30:18 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+14:30:18 | INFO    | [Adam     1/300] total=3.337e+00 pde=2.557e+00 ic=6.494e-01 bc=1.309e-01 lr=1.00e-03 q_grad_norm=2.311e+00 t=0.8s
+14:30:57 | INFO    | [Adam    60/300] total=1.199e+00 pde=6.101e-01 ic=5.487e-01 bc=3.998e-02 lr=1.00e-03 q_grad_norm=6.437e-01 t=39.0s
+14:31:35 | INFO    | [Adam   120/300] total=7.002e-01 pde=1.970e-01 ic=4.966e-01 bc=6.623e-03 lr=1.00e-03 q_grad_norm=2.343e-01 t=77.6s
+14:32:15 | INFO    | [Adam   180/300] total=5.600e-01 pde=7.897e-02 ic=4.800e-01 bc=1.046e-03 lr=1.00e-03 q_grad_norm=1.015e-01 t=117.5s
+14:32:55 | INFO    | [Adam   240/300] total=5.083e-01 pde=3.443e-02 ic=4.737e-01 bc=1.592e-04 lr=1.00e-03 q_grad_norm=4.915e-02 t=156.9s
+14:33:34 | INFO    | [Adam   300/300] total=4.861e-01 pde=1.526e-02 ic=4.708e-01 bc=2.518e-05 lr=1.00e-03 q_grad_norm=2.554e-02 t=196.5s
+14:33:34 | INFO    | Training complete. Total time: 196.5s (Adam: 196.5s, LBFGS: 0.0s). Best total loss: 4.861e-01
+14:33:53 | INFO    | Evaluation metrics:
+14:33:53 | INFO    |   l2_relative_error: 1.0004232059368663
+14:33:53 | INFO    |   max_abs_error: 1.0233093938904654
+14:33:53 | INFO    |   mean_abs_error: 0.5365617247020229
+14:33:53 | INFO    |   shock_region_l2_relative_error: 0.9992432728676297
+14:33:53 | INFO    |   shock_region_max_abs_error: 0.9610254225995007
+14:33:53 | INFO    |   pde_residual_mean_abs: 0.09622172266244888
+14:33:53 | INFO    |   pde_residual_max_abs: 0.40268397331237793
+14:33:53 | INFO    |   pde_residual_rmse: 0.12394630908966064
+14:33:53 | INFO    |   fourier_spectrum_l2_relative_error: 0.9880168621716187
+14:33:53 | INFO    |   num_trainable_parameters: 85
+14:33:53 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_reuploading_circular_metrics.json
+14:33:53 | INFO    | Generating figures...
+14:33:55 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq4_d3_angle_reuploading_circular/
+14:33:55 | INFO    | --- Ablation [entanglement] run: nq4_d3_angle_reuploading_full ---
+14:33:55 | INFO    | Device: cpu
+14:33:55 | INFO    | Quantum config: 4 qubits, depth=3, encoding=angle_reuploading, entanglement=full, input_mode=direct
+14:33:55 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+14:33:55 | INFO    | Sampling training points: 800 collocation, 200 IC, 200x2 BC
+14:33:55 | INFO    | Trainable parameters: 85
+14:33:55 | INFO    | Phase 1/2: Adam — epochs 1..300, lr=0.001 | early stopping: disabled
+14:33:55 | INFO    | [Adam     1/300] total=2.840e+00 pde=2.187e+00 ic=5.408e-01 bc=1.120e-01 lr=1.00e-03 q_grad_norm=1.205e+00 t=0.7s
+14:34:35 | INFO    | [Adam    60/300] total=1.082e+00 pde=6.025e-01 ic=4.559e-01 bc=2.362e-02 lr=1.00e-03 q_grad_norm=3.555e-01 t=40.5s
+14:35:16 | INFO    | [Adam   120/300] total=6.444e-01 pde=2.059e-01 ic=4.361e-01 bc=2.389e-03 lr=1.00e-03 q_grad_norm=1.346e-01 t=80.9s
+14:35:55 | INFO    | [Adam   180/300] total=5.224e-01 pde=8.073e-02 ic=4.413e-01 bc=3.925e-04 lr=1.00e-03 q_grad_norm=6.381e-02 t=120.6s
+14:36:35 | INFO    | [Adam   240/300] total=4.840e-01 pde=3.597e-02 ic=4.479e-01 bc=8.211e-05 lr=1.00e-03 q_grad_norm=3.518e-02 t=160.7s
+14:37:15 | INFO    | [Adam   300/300] total=4.715e-01 pde=1.871e-02 ic=4.527e-01 bc=2.457e-05 lr=1.00e-03 q_grad_norm=2.254e-02 t=199.8s
+14:37:15 | INFO    | Training complete. Total time: 199.8s (Adam: 199.8s, LBFGS: 0.0s). Best total loss: 4.715e-01
+14:37:35 | INFO    | Evaluation metrics:
+14:37:35 | INFO    |   l2_relative_error: 0.9965156146847021
+14:37:35 | INFO    |   max_abs_error: 1.032254901556045
+14:37:35 | INFO    |   mean_abs_error: 0.5335588597406187
+14:37:35 | INFO    |   shock_region_l2_relative_error: 0.9906056757266689
+14:37:35 | INFO    |   shock_region_max_abs_error: 0.9555231539275113
+14:37:35 | INFO    |   pde_residual_mean_abs: 0.10825338214635849
+14:37:35 | INFO    |   pde_residual_max_abs: 0.4469888508319855
+14:37:35 | INFO    |   pde_residual_rmse: 0.13991326093673706
+14:37:35 | INFO    |   fourier_spectrum_l2_relative_error: 0.9624260744288058
+14:37:35 | INFO    |   num_trainable_parameters: 85
+14:37:35 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_nq4_d3_angle_reuploading_full_metrics.json
+14:37:35 | INFO    | Generating figures...
+14:37:37 | INFO    | Figures saved to outputs\figures\model_b_qapinn_nq4_d3_angle_reuploading_full/
+14:37:37 | INFO    | ======================================================================
+14:37:37 | INFO    | Ablation studies complete in 2615.8s
+14:37:37 | INFO    | Summary JSON: outputs/metrics\ablation_summary.json
+14:37:37 | INFO    | Summary CSV:  outputs/metrics\ablation_summary.csv
+14:37:37 | INFO    | ======================================================================
+14:37:37 | INFO    | [qubits      ] nq2_d3_angle_reuploading_circular   L2=0.9984  shock_L2=0.9982  fourier=0.9955
+14:37:37 | INFO    | [qubits      ] nq4_d3_angle_reuploading_circular   L2=1.0004  shock_L2=0.9992  fourier=0.9880
+14:37:37 | INFO    | [qubits      ] nq6_d3_angle_reuploading_circular   L2=0.9977  shock_L2=1.0003  fourier=0.9840
+14:37:37 | INFO    | [encoding    ] nq4_d3_angle_circular               L2=0.9959  shock_L2=0.9979  fourier=0.9771
+14:37:37 | INFO    | [encoding    ] nq4_d3_angle_reuploading_circular   L2=1.0004  shock_L2=0.9992  fourier=0.9880
+14:37:37 | INFO    | [encoding    ] nq4_d3_amplitude_circular           L2=0.7996  shock_L2=0.9864  fourier=0.7659
+14:37:37 | INFO    | [depth       ] nq4_d1_angle_reuploading_circular   L2=0.9993  shock_L2=1.0002  fourier=0.9793
+14:37:37 | INFO    | [depth       ] nq4_d2_angle_reuploading_circular   L2=1.0020  shock_L2=0.9999  fourier=1.0018
+14:37:37 | INFO    | [depth       ] nq4_d4_angle_reuploading_circular   L2=1.0053  shock_L2=1.0010  fourier=1.0109
+14:37:37 | INFO    | [entanglement] nq4_d3_angle_reuploading_linear     L2=0.9902  shock_L2=0.9931  fourier=0.9487
+14:37:37 | INFO    | [entanglement] nq4_d3_angle_reuploading_circular   L2=1.0004  shock_L2=0.9992  fourier=0.9880
+14:37:37 | INFO    | [entanglement] nq4_d3_angle_reuploading_full       L2=0.9965  shock_L2=0.9906  fourier=0.9624
