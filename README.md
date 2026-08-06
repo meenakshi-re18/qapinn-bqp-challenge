@@ -91,6 +91,7 @@ This work makes the following contributions:
 
 ## Repository Structure
 
+```text
 QAPINN/
 │
 ├── config.py
@@ -124,8 +125,9 @@ QAPINN/
 ├── requirements.txt
 │
 └── README.md
+```
 
-Detailed descriptions of each source file are provided within the technical report.
+Detailed descriptions of the major source files and experimental workflow are provided in the accompanying technical report.
 
 ---
 
@@ -322,10 +324,12 @@ Please cite the accompanying report if this work is used in future research.
 ## Contact
 
 **Meenakshi R.**
-Email: rameenakshi1@gmail.com
-GitHub: https://github.com/meenakshi-re18/qapinn-bqp-challenge
 
 Department of Artificial Intelligence and Data Science
+
 Panimalar Engineering College
 
-BQP WISER Summer Challenge 2026
+-GitHub: https://github.com/meenakshi-re18/qapinn-bqp-challenge
+
+For questions regarding the implementation, experiments, or reproducibility, please feel free to reach out.
+
