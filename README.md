@@ -31,6 +31,34 @@ Rather than attempting to demonstrate an unconditional quantum advantage, this w
 
 ---
 
+## Research Workflow
+
+```text
+Problem Definition
+        │
+        ▼
+Classical PINN Baseline
+        │
+        ▼
+Quantum-Assisted PINN
+        │
+        ▼
+Controlled Ablation Studies
+        │
+        ▼
+Encoding × Optimizer Analysis
+        │
+        ▼
+Collocation Density Study
+        │
+        ▼
+Matched-Budget Validation
+        │
+        ▼
+Conclusions
+```
+---
+
 ## Team
 
 | Author | Role |
@@ -42,9 +70,9 @@ Rather than attempting to demonstrate an unconditional quantum advantage, this w
 
 | Author              | Email                                                         |
 | ------------------- | ------------------------------------------------------------- |
-| Meenakshi R.        | [rameenakshi1@gmail.com](mailto:your_email@domain.com)         |
-| Krishna Priya Kaku  | [krishnapriyayadav71@gmail.com](mailto:teammate_email@domain.com) |
-| Mallampati Geethika | [mallampatigeethika@gmail.com](mailto:teammate_email@domain.com) |
+| Meenakshi R.        | [rameenakshi1@gmail.com](mailto:rameenakshi1@gmail.com)         |
+| Krishna Priya Kaku  | [krishnapriyayadav71@gmail.com](mailto:krishnapriyayadav71@gmail.com) |
+| Mallampati Geethika | [mallampatigeethika@gmail.com](mailto:mallampatigeethika@gmail.com) |
 
 ---
 
@@ -74,7 +102,7 @@ u(-1, t) = u(1, t) = 0
 ```
 ---
 
-# Scientific Contributions
+# Key Contributions
 
 This work makes the following contributions:
 
@@ -155,6 +183,8 @@ Detailed descriptions of the major source files and experimental workflow are pr
 | Quantum Backend  | PennyLane `default.qubit` simulator |
 | GPU              | None (CPU-only execution)           |
 | Random Seed      | 42                                  |
+| Git Version      | Latest                              |
+
 
 ---
 
@@ -208,6 +238,8 @@ since they all share the same default filenames.
 
 Two models were investigated.
 
+All reported comparisons use identical evaluation metrics. Unless explicitly stated, experiments were performed under controlled conditions so that only the intended architectural variable changed.
+
 ## Model A
 
 - Classical PINN
@@ -245,7 +277,8 @@ The controlled experiments showed that:
 
 - L-BFGS refinement benefited amplitude encoding much more strongly than angle re-uploading.
 
-- Representation and optimization strategy were more influential than circuit size under the evaluated benchmark.
+- Across all controlled experiments, representation learning and optimization strategy consistently had a greater impact on QAPINN performance than increasing qubit count, circuit depth, entanglement topology, or collocation density under the evaluated settings.
+
 
 | Metric | Model A | Model B (baseline config) | Model B (amplitude + L-BFGS, reduced budget) |
 |---|---|---|---|
@@ -274,6 +307,10 @@ including
 
 All figures presented in the report and presentation were generated directly from these outputs.
 
+Each experiment produces its own checkpoint, metrics,
+logs and figures using unique MODEL_NAME or run_name
+identifiers to ensure complete reproducibility.
+
 ---
 
 # Submission Documents
@@ -295,53 +332,26 @@ All figures presented in the report and presentation were generated directly fro
 
 ---
 
-# Reproducibility
-
-The repository contains all code, configurations, outputs, figures, and documentation required to reproduce the reported experiments.
-
-### Software
-
-| Component | Version |
-|------------|----------|
-| Python | 3.13.7 |
-| PyTorch | 2.13.0 (CPU) |
-| PennyLane | 0.45.1 |
-| PennyLane-Qiskit | 0.45.0 |
-
----
-
-### Hardware
-
-| Component | Specification |
-|------------|---------------|
-| Operating System | Windows 11 Home |
-| Processor | Intel Core i7-1355U |
-| RAM | 16 GB |
-| Backend | PennyLane `default.qubit` |
-| GPU | CPU-only |
-
----
-
 ## Data and External Tools
 
 ### Dataset
 
-This project does not use an external machine learning dataset.
+This research is equation-driven rather than data-driven.
 
-Instead, the viscous Burgers' equation serves as the mathematical benchmark problem. The ground-truth reference solution is generated numerically within the project using the Method of Lines with an implicit Backward Differentiation Formula (BDF) solver. This reference solution is used only for evaluation and is never used during model training.
+Instead, the viscous Burgers' equation serves as the mathematical benchmark problem. Ground truth solutions are generated numerically within the project using the Method of Lines with an implicit Backward Differentiation Formula (BDF) solver. This reference solution is used only for evaluation and is never used during model training.
 
 Software and Libraries
 
 The implementation was developed using:
 
-Python
-PyTorch
-PennyLane
-PennyLane-Qiskit
-NumPy
-SciPy
-Matplotlib
-Git & GitHub
+- Python
+- PyTorch
+- PennyLane
+- PennyLane-Qiskit
+- NumPy
+- SciPy
+- Matplotlib
+- Git & GitHub
 
 ---
 
@@ -360,6 +370,7 @@ Git & GitHub
 - **Reference solution is independent numerical ground truth** (method-of-lines + implicit BDF), never used in training — evaluation is never contaminated by what the network was trained on.
 - **Model B's default training budget is deliberately reduced** from Model A's (quantum circuit simulation is more expensive per point) — a disclosed deviation, documented in `config_b.py` and the report, being directly tested via the matched-budget experiment above rather than left as an assumption.
 - **Every output file is named from `cfg.MODEL_NAME`** (checkpoints, metrics, logs, and — as of this update — figures, saved to their own subfolder) so that no two runs collide by default.
+- **Direct quantum input representation:** The classical input layer was replaced by the quantum encoding layer, allowing the quantum circuit to directly represent the spatial-temporal coordinates instead of operating on preprocessed classical features.
 
 ---
 
@@ -377,15 +388,4 @@ Please cite the accompanying report if this work is used in future research.
 
 ---
 
-## Contact
-
-**Meenakshi R.**
-
-Department of Artificial Intelligence and Data Science
-
-Panimalar Engineering College
-
--GitHub: https://github.com/meenakshi-re18/qapinn-bqp-challenge
-
-For questions regarding the implementation, experiments, or reproducibility, please feel free to reach out.
 
