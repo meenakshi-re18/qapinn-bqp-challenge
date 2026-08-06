@@ -16,6 +16,13 @@ Rather than attempting to demonstrate an unconditional quantum advantage, this w
 
 ---
 
+## Repository:
+https://github.com/meenakshi-re18/qapinn-bqp-challenge
+
+Complete technical report and presentation are available in the report/ and presentation/ folders.
+
+---
+
 ## Project Status
 
 - [x] Classical PINN (Model A) implementation
