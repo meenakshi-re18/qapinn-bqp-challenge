@@ -1,50 +1,59 @@
 # Quantum-Assisted Physics-Informed Neural Networks for Aerospace Shock-Wave Modeling
 
-**BQP Challenge 2026 — WISER Summer Program**
+## A Mechanistic Investigation of Representation, Optimization, and Spectral Bias
 
-An empirical investigation of how quantum feature-map design influences learning behavior
-and frequency representation in Quantum-Assisted Physics-Informed Neural Networks (QAPINNs),
-using the viscous Burgers' equation as a mathematical proxy for shock-wave phenomena in
-hypersonic aerospace flow.
+**BQP Challenge 2026 – WISER Summer Program**
 
-> Working title under revision — see `report/` for the current framing. The project's
-> contribution shifted over the course of the work from "is QAPINN better than a classical
-> PINN" toward "which architectural components of a QAPINN actually influence performance,
-> and how do representation, optimization, and physics constraints interact."
+---
+
+## Overview
+
+This repository contains the complete implementation, experiments, technical report, and presentation for our submission to the **BQP WISER Summer Challenge 2026**.
+
+The project investigates whether a **Quantum-Assisted Physics-Informed Neural Network (QAPINN)** can reduce spectral bias and improve shock-region accuracy on the viscous Burgers' equation compared to a classical Physics-Informed Neural Network (PINN).
+
+Rather than attempting to demonstrate an unconditional quantum advantage, this work systematically studies **which architectural and optimization choices actually influence QAPINN performance** through controlled experiments.
+
+---
 
 ## Project Status
 
-- [x] **Model A** — Classical PINN baseline — complete
-- [x] **Model B** — Quantum-Assisted PINN (QAPINN) baseline — complete
-- [x] **Ablation studies** (qubit count, encoding, depth, entanglement) — complete; encoding is the only axis with a clean (unconfounded) signal — see report Section 6.4/8.1
-- [x] **Amplitude encoding + L-BFGS follow-up** — complete; substantial improvement over the baseline configuration, including in the shock region
-- [ ] **Matched-budget validation** (amplitude encoding at Model A's exact training budget) — in progress
-- [ ] **Collocation-density sensitivity sweep** — in progress
-- [ ] **Technical report** — Model A and Model B core sections complete; Discussion being restructured around explicit hypotheses; Abstract/Conclusion pending final experiments
-- [ ] **Presentation slides** — pending
+- [x] Classical PINN (Model A) implementation
+- [x] Quantum-Assisted PINN (Model B) implementation
+- [x] Controlled architecture comparison
+- [x] Ablation study (encoding, qubits, depth, entanglement)
+- [x] Optimizer × representation analysis
+- [x] Collocation-density sensitivity study
+- [x] Matched-budget validation
+- [x] Final technical report
+- [x] Final presentation
+- [x] Repository prepared for BQP WISER Summer Challenge 2026 submission
+
+---
 
 ## Team
 
-| Member | Role |
-|---|---|
-| Krishna Priya Kaku | Classical PINN & Neural Network Lead |
-| Meenakshi R | Quantum & QAPINN Lead |
-| Mallampati Geethika | Comparative Analysis, Evaluation & Documentation Lead |
+| Author | Role |
+|---------|------|
+| **Meenakshi R.** | Quantum & QAPINN Research Lead |
+| **Krishna Priya Kaku** | Classical PINN & Numerical Modelling Lead |
+| **Mallampati Geethika** | Comparative Analysis & Documentation Lead |
+
+---
 
 ## The Research Question
 
-Does a quantum feature map, with richer Fourier expressivity, help a PINN capture the sharp
-shock in Burgers' equation better than a classical PINN? We treated this as genuinely
-falsifiable rather than assumed — and the honest answer, based on results so far, is more
-nuanced than yes/no: the evaluated QAPINN configurations did not match the classical
-baseline's accuracy, but controlled experiments identified *which* architectural choices
-meaningfully affect performance (encoding, optimizer phase) and which largely don't (qubit
-count, circuit depth, entanglement pattern) — see the report's Discussion for the full,
-hypothesis-by-hypothesis breakdown.
+> Can a quantum feature map, used as the input representation of a Physics-Informed Neural Network, reduce spectral bias and improve shock-region accuracy on the viscous Burgers' equation?
+
+If not,
+
+> Which architectural and optimization factors explain the observed behavior?
 
 We are not building a CFD solver or a hypersonic flow simulator. Burgers' equation is a
 standard, well-characterized benchmark that produces a sharp shock — a simplified
 mathematical proxy for shock formation in transonic/hypersonic aerospace flow.
+
+---
 
 ## Problem
 
@@ -56,35 +65,69 @@ u(x, 0) = -sin(πx)
 u(-1, t) = u(1, t) = 0
 ν = 0.01/π
 ```
+---
+
+# Scientific Contributions
+
+This work makes the following contributions:
+
+- Developed a controlled comparison framework where the Classical PINN and QAPINN share every component except the input representation.
+
+- Performed systematic controlled ablations across:
+  - Data encoding
+  - Optimizer
+  - Qubit count
+  - Circuit depth
+  - Entanglement
+  - Collocation density
+
+- Demonstrated that **representation and optimization strategy** have substantially greater influence on QAPINN performance than increasing circuit resources.
+
+- Showed that **encoding choice** is the dominant architectural factor under the evaluated settings.
+
+- Identified an optimizer–representation interaction in which amplitude encoding benefits significantly from L-BFGS refinement whereas angle re-uploading shows minimal improvement.
+
+---
 
 ## Repository Structure
 
-```
-config.py               Model A hyperparameters (domain, network, training, paths)
-config_b.py              Model B hyperparameters — subclasses config.py (quantum circuit settings)
-utils.py                  Seeding + logging helpers
-reference_solution.py     High-res numerical ground truth (method-of-lines, BDF) — shared by A & B
-sampling.py                LHS collocation / IC / BC point generation — shared by A & B
-model.py                    Model A: classical MLP PINN
-model_b.py                   Model B: quantum-assisted PINN (PennyLane VQC; angle, angle re-uploading,
-                              and amplitude encoding; linear/circular/full entanglement)
-pinn_losses.py                 PDE residual (autograd) + IC + BC losses — shared by A & B
-train.py                        Adam -> L-BFGS training loop, resume support, periodic checkpointing,
-                                 quantum gradient-norm diagnostics — shared by A & B
-evaluate.py                      L2 error, shock-region error, PDE residual, Fourier metrics — shared
-visualize.py                      Heatmaps, snapshots, loss curves, spectrum plots — saved per-model
-                                   to outputs/figures/<MODEL_NAME>/
-main.py                            Runs Model A end-to-end
-main_b.py                           Runs Model B end-to-end; supports --run_name for one-off
-                                     experiments so they don't overwrite the baseline's output files
-evaluate_saved_model_b.py           Re-evaluates a saved Model B checkpoint without retraining
-ablation_runner.py                  Runs the qubit/encoding/depth/entanglement sweeps
-report/                              Technical report (Word doc)
-```
+QAPINN/
+│
+├── config.py
+├── config_b.py
+├── model.py
+├── model_b.py
+├── train.py
+├── evaluate.py
+├── visualize.py
+├── sampling.py
+├── reference_solution.py
+├── pinn_losses.py
+├── utils.py
+│
+├── main.py
+├── main_b.py
+├── ablation_runner.py
+├── evaluate_saved_model_b.py
+│
+├── outputs/
+│   ├── checkpoints/
+│   ├── figures/
+│   ├── logs/
+│   ├── metrics/
+│   └── reference/
+│
+├── report/
+│
+├── presentation/
+│
+├── requirements.txt
+│
+└── README.md
 
-Model A and Model B intentionally share every file except `model.py` / `model_b.py` — that's
-what makes the A vs. B comparison a controlled experiment rather than two unrelated
-implementations.
+Detailed descriptions of each source file are provided within the technical report.
+
+---
 
 ## Setup
 
@@ -105,7 +148,17 @@ python main.py --adam_epochs 200 --lbfgs_iters 50 --collocation 1000   # quick s
 python main_b.py                                                 # official baseline (reduced budget, see config_b.py)
 python main_b.py --qubits 6 --depth 4 --encoding amplitude --entanglement full
 python main_b.py --match_model_a                                 # Model A's exact training budget (slow)
+```
+
+## Controlled Ablation Study
+
+```bash
 python ablation_runner.py                                        # full qubit/encoding/depth/entanglement sweep
+```
+
+## Evaluate a Saved Model
+
+```bash
 python evaluate_saved_model_b.py                                 # re-evaluate a saved checkpoint without retraining
 ```
 
@@ -114,16 +167,50 @@ baseline** — e.g. `python main_b.py --encoding amplitude --run_name amplitude_
 Without it, a new run silently overwrites the previous one's checkpoint, metrics, and logs,
 since they all share the same default filenames.
 
-## Results So Far
+---
 
-The classical baseline (Model A) substantially outperforms the initial Model B configuration.
-Controlled ablations found that **encoding choice** is the architectural factor with the
-largest, cleanest observed effect — qubit count, circuit depth, and entanglement pattern
-showed comparatively little influence. A follow-up experiment replacing the baseline's
-encoding with **amplitude encoding** produced a large improvement, including in the
-shock region specifically (the hardest part of the domain), using the same 85 trainable
-parameters as every other Model B configuration — i.e. the improvement came from a better
-representation, not a larger model.
+# Experimental Summary
+
+Two models were investigated.
+
+## Model A
+
+- Classical PINN
+- Fully-connected MLP
+- 16,897 trainable parameters
+- Adam + L-BFGS
+- 10,000 collocation points
+
+---
+
+## Model B
+
+- Quantum-Assisted PINN
+- Direct quantum input representation
+- 4-qubit variational circuit
+- 85 trainable parameters
+- PennyLane implementation
+
+---
+
+
+## Main Findings
+
+The controlled experiments showed that:
+
+- Encoding strategy produced the largest measurable improvement.
+
+- Increasing qubit count alone did not consistently improve performance.
+
+- Increasing circuit depth alone did not consistently improve performance.
+
+- Changing entanglement topology alone produced little measurable effect.
+
+- Amplitude encoding substantially outperformed the default angle-based encodings under identical experimental settings.
+
+- L-BFGS refinement benefited amplitude encoding much more strongly than angle re-uploading.
+
+- Representation and optimization strategy were more influential than circuit size under the evaluated benchmark.
 
 | Metric | Model A | Model B (baseline config) | Model B (amplitude + L-BFGS, reduced budget) |
 |---|---|---|---|
@@ -132,22 +219,73 @@ representation, not a larger model.
 | Fourier spectrum L2 error | 1.35% | 88.90% | 53.99% |
 | Trainable parameters | 16,897 | 85 | 85 |
 
-A matched-training-budget validation of the amplitude-encoding result (against Model A's
-exact collocation/epoch budget) is in progress — see Project Status above.
+These results demonstrate that representation and optimization strategy had a substantially greater influence on QAPINN performance than increasing quantum circuit resources. Although the classical PINN remained the strongest performer on the evaluated benchmark, controlled experiments identified encoding choice as the dominant architectural factor affecting performance.
 
-**Known gap**: the original Model B baseline configuration's raw checkpoint file was
-overwritten by a later run before being separately named; its full results remain
-documented in the report (metrics, tables, figures) but are not independently
-re-verifiable from the current checkpoint file alone. Re-running `python main_b.py`
-with no arguments (same seed, same code) should reproduce it closely.
+---
 
-Full metrics, figures, and analysis: `outputs/metrics/`, `outputs/figures/`, and the
-technical report in `report/`.
+## Experimental Outputs
 
-## Full Technical Report
+Generated outputs are available under:
 
-See [`report/QAPINN_Research_Report_Draft.docx`](report/QAPINN_Research_Report_Draft.docx)
-for complete methodology, mathematical background, results, and analysis.
+outputs/
+
+including
+
+- checkpoints
+- metrics
+- logs
+- figures
+- reference solutions
+
+All figures presented in the report and presentation were generated directly from these outputs.
+
+---
+
+# Submission Documents
+
+
+## Presentation
+
+- [Presentation (PDF)](presentation/QAPINN_Research_Presentation.pdf)
+
+- [Presentation (PPTX)](presentation/QAPINN_Research_Presentation.pptx)
+
+---
+
+## Technical Report
+
+- [Technical Report (PDF)](report/QAPINN_Research_Report.pdf)
+
+- [Technical Report (DOCX)](report/QAPINN_Research_Report.docx)
+
+---
+
+# Reproducibility
+
+The repository contains all code, configurations, outputs, figures, and documentation required to reproduce the reported experiments.
+
+### Software
+
+| Component | Version |
+|------------|----------|
+| Python | 3.13.7 |
+| PyTorch | 2.13.0 (CPU) |
+| PennyLane | 0.45.1 |
+| PennyLane-Qiskit | 0.45.0 |
+
+---
+
+### Hardware
+
+| Component | Specification |
+|------------|---------------|
+| Operating System | Windows 11 Home |
+| Processor | Intel Core i7-1355U |
+| RAM | 16 GB |
+| Backend | PennyLane `default.qubit` |
+| GPU | CPU-only |
+
+---
 
 ## References
 
@@ -164,3 +302,30 @@ for complete methodology, mathematical background, results, and analysis.
 - **Reference solution is independent numerical ground truth** (method-of-lines + implicit BDF), never used in training — evaluation is never contaminated by what the network was trained on.
 - **Model B's default training budget is deliberately reduced** from Model A's (quantum circuit simulation is more expensive per point) — a disclosed deviation, documented in `config_b.py` and the report, being directly tested via the matched-budget experiment above rather than left as an assumption.
 - **Every output file is named from `cfg.MODEL_NAME`** (checkpoints, metrics, logs, and — as of this update — figures, saved to their own subfolder) so that no two runs collide by default.
+
+---
+
+# Acknowledgement
+
+This work was completed as part of the **BQP WISER Summer Challenge 2026**, exploring hybrid quantum-classical machine learning for scientific computing and Physics-Informed Neural Networks.
+
+---
+
+# License
+
+This repository is released for academic and research purposes.
+
+Please cite the accompanying report if this work is used in future research.
+
+---
+
+## Contact
+
+**Meenakshi R.**
+Email: rameenakshi1@gmail.com
+GitHub: https://github.com/meenakshi-re18/qapinn-bqp-challenge
+
+Department of Artificial Intelligence and Data Science
+Panimalar Engineering College
+
+BQP WISER Summer Challenge 2026
