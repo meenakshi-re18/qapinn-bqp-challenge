@@ -39,6 +39,13 @@ Rather than attempting to demonstrate an unconditional quantum advantage, this w
 | **Krishna Priya Kaku** | Classical PINN & Numerical Modelling Lead |
 | **Mallampati Geethika** | Comparative Analysis & Documentation Lead |
 
+
+| Author              | Email                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Meenakshi R.        | [rameenakshi1@gmail.com](mailto:your_email@domain.com)         |
+| Krishna Priya Kaku  | [krishnapriyayadav71@gmail.com](mailto:teammate_email@domain.com) |
+| Mallampati Geethika | [mallampatigeethika@gmail.com](mailto:teammate_email@domain.com) |
+
 ---
 
 ## The Research Question
@@ -128,6 +135,32 @@ QAPINN/
 ```
 
 Detailed descriptions of the major source files and experimental workflow are provided in the accompanying technical report.
+
+---
+
+## Development Environment
+
+| Component        | Version / Specification             |
+| ---------------- | ----------------------------------- |
+| Python           | 3.13.7                              |
+| PyTorch          | 2.13.0 (CPU)                        |
+| PennyLane        | 0.45.1                              |
+| PennyLane-Qiskit | 0.45.0                              |
+| NumPy            | Latest compatible                   |
+| SciPy            | Latest compatible                   |
+| Matplotlib       | Latest compatible                   |
+| Operating System | Microsoft Windows 11 Home           |
+| Processor        | 13th Gen Intel Core i7-1355U        |
+| RAM              | 16 GB                               |
+| Quantum Backend  | PennyLane `default.qubit` simulator |
+| GPU              | None (CPU-only execution)           |
+| Random Seed      | 42                                  |
+
+---
+
+## Reproducibility
+
+Every experiment in this repository is reproducible using the provided source code, configuration files, and documented execution commands. Outputs (metrics, figures, checkpoints, and logs) are organized by experiment name using MODEL_NAME or --run_name, ensuring that independent experiments do not overwrite one another. Git version control and tagged milestones were used throughout development to preserve the complete research history.
 
 ---
 
@@ -286,6 +319,29 @@ The repository contains all code, configurations, outputs, figures, and document
 | RAM | 16 GB |
 | Backend | PennyLane `default.qubit` |
 | GPU | CPU-only |
+
+---
+
+## Data and External Tools
+
+### Dataset
+
+This project does not use an external machine learning dataset.
+
+Instead, the viscous Burgers' equation serves as the mathematical benchmark problem. The ground-truth reference solution is generated numerically within the project using the Method of Lines with an implicit Backward Differentiation Formula (BDF) solver. This reference solution is used only for evaluation and is never used during model training.
+
+Software and Libraries
+
+The implementation was developed using:
+
+Python
+PyTorch
+PennyLane
+PennyLane-Qiskit
+NumPy
+SciPy
+Matplotlib
+Git & GitHub
 
 ---
 
