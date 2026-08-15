@@ -16,6 +16,29 @@ Rather than attempting to demonstrate an unconditional quantum advantage, this w
 
 ---
 
+## Post-Submission Extension (SMARTT 2026)
+
+The experiments and findings below were conducted after the WISER BQP
+Challenge 2026 submission (tagged `wiser-bqp-submission`) and extend
+this work for a separate submission to SMARTT 2026. They do not modify
+or replace the original submission.
+
+New experiments:
+- **Seed variance validation** (seeds 42, 7, 99) on the amplitude+L-BFGS
+  configuration, both direct and preprocessed input modes
+- **Parameter-matched classical baselines** at 85 and 107 parameters,
+  isolating the performance gap from raw parameter count
+- **Preprocessed input-mode validation**: a small classical layer before
+  the quantum encoding substantially narrows the performance gap and
+  reduces Fourier-spectrum error relative to direct quantum encoding
+
+New files: `config_a_matched.py`, `config_a_matched_107.py`,
+`main_a_matched.py`, `main_a_matched_107.py` — parameter-matched
+classical baselines, kept separate from the original `config.py`/
+`main.py` so the BQP baseline remains reproducible unchanged.
+
+---
+
 ## Repository:
 https://github.com/meenakshi-re18/qapinn-bqp-challenge
 
