@@ -1,0 +1,18 @@
+{
+  "l2_relative_error": 0.5190191483365906,
+  "max_abs_error": 1.0123674033408356,
+  "mean_abs_error": 0.2095604106228818,
+  "shock_region_l2_relative_error": 0.8613674594994902,
+  "shock_region_max_abs_error": 0.9704270320403945,
+  "pde_residual_mean_abs": 0.18642137944698334,
+  "pde_residual_max_abs": 1.0794715881347656,
+  "pde_residual_rmse": 0.24162647128105164,
+  "fourier_spectrum_l2_relative_error": 0.4683850666329508,
+  "num_trainable_parameters": 85,
+  "training": {
+    "adam_time_sec": 1102.9223315003328,
+    "lbfgs_time_sec": 109.32713270001113,
+    "total_time_sec": 1212.4263989003375,
+    "best_loss": 0.12732847034931183
+  }
+}

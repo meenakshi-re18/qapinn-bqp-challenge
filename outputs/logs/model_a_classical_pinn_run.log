@@ -193,3 +193,18 @@
 23:37:59 | INFO    | Trainable parameters:                16,897
 23:37:59 | INFO    | Full metrics JSON: outputs\metrics\model_a_classical_pinn_metrics.json
 23:37:59 | INFO    | Model A complete. This metrics JSON is the baseline Model B must beat.
+18:06:37 | INFO    | ======================================================================
+18:06:37 | INFO    | MODEL A — Classical PINN baseline — Burgers' Equation
+18:06:37 | INFO    | ======================================================================
+18:06:37 | INFO    | Device: cpu
+18:06:37 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:06:37 | INFO    | Sampling training points: 10000 collocation, 200 IC, 200x2 BC (strategy=lhs)
+18:06:37 | INFO    | Model architecture: [2, 64, 64, 64, 64, 64, 1], activation=tanh
+18:06:37 | INFO    | Trainable parameters: 16,897
+18:06:41 | INFO    | Phase 1/2: Adam — epochs 1..8000, lr=0.001 | early stopping: disabled
+18:06:42 | INFO    | [Adam     1/8000] total=7.543e-01 pde=1.006e-01 ic=5.934e-01 bc=6.027e-02 lr=1.00e-03 t=4.6s
+18:07:09 | INFO    | [Adam   200/8000] total=1.410e-01 pde=5.558e-02 ic=8.009e-02 bc=5.299e-03 lr=1.00e-03 t=32.1s
+18:07:33 | INFO    | [Adam   400/8000] total=1.006e-01 pde=4.538e-02 ic=5.110e-02 bc=4.164e-03 lr=1.00e-03 t=55.7s
+18:07:56 | INFO    | [Adam   600/8000] total=8.184e-02 pde=3.211e-02 ic=4.890e-02 bc=8.357e-04 lr=1.00e-03 t=78.6s
+18:08:21 | INFO    | [Adam   800/8000] total=5.654e-02 pde=2.087e-02 ic=3.552e-02 bc=1.538e-04 lr=1.00e-03 t=103.5s
+18:08:45 | INFO    | [Adam  1000/8000] total=4.111e-02 pde=1.873e-02 ic=2.229e-02 bc=9.343e-05 lr=1.00e-03 t=127.9s

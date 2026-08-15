@@ -1,0 +1,114 @@
+18:28:00 | INFO    | ======================================================================
+18:28:00 | INFO    | MODEL A — Classical PINN baseline — Burgers' Equation
+18:28:00 | INFO    | ======================================================================
+18:28:00 | INFO    | Device: cpu
+18:28:00 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+18:28:00 | INFO    | Sampling training points: 10000 collocation, 200 IC, 200x2 BC (strategy=lhs)
+18:28:00 | INFO    | Model architecture: [2, 7, 7, 1], activation=tanh
+18:28:00 | INFO    | Trainable parameters: 85
+18:28:02 | INFO    | Phase 1/2: Adam — epochs 1..8000, lr=0.001 | early stopping: disabled
+18:28:02 | INFO    | [Adam     1/8000] total=1.007e+00 pde=2.190e-01 ic=6.662e-01 bc=1.217e-01 lr=1.00e-03 t=2.4s
+18:28:05 | INFO    | [Adam   200/8000] total=3.672e-01 pde=3.658e-03 ic=3.075e-01 bc=5.606e-02 lr=1.00e-03 t=5.0s
+18:28:07 | INFO    | [Adam   400/8000] total=3.367e-01 pde=1.351e-02 ic=2.800e-01 bc=4.315e-02 lr=1.00e-03 t=7.5s
+18:28:10 | INFO    | [Adam   600/8000] total=2.889e-01 pde=2.080e-02 ic=2.314e-01 bc=3.667e-02 lr=1.00e-03 t=9.9s
+18:28:12 | INFO    | [Adam   800/8000] total=1.985e-01 pde=2.670e-02 ic=1.487e-01 bc=2.305e-02 lr=1.00e-03 t=12.3s
+18:28:14 | INFO    | [Adam  1000/8000] total=1.521e-01 pde=4.863e-02 ic=9.460e-02 bc=8.855e-03 lr=1.00e-03 t=14.8s
+18:28:17 | INFO    | [Adam  1200/8000] total=1.480e-01 pde=5.603e-02 ic=8.516e-02 bc=6.808e-03 lr=1.00e-03 t=17.1s
+18:28:19 | INFO    | [Adam  1400/8000] total=1.458e-01 pde=5.524e-02 ic=8.375e-02 bc=6.843e-03 lr=1.00e-03 t=19.5s
+18:28:22 | INFO    | [Adam  1600/8000] total=1.437e-01 pde=5.375e-02 ic=8.284e-02 bc=7.119e-03 lr=1.00e-03 t=21.9s
+18:28:24 | INFO    | [Adam  1800/8000] total=1.417e-01 pde=5.232e-02 ic=8.188e-02 bc=7.464e-03 lr=1.00e-03 t=24.1s
+18:28:26 | INFO    | [Adam  2000/8000] total=1.397e-01 pde=5.119e-02 ic=8.085e-02 bc=7.688e-03 lr=5.00e-04 t=26.2s
+18:28:28 | INFO    | [Adam  2200/8000] total=1.387e-01 pde=5.073e-02 ic=8.029e-02 bc=7.690e-03 lr=5.00e-04 t=28.4s
+18:28:30 | INFO    | [Adam  2400/8000] total=1.376e-01 pde=5.031e-02 ic=7.967e-02 bc=7.598e-03 lr=5.00e-04 t=30.6s
+18:28:33 | INFO    | [Adam  2600/8000] total=1.363e-01 pde=4.994e-02 ic=7.897e-02 bc=7.408e-03 lr=5.00e-04 t=33.1s
+18:28:35 | INFO    | [Adam  2800/8000] total=1.349e-01 pde=4.962e-02 ic=7.818e-02 bc=7.127e-03 lr=5.00e-04 t=35.6s
+18:28:38 | INFO    | [Adam  3000/8000] total=1.335e-01 pde=4.937e-02 ic=7.732e-02 bc=6.775e-03 lr=5.00e-04 t=38.6s
+18:28:41 | INFO    | [Adam  3200/8000] total=1.320e-01 pde=4.918e-02 ic=7.642e-02 bc=6.383e-03 lr=5.00e-04 t=41.5s
+18:28:46 | INFO    | [Adam  3400/8000] total=1.306e-01 pde=4.906e-02 ic=7.551e-02 bc=5.982e-03 lr=5.00e-04 t=46.7s
+18:28:52 | INFO    | [Adam  3600/8000] total=1.291e-01 pde=4.896e-02 ic=7.462e-02 bc=5.574e-03 lr=5.00e-04 t=52.8s
+18:28:59 | INFO    | [Adam  3800/8000] total=1.277e-01 pde=4.881e-02 ic=7.373e-02 bc=5.139e-03 lr=5.00e-04 t=59.0s
+18:29:05 | INFO    | [Adam  4000/8000] total=1.260e-01 pde=4.859e-02 ic=7.277e-02 bc=4.646e-03 lr=2.50e-04 t=65.1s
+18:29:11 | INFO    | [Adam  4200/8000] total=1.250e-01 pde=4.847e-02 ic=7.221e-02 bc=4.366e-03 lr=2.50e-04 t=71.1s
+18:29:17 | INFO    | [Adam  4400/8000] total=1.240e-01 pde=4.836e-02 ic=7.158e-02 bc=4.059e-03 lr=2.50e-04 t=77.0s
+18:29:23 | INFO    | [Adam  4600/8000] total=1.229e-01 pde=4.828e-02 ic=7.087e-02 bc=3.736e-03 lr=2.50e-04 t=83.0s
+18:29:29 | INFO    | [Adam  4800/8000] total=1.217e-01 pde=4.821e-02 ic=7.010e-02 bc=3.414e-03 lr=2.50e-04 t=89.1s
+18:29:35 | INFO    | [Adam  5000/8000] total=1.205e-01 pde=4.812e-02 ic=6.929e-02 bc=3.106e-03 lr=2.50e-04 t=95.0s
+18:29:41 | INFO    | [Adam  5200/8000] total=1.192e-01 pde=4.796e-02 ic=6.846e-02 bc=2.818e-03 lr=2.50e-04 t=101.0s
+18:29:46 | INFO    | [Adam  5400/8000] total=1.179e-01 pde=4.770e-02 ic=6.762e-02 bc=2.547e-03 lr=2.50e-04 t=106.7s
+18:29:53 | INFO    | [Adam  5600/8000] total=1.164e-01 pde=4.734e-02 ic=6.676e-02 bc=2.289e-03 lr=2.50e-04 t=112.9s
+18:29:59 | INFO    | [Adam  5800/8000] total=1.148e-01 pde=4.692e-02 ic=6.587e-02 bc=2.043e-03 lr=2.50e-04 t=119.1s
+18:30:05 | INFO    | [Adam  6000/8000] total=1.132e-01 pde=4.645e-02 ic=6.496e-02 bc=1.810e-03 lr=1.25e-04 t=125.1s
+18:30:11 | INFO    | [Adam  6200/8000] total=1.124e-01 pde=4.620e-02 ic=6.449e-02 bc=1.699e-03 lr=1.25e-04 t=131.1s
+18:30:17 | INFO    | [Adam  6400/8000] total=1.115e-01 pde=4.592e-02 ic=6.399e-02 bc=1.591e-03 lr=1.25e-04 t=137.2s
+18:30:23 | INFO    | [Adam  6600/8000] total=1.106e-01 pde=4.560e-02 ic=6.347e-02 bc=1.486e-03 lr=1.25e-04 t=143.1s
+18:30:29 | INFO    | [Adam  6800/8000] total=1.096e-01 pde=4.525e-02 ic=6.293e-02 bc=1.383e-03 lr=1.25e-04 t=149.0s
+18:30:35 | INFO    | [Adam  7000/8000] total=1.085e-01 pde=4.486e-02 ic=6.236e-02 bc=1.281e-03 lr=1.25e-04 t=154.9s
+18:30:41 | INFO    | [Adam  7200/8000] total=1.074e-01 pde=4.443e-02 ic=6.177e-02 bc=1.181e-03 lr=1.25e-04 t=161.0s
+18:30:47 | INFO    | [Adam  7400/8000] total=1.062e-01 pde=4.398e-02 ic=6.114e-02 bc=1.084e-03 lr=1.25e-04 t=167.1s
+18:30:53 | INFO    | [Adam  7600/8000] total=1.050e-01 pde=4.352e-02 ic=6.049e-02 bc=9.895e-04 lr=1.25e-04 t=172.9s
+18:30:59 | INFO    | [Adam  7800/8000] total=1.038e-01 pde=4.307e-02 ic=5.981e-02 bc=9.009e-04 lr=1.25e-04 t=178.9s
+18:31:04 | INFO    | [Adam  8000/8000] total=1.026e-01 pde=4.266e-02 ic=5.912e-02 bc=8.202e-04 lr=6.25e-05 t=184.8s
+18:31:04 | INFO    | Phase 2/2: L-BFGS — up to 2000 iterations
+18:31:04 | INFO    | [LBFGS     1] total=1.026e-01 pde=4.266e-02 ic=5.912e-02 bc=8.198e-04 t=0.0s
+18:31:10 | INFO    | [LBFGS   200] total=7.893e-02 pde=3.086e-02 ic=4.605e-02 bc=2.013e-03 t=5.5s
+18:31:15 | INFO    | [LBFGS   400] total=4.966e-02 pde=2.549e-02 ic=2.384e-02 bc=3.231e-04 t=10.9s
+18:31:21 | INFO    | [LBFGS   600] total=4.191e-02 pde=2.313e-02 ic=1.863e-02 bc=1.432e-04 t=16.3s
+18:31:26 | INFO    | [LBFGS   800] total=3.836e-02 pde=2.070e-02 ic=1.749e-02 bc=1.652e-04 t=21.7s
+18:31:31 | INFO    | [LBFGS  1000] total=3.493e-02 pde=1.912e-02 ic=1.566e-02 bc=1.513e-04 t=26.8s
+18:31:36 | INFO    | [LBFGS  1200] total=3.320e-02 pde=1.799e-02 ic=1.504e-02 bc=1.652e-04 t=32.0s
+18:31:42 | INFO    | [LBFGS  1400] total=3.145e-02 pde=1.713e-02 ic=1.406e-02 bc=2.661e-04 t=37.2s
+18:31:47 | INFO    | [LBFGS  1600] total=2.948e-02 pde=1.565e-02 ic=1.341e-02 bc=4.222e-04 t=42.2s
+18:31:52 | INFO    | [LBFGS  1800] total=2.806e-02 pde=1.487e-02 ic=1.277e-02 bc=4.199e-04 t=47.3s
+18:31:57 | INFO    | [LBFGS  2000] total=2.606e-02 pde=1.238e-02 ic=1.333e-02 bc=3.489e-04 t=52.7s
+18:32:02 | INFO    | Training complete. Total time: 241.9s (Adam: 184.8s, LBFGS: 57.0s). Best total loss: 2.470e-02
+18:32:02 | INFO    | Evaluation metrics:
+18:32:02 | INFO    |   l2_relative_error: 0.21311059858355696
+18:32:02 | INFO    |   max_abs_error: 1.4405534880586641
+18:32:02 | INFO    |   mean_abs_error: 0.06735138126312616
+18:32:02 | INFO    |   shock_region_l2_relative_error: 0.5370887771581936
+18:32:02 | INFO    |   shock_region_max_abs_error: 1.4405534880586641
+18:32:02 | INFO    |   pde_residual_mean_abs: 0.08018723875284195
+18:32:02 | INFO    |   pde_residual_max_abs: 2.226207733154297
+18:32:02 | INFO    |   pde_residual_rmse: 0.12341287732124329
+18:32:02 | INFO    |   fourier_spectrum_l2_relative_error: 0.08799553176306317
+18:32:02 | INFO    |   num_trainable_parameters: 85
+18:32:02 | INFO    | Metrics saved to outputs\metrics\model_a_matched_85params_metrics.json
+18:32:02 | INFO    | Generating figures...
+18:32:09 | INFO    | Figures saved to outputs\figures\model_a_matched_85params/
+18:32:09 | INFO    | ======================================================================
+18:32:09 | INFO    | SUMMARY — Model A (Classical PINN)
+18:32:09 | INFO    | ======================================================================
+18:32:09 | INFO    | L2 relative error (global):        2.1311e-01
+18:32:09 | INFO    | L2 relative error (shock region):  5.3709e-01
+18:32:09 | INFO    | Max absolute error:                1.4406e+00
+18:32:09 | INFO    | PDE residual RMSE:                 1.2341e-01
+18:32:09 | INFO    | Fourier spectrum L2 error:          8.7996e-02
+18:32:09 | INFO    | Total training time:                241.9s
+18:32:09 | INFO    | Trainable parameters:                85
+18:32:09 | INFO    | Full metrics JSON: outputs\metrics\model_a_matched_85params_metrics.json
+18:32:09 | INFO    | Model A complete. This metrics JSON is the baseline Model B must beat.
+22:40:03 | INFO    | ======================================================================
+22:40:03 | INFO    | MODEL A — Classical PINN baseline — Burgers' Equation
+22:40:03 | INFO    | ======================================================================
+22:40:03 | INFO    | Device: cpu
+22:40:03 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+22:40:03 | INFO    | Sampling training points: 10000 collocation, 200 IC, 200x2 BC (strategy=lhs)
+22:40:03 | INFO    | Model architecture: [2, 7, 7, 1], activation=tanh
+22:40:03 | INFO    | Trainable parameters: 85
+22:40:07 | INFO    | Phase 1/2: Adam — epochs 1..8000, lr=0.001 | early stopping: disabled
+22:40:07 | INFO    | [Adam     1/8000] total=1.007e+00 pde=2.190e-01 ic=6.662e-01 bc=1.217e-01 lr=1.00e-03 t=3.8s
+22:40:10 | INFO    | [Adam   200/8000] total=3.672e-01 pde=3.658e-03 ic=3.075e-01 bc=5.606e-02 lr=1.00e-03 t=6.1s
+22:40:12 | INFO    | [Adam   400/8000] total=3.367e-01 pde=1.351e-02 ic=2.800e-01 bc=4.315e-02 lr=1.00e-03 t=8.4s
+22:40:14 | INFO    | [Adam   600/8000] total=2.889e-01 pde=2.080e-02 ic=2.314e-01 bc=3.667e-02 lr=1.00e-03 t=10.4s
+22:40:16 | INFO    | [Adam   800/8000] total=1.985e-01 pde=2.670e-02 ic=1.487e-01 bc=2.305e-02 lr=1.00e-03 t=12.6s
+09:53:20 | INFO    | ======================================================================
+09:53:20 | INFO    | MODEL A — Classical PINN baseline — Burgers' Equation
+09:53:20 | INFO    | ======================================================================
+09:53:20 | INFO    | Device: cpu
+09:53:20 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+09:53:20 | INFO    | Sampling training points: 10000 collocation, 200 IC, 200x2 BC (strategy=lhs)
+09:53:20 | INFO    | Model architecture: [2, 7, 7, 1], activation=tanh
+09:53:20 | INFO    | Trainable parameters: 85
+09:53:23 | INFO    | Phase 1/2: Adam — epochs 1..8000, lr=0.001 | early stopping: disabled
+09:53:23 | INFO    | [Adam     1/8000] total=1.007e+00 pde=2.190e-01 ic=6.662e-01 bc=1.217e-01 lr=1.00e-03 t=2.9s
+09:53:26 | INFO    | [Adam   200/8000] total=3.672e-01 pde=3.658e-03 ic=3.075e-01 bc=5.606e-02 lr=1.00e-03 t=5.3s

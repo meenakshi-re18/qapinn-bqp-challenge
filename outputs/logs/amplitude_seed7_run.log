@@ -1,0 +1,71 @@
+17:05:12 | INFO    | ======================================================================
+17:05:12 | INFO    | MODEL B — Quantum-Assisted PINN (QAPINN) — Burgers' Equation
+17:05:12 | INFO    | ======================================================================
+17:05:12 | INFO    | Device: cpu
+17:05:12 | INFO    | Quantum config: 4 qubits, depth=3, encoding=amplitude, entanglement=circular, input_mode=direct
+17:05:12 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+17:05:12 | INFO    | Sampling training points: 4000 collocation, 200 IC, 200x2 BC
+17:05:12 | INFO    | Trainable parameters: 85
+17:05:14 | INFO    | Phase 1/2: Adam — epochs 1..3000, lr=0.001 | early stopping: disabled
+17:05:14 | INFO    | [Adam     1/3000] total=5.808e-01 pde=4.466e-02 ic=5.320e-01 bc=4.060e-03 lr=1.00e-03 q_grad_norm=2.782e-01 t=1.9s
+17:05:40 | INFO    | [Adam   100/3000] total=4.683e-01 pde=1.772e-02 ic=4.468e-01 bc=3.787e-03 lr=1.00e-03 q_grad_norm=1.066e-01 t=27.4s
+17:06:11 | INFO    | [Adam   200/3000] total=4.156e-01 pde=4.487e-02 ic=3.618e-01 bc=8.872e-03 lr=1.00e-03 q_grad_norm=1.046e-01 t=58.9s
+17:06:45 | INFO    | [Adam   300/3000] total=3.706e-01 pde=6.480e-02 ic=2.931e-01 bc=1.279e-02 lr=1.00e-03 q_grad_norm=7.718e-02 t=92.8s
+17:07:20 | INFO    | [Adam   400/3000] total=3.382e-01 pde=6.887e-02 ic=2.541e-01 bc=1.527e-02 lr=1.00e-03 q_grad_norm=7.674e-02 t=127.3s
+17:07:56 | INFO    | [Adam   500/3000] total=3.029e-01 pde=7.313e-02 ic=2.122e-01 bc=1.755e-02 lr=1.00e-03 q_grad_norm=8.709e-02 t=163.5s
+17:08:32 | INFO    | [Adam   600/3000] total=2.729e-01 pde=8.581e-02 ic=1.724e-01 bc=1.471e-02 lr=1.00e-03 q_grad_norm=5.640e-02 t=200.0s
+17:09:11 | INFO    | [Adam   700/3000] total=2.577e-01 pde=9.342e-02 ic=1.555e-01 bc=8.780e-03 lr=1.00e-03 q_grad_norm=4.059e-02 t=238.3s
+17:09:59 | INFO    | [Adam   800/3000] total=2.472e-01 pde=9.427e-02 ic=1.473e-01 bc=5.624e-03 lr=5.00e-04 q_grad_norm=3.381e-02 t=286.5s
+17:10:47 | INFO    | [Adam   900/3000] total=2.402e-01 pde=9.341e-02 ic=1.425e-01 bc=4.319e-03 lr=5.00e-04 q_grad_norm=3.317e-02 t=334.5s
+17:11:36 | INFO    | [Adam  1000/3000] total=2.329e-01 pde=9.171e-02 ic=1.376e-01 bc=3.544e-03 lr=5.00e-04 q_grad_norm=3.483e-02 t=383.2s
+17:12:26 | INFO    | [Adam  1100/3000] total=2.251e-01 pde=8.962e-02 ic=1.323e-01 bc=3.166e-03 lr=5.00e-04 q_grad_norm=3.728e-02 t=433.3s
+17:13:12 | INFO    | [Adam  1200/3000] total=2.166e-01 pde=8.738e-02 ic=1.262e-01 bc=3.042e-03 lr=5.00e-04 q_grad_norm=3.776e-02 t=479.5s
+17:13:55 | INFO    | [Adam  1300/3000] total=2.082e-01 pde=8.534e-02 ic=1.199e-01 bc=3.020e-03 lr=5.00e-04 q_grad_norm=3.482e-02 t=522.3s
+17:14:37 | INFO    | [Adam  1400/3000] total=2.005e-01 pde=8.334e-02 ic=1.141e-01 bc=2.996e-03 lr=5.00e-04 q_grad_norm=3.230e-02 t=564.7s
+17:15:17 | INFO    | [Adam  1500/3000] total=1.924e-01 pde=8.067e-02 ic=1.088e-01 bc=2.961e-03 lr=2.50e-04 q_grad_norm=3.324e-02 t=605.1s
+17:16:04 | INFO    | [Adam  1600/3000] total=1.881e-01 pde=7.901e-02 ic=1.062e-01 bc=2.926e-03 lr=2.50e-04 q_grad_norm=3.381e-02 t=651.4s
+17:16:53 | INFO    | [Adam  1700/3000] total=1.839e-01 pde=7.728e-02 ic=1.038e-01 bc=2.882e-03 lr=2.50e-04 q_grad_norm=3.330e-02 t=700.3s
+17:17:35 | INFO    | [Adam  1800/3000] total=1.800e-01 pde=7.560e-02 ic=1.016e-01 bc=2.847e-03 lr=2.50e-04 q_grad_norm=3.150e-02 t=742.7s
+17:18:16 | INFO    | [Adam  1900/3000] total=1.765e-01 pde=7.410e-02 ic=9.956e-02 bc=2.823e-03 lr=2.50e-04 q_grad_norm=2.878e-02 t=783.7s
+17:18:58 | INFO    | [Adam  2000/3000] total=1.734e-01 pde=7.285e-02 ic=9.779e-02 bc=2.795e-03 lr=2.50e-04 q_grad_norm=2.580e-02 t=825.2s
+17:19:39 | INFO    | [Adam  2100/3000] total=1.708e-01 pde=7.182e-02 ic=9.622e-02 bc=2.750e-03 lr=2.50e-04 q_grad_norm=2.296e-02 t=866.4s
+17:20:21 | INFO    | [Adam  2200/3000] total=1.685e-01 pde=7.094e-02 ic=9.486e-02 bc=2.688e-03 lr=2.50e-04 q_grad_norm=2.038e-02 t=909.2s
+17:21:05 | INFO    | [Adam  2300/3000] total=1.670e-01 pde=7.035e-02 ic=9.397e-02 bc=2.634e-03 lr=1.25e-04 q_grad_norm=1.862e-02 t=952.9s
+17:21:48 | INFO    | [Adam  2400/3000] total=1.660e-01 pde=6.997e-02 ic=9.345e-02 bc=2.596e-03 lr=1.25e-04 q_grad_norm=1.752e-02 t=995.8s
+17:22:28 | INFO    | [Adam  2500/3000] total=1.651e-01 pde=6.962e-02 ic=9.296e-02 bc=2.555e-03 lr=1.25e-04 q_grad_norm=1.648e-02 t=1035.6s
+17:22:59 | INFO    | [Adam  2600/3000] total=1.643e-01 pde=6.927e-02 ic=9.250e-02 bc=2.512e-03 lr=1.25e-04 q_grad_norm=1.550e-02 t=1066.9s
+17:23:31 | INFO    | [Adam  2700/3000] total=1.635e-01 pde=6.894e-02 ic=9.208e-02 bc=2.467e-03 lr=1.25e-04 q_grad_norm=1.460e-02 t=1099.1s
+17:24:08 | INFO    | [Adam  2800/3000] total=1.627e-01 pde=6.863e-02 ic=9.169e-02 bc=2.420e-03 lr=1.25e-04 q_grad_norm=1.376e-02 t=1136.1s
+17:24:47 | INFO    | [Adam  2900/3000] total=1.620e-01 pde=6.832e-02 ic=9.132e-02 bc=2.369e-03 lr=1.25e-04 q_grad_norm=1.299e-02 t=1174.5s
+17:25:23 | INFO    | [Adam  3000/3000] total=1.613e-01 pde=6.803e-02 ic=9.097e-02 bc=2.316e-03 lr=6.25e-05 q_grad_norm=1.229e-02 t=1210.7s
+17:25:23 | INFO    | Phase 2/2: L-BFGS — up to 300 iterations
+17:25:23 | INFO    | [LBFGS     1] total=1.613e-01 pde=6.803e-02 ic=9.097e-02 bc=2.316e-03 q_grad_norm=1.228e-02 t=0.4s
+17:25:59 | INFO    | [LBFGS   100] total=1.414e-01 pde=6.154e-02 ic=7.905e-02 bc=8.321e-04 q_grad_norm=8.196e-02 t=36.1s
+17:26:37 | INFO    | [LBFGS   200] total=1.352e-01 pde=5.939e-02 ic=7.492e-02 bc=9.066e-04 q_grad_norm=3.741e-02 t=73.7s
+17:27:16 | INFO    | [LBFGS   300] total=1.336e-01 pde=5.699e-02 ic=7.607e-02 bc=5.115e-04 q_grad_norm=2.623e-01 t=112.9s
+17:27:21 | INFO    | Training complete. Total time: 1329.0s (Adam: 1210.7s, LBFGS: 118.1s). Best total loss: 1.334e-01
+17:27:26 | INFO    | Evaluation metrics:
+17:27:26 | INFO    |   l2_relative_error: 0.5504767255461755
+17:27:26 | INFO    |   max_abs_error: 1.0243974301315526
+17:27:26 | INFO    |   mean_abs_error: 0.2260146152682378
+17:27:26 | INFO    |   shock_region_l2_relative_error: 0.8924684977357248
+17:27:26 | INFO    |   shock_region_max_abs_error: 1.0013921963440398
+17:27:26 | INFO    |   pde_residual_mean_abs: 0.190405935049057
+17:27:26 | INFO    |   pde_residual_max_abs: 0.7810949087142944
+17:27:26 | INFO    |   pde_residual_rmse: 0.24286463856697083
+17:27:26 | INFO    |   fourier_spectrum_l2_relative_error: 0.5087217731073829
+17:27:26 | INFO    |   num_trainable_parameters: 85
+17:27:26 | INFO    | Metrics saved to outputs\metrics\amplitude_seed7_metrics.json
+17:27:26 | INFO    | Generating figures...
+17:27:28 | INFO    | Figures saved to outputs\figures\amplitude_seed7/
+17:27:28 | INFO    | ======================================================================
+17:27:28 | INFO    | SUMMARY — Model B (QAPINN)
+17:27:28 | INFO    | ======================================================================
+17:27:28 | INFO    | L2 relative error (global):        5.5048e-01
+17:27:28 | INFO    | L2 relative error (shock region):  8.9247e-01
+17:27:28 | INFO    | Max absolute error:                1.0244e+00
+17:27:28 | INFO    | PDE residual RMSE:                 2.4286e-01
+17:27:28 | INFO    | Fourier spectrum L2 error:          5.0872e-01
+17:27:28 | INFO    | Trainable parameters:                85
+17:27:28 | INFO    | Full metrics JSON: outputs\metrics\amplitude_seed7_metrics.json
+17:27:28 | INFO    | Compare this against outputs/metrics/model_a_classical_pinn_metrics.json
