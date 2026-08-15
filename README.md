@@ -28,9 +28,7 @@ New experiments:
   configuration, both direct and preprocessed input modes
 - **Parameter-matched classical baselines** at 85 and 107 parameters,
   isolating the performance gap from raw parameter count
-- **Preprocessed input-mode validation**: a small classical layer before
-  the quantum encoding substantially narrows the performance gap and
-  reduces Fourier-spectrum error relative to direct quantum encoding
+- **Preprocessed input-mode validation**: a small classical preprocessing layer before the quantum encoding substantially improves the preprocessed QAPINN configuration relative to direct quantum input.
 
 New files: `config_a_matched.py`, `config_a_matched_107.py`,
 `main_a_matched.py`, `main_a_matched_107.py` — parameter-matched
@@ -42,7 +40,7 @@ classical baselines, kept separate from the original `config.py`/
 ## Repository:
 https://github.com/meenakshi-re18/qapinn-bqp-challenge
 
-Complete technical report and presentation are available in the report/ and presentation/ folders.
+The original technical report and presentation are available in the report/ and presentation/ folders. Post-submission validation experiments are documented separately in this README and their associated output files.
 
 ---
 
@@ -136,7 +134,7 @@ u(-1, t) = u(1, t) = 0
 
 This work makes the following contributions:
 
-- Developed a controlled comparison framework where the Classical PINN and QAPINN share every component except the input representation.
+- Developed a controlled comparison framework for Classical PINNs and QAPINNs, including direct and preprocessed quantum input representations, with parameter-matched classical baselines to isolate model-capacity effects.
 
 - Performed systematic controlled ablations across:
   - Data encoding
@@ -160,6 +158,8 @@ This work makes the following contributions:
 QAPINN/
 │
 ├── config.py
+├── config_a_matched.py
+├── config_a_matched_107.py
 ├── config_b.py
 ├── model.py
 ├── model_b.py
@@ -172,6 +172,8 @@ QAPINN/
 ├── utils.py
 │
 ├── main.py
+├── main_a_matched.py
+├── main_a_matched_107.py
 ├── main_b.py
 ├── ablation_runner.py
 ├── evaluate_saved_model_b.py
@@ -213,6 +215,7 @@ Detailed descriptions of the major source files and experimental workflow are pr
 | Quantum Backend  | PennyLane `default.qubit` simulator |
 | GPU              | None (CPU-only execution)           |
 | Random Seed      | 42                                  |
+| Extension Seeds  | 7, 99 (seed variance validation, SMARTT 2026 extension) |
 | Git Version      | Latest                              |
 
 
@@ -307,8 +310,9 @@ The controlled experiments showed that:
 
 - L-BFGS refinement benefited amplitude encoding much more strongly than angle re-uploading.
 
-- Across all controlled experiments, representation learning and optimization strategy consistently had a greater impact on QAPINN performance than increasing qubit count, circuit depth, entanglement topology, or collocation density under the evaluated settings.
+- Under the evaluated settings, representation and optimization strategy showed larger effects on QAPINN performance than increasing qubit count, circuit depth, or changing entanglement topology.
 
+> **Note:** The table below reflects the original WISER BQP Challenge 2026 submission (tagged `wiser-bqp-submission`) and is superseded by the validated extended results in the section below. Retained here for historical/reproducibility reference.
 
 | Metric | Model A | Model B (baseline config) | Model B (amplitude + L-BFGS, reduced budget) |
 |---|---|---|---|
@@ -318,6 +322,32 @@ The controlled experiments showed that:
 | Trainable parameters | 16,897 | 85 | 85 |
 
 These results demonstrate that representation and optimization strategy had a substantially greater influence on QAPINN performance than increasing quantum circuit resources. Although the classical PINN remained the strongest performer on the evaluated benchmark, controlled experiments identified encoding choice as the dominant architectural factor affecting performance.
+
+---
+
+## Extended Results — Post-Submission Validation (SMARTT 2026)
+
+The results below extend the original submission with seed-variance
+validation and parameter-controlled baselines, conducted after the
+WISER BQP Challenge 2026 submission. See "Post-Submission Extension"
+section above for scope and file provenance.
+
+| Configuration | Parameters | Global L2 | Shock-region L2 | Fourier L2 |
+|---|---|---|---|---|
+| Full Classical PINN | 16,897 | 4.01% | 11.83% | — *(not re-validated in this extension)* |
+| Direct QAPINN (amplitude + L-BFGS, mean ± std, n=3 seeds) | 85 | 54.14 ± 1.95% | 88.17 ± 1.76% | 50.57 ± 3.59% |
+| Parameter-matched Classical | 85 | 21.31% | 53.71% | 8.80% |
+| Preprocessed QAPINN (amplitude + L-BFGS, mean ± std, n=3 seeds) | 107 | 43.90 ± 0.75% | 72.46 ± 3.56% | 24.66 ± 0.75% |
+| Parameter-matched Classical | 107 | 32.89% | 79.57% | 10.52% |
+
+**Interpretation:**
+- The classical PINN remains substantially stronger overall — this work does not claim quantum advantage.
+- At equal parameter count (85), the classical model outperforms QAPINN on every reported metric.
+- At equal parameter count (107), the classical model outperforms QAPINN on global and Fourier error.
+- At 107 parameters, however, the preprocessed QAPINN configuration achieves lower shock-region error than its parameter-matched classical counterpart (72.46 ± 3.56% vs. 79.57%).
+- Note: the direct (85-param) vs. preprocessed (107-param) QAPINN comparison is not parameter-matched to each other. The preprocessed configuration consistently outperformed the direct-input configuration across three seeds, but the separate contributions of the added preprocessing layer versus the added parameter capacity remain unresolved by this experiment. This should be read as a localized result, not a general finding about quantum advantage or about preprocessing in isolation.
+
+**Ablation budget disclosure:** the encoding/qubit-count/depth/entanglement ablation sweep used a reduced per-run budget — 300 Adam epochs, 800 collocation points, no L-BFGS — to keep the full multi-factor sweep tractable. These results identify directional trends across configurations and are not intended to represent maximum achievable performance for any single configuration. Detailed ablation results are reported in the technical report.
 
 ---
 
