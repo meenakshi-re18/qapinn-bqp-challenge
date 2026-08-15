@@ -80,7 +80,7 @@ Encoding × Optimizer Analysis
 Collocation Density Study
         │
         ▼
-Matched-Budget Validation
+Matched-Budget & Parameter-Matched Validation
         │
         ▼
 Conclusions
