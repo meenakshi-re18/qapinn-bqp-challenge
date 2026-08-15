@@ -40,7 +40,7 @@ classical baselines, kept separate from the original `config.py`/
 ## Repository:
 https://github.com/meenakshi-re18/qapinn-bqp-challenge
 
-The original technical report and presentation are available in the report/ and presentation/ folders. Post-submission validation experiments are documented separately in this README and their associated output files.
+The original technical report and presentation are available in the report/ and presentation/ folders. The post-submission validation experiments and their results are documented in the Extended Results section of this README and in the associated experiment outputs.
 
 ---
 
@@ -144,7 +144,7 @@ This work makes the following contributions:
   - Entanglement
   - Collocation density
 
-- Demonstrated that **representation and optimization strategy** have substantially greater influence on QAPINN performance than increasing circuit resources.
+- Demonstrated that, under the evaluated settings, **representation and optimization strategy** had larger effects on QAPINN performance than increasing circuit resources.
 
 - Showed that **encoding choice** is the dominant architectural factor under the evaluated settings.
 
@@ -214,8 +214,7 @@ Detailed descriptions of the major source files and experimental workflow are pr
 | RAM              | 16 GB                               |
 | Quantum Backend  | PennyLane `default.qubit` simulator |
 | GPU              | None (CPU-only execution)           |
-| Random Seed      | 42                                  |
-| Extension Seeds  | 7, 99 (seed variance validation, SMARTT 2026 extension) |
+| Validation Seeds | 42, 7, 99 (3-seed validation; SMARTT 2026 extension) |
 | Git Version      | Latest                              |
 
 
@@ -365,7 +364,7 @@ including
 - figures
 - reference solutions
 
-All figures presented in the report and presentation were generated directly from these outputs.
+The figures included in the report and presentation were generated from the corresponding experiment outputs stored in this repository.
 
 Each experiment produces its own checkpoint, metrics,
 logs and figures using unique MODEL_NAME or run_name
