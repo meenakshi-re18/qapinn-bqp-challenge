@@ -1,6 +1,6 @@
 # Quantum-Assisted Physics-Informed Neural Networks for Aerospace Shock-Wave Modeling
 
-## A Mechanistic Investigation of Representation, Optimization, and Spectral Bias
+## A Mechanistic Investigation of Representation, Optimization, and Spectral Learning
 
 **BQP Challenge 2026 – WISER Summer Program**
 
@@ -8,54 +8,108 @@
 
 ## Overview
 
-This repository contains the complete implementation, experiments, technical report, and presentation for our submission to the **BQP WISER Summer Challenge 2026**.
+This repository contains the implementation, experiments, technical report, presentation, and extended validation studies for our work on **Quantum-Assisted Physics-Informed Neural Networks (QAPINNs)** for shock-wave modeling using the viscous Burgers' equation.
 
-The project investigates whether a **Quantum-Assisted Physics-Informed Neural Network (QAPINN)** can reduce spectral bias and improve shock-region accuracy on the viscous Burgers' equation compared to a classical Physics-Informed Neural Network (PINN).
+The project investigates whether a **quantum input representation, integrated into a Physics-Informed Neural Network (PINN), changes how the model learns sharp, high-gradient regions and frequency-dependent structure**.
 
-Rather than attempting to demonstrate an unconditional quantum advantage, this work systematically studies **which architectural and optimization choices actually influence QAPINN performance** through controlled experiments.
+Rather than treating quantum integration as an attempt to demonstrate unconditional quantum advantage, this study focuses on a more controlled question:
 
----
+> **How do representation, preprocessing, model capacity, optimization, and quantum-circuit design interact to influence QAPINN learning behaviour?**
 
-## Post-Submission Extension (SMARTT 2026)
-
-The experiments and findings below were conducted after the WISER BQP
-Challenge 2026 submission (tagged `wiser-bqp-submission`) and extend
-this work for a separate submission to SMARTT 2026. They do not modify
-or replace the original submission.
-
-New experiments:
-- **Seed variance validation** (seeds 42, 7, 99) on the amplitude+L-BFGS
-  configuration, both direct and preprocessed input modes
-- **Parameter-matched classical baselines** at 85 and 107 parameters,
-  isolating the performance gap from raw parameter count
-- **Preprocessed input-mode validation**: a small classical preprocessing layer before the quantum encoding substantially improves the preprocessed QAPINN configuration relative to direct quantum input.
-
-New files: `config_a_matched.py`, `config_a_matched_107.py`,
-`main_a_matched.py`, `main_a_matched_107.py` — parameter-matched
-classical baselines, kept separate from the original `config.py`/
-`main.py` so the BQP baseline remains reproducible unchanged.
+The viscous Burgers' equation is used as a controlled mathematical benchmark containing a sharp shock structure. An independently generated numerical reference solution is used for evaluation.
 
 ---
 
-## Repository:
-https://github.com/meenakshi-re18/qapinn-bqp-challenge
+## The Research Question
 
-The original technical report and presentation are available in the report/ and presentation/ folders. The post-submission validation experiments and their results are documented in the Extended Results section of this README and in the associated experiment outputs.
+The initial research question was:
+
+> **Can a quantum feature map, used as the input representation of a Physics-Informed Neural Network, improve learning of the shock region and frequency-dependent structure in the viscous Burgers' equation?**
+
+As the experiments progressed, the question became more mechanistic:
+
+> **When QAPINN behaviour changes, is the change caused by the quantum representation itself, by preprocessing, by model capacity, by optimization, or by their interaction?**
+
+The study therefore emphasizes controlled comparisons rather than simply asking whether a quantum model produces a lower overall error.
 
 ---
 
-## Project Status
+## Problem
 
-- [x] Classical PINN (Model A) implementation
-- [x] Quantum-Assisted PINN (Model B) implementation
-- [x] Controlled architecture comparison
-- [x] Ablation study (encoding, qubits, depth, entanglement)
-- [x] Optimizer × representation analysis
-- [x] Collocation-density sensitivity study
-- [x] Matched-budget validation
-- [x] Final technical report
-- [x] Final presentation
-- [x] Repository prepared for BQP WISER Summer Challenge 2026 submission
+We study the viscous Burgers' equation:
+
+```text
+u_t + u·u_x - ν·u_xx = 0
+
+x ∈ [-1, 1]
+t ∈ [0, 1]
+
+u(x, 0) = -sin(πx)
+
+u(-1, t) = u(1, t) = 0
+
+ν = 0.01/π
+```
+
+The equation develops a sharp shock structure, making it a useful controlled benchmark for investigating how neural networks represent high-gradient regions.
+
+This project is **not intended to be a complete CFD solver or a hypersonic-flow simulator**. Burgers' equation is used as a simplified mathematical benchmark for studying learning behaviour relevant to scientific machine learning.
+
+---
+
+## Why QAPINN?
+
+A standard PINN uses a classical neural network to approximate:
+
+```text
+(x, t) → u(x, t)
+```
+
+and trains the network using the governing PDE together with initial and boundary conditions.
+
+Our QAPINN investigates a hybrid representation in which the input is passed through a quantum circuit before the final classical prediction:
+
+```text
+(x, t)
+   │
+   ▼
+Quantum Input Encoding
+   │
+   ▼
+Variational Quantum Circuit
+   │
+   ▼
+Classical Neural Network
+   │
+   ▼
+u(x, t)
+   │
+   ▼
+PDE Residual + Boundary/Initial Loss
+```
+
+A second configuration introduces a small classical preprocessing stage before quantum encoding:
+
+```text
+(x, t)
+   │
+   ▼
+Classical Preprocessing
+   │
+   ▼
+Quantum Encoding
+   │
+   ▼
+Variational Quantum Circuit
+   │
+   ▼
+Classical Head
+   │
+   ▼
+u(x, t)
+```
+
+The purpose is to investigate whether these different representations change the learning behaviour of the PINN.
 
 ---
 
@@ -71,88 +125,487 @@ Classical PINN Baseline
 Quantum-Assisted PINN
         │
         ▼
-Controlled Ablation Studies
+Encoding & Architecture Ablations
         │
         ▼
-Encoding × Optimizer Analysis
+Optimizer × Representation Analysis
         │
         ▼
-Collocation Density Study
+Collocation-Density Study
         │
         ▼
-Matched-Budget & Parameter-Matched Validation
+Parameter-Matched Validation
         │
         ▼
-Conclusions
+3-Seed Preprocessing Ablation
+        │
+        ▼
+Frequency-Domain Analysis
+        │
+        ▼
+Next: Fixed-Capacity Preprocessing Study
 ```
+
+---
+
+## Key Contributions
+
+This work investigates:
+
+- Classical PINN and QAPINN architectures for the same PDE benchmark.
+- Direct and preprocessed quantum input representations.
+- Different quantum encoding strategies.
+- Qubit count, circuit depth, and entanglement topology.
+- Adam versus Adam + L-BFGS optimization.
+- Collocation-point density.
+- Parameter-matched classical baselines.
+- Repeated-seed validation.
+- Preprocessing effects on QAPINN performance.
+- Frequency-domain / Fourier-spectrum behaviour.
+- Spatial reconstruction of shock formation over time.
+
+A central goal is to distinguish **quantum representation effects** from effects caused by **model capacity, preprocessing, and optimization**.
+
 ---
 
 ## Team
 
 | Author | Role |
-|---------|------|
+|---|---|
 | **Meenakshi R.** | Quantum & QAPINN Research Lead |
 | **Krishna Priya Kaku** | Classical PINN & Numerical Modelling Lead |
 | **Mallampati Geethika** | Comparative Analysis & Documentation Lead |
 
+---
 
-| Author              | Email                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Meenakshi R.        | [rameenakshi1@gmail.com](mailto:rameenakshi1@gmail.com)         |
-| Krishna Priya Kaku  | [krishnapriyayadav71@gmail.com](mailto:krishnapriyayadav71@gmail.com) |
-| Mallampati Geethika | [mallampatigeethika@gmail.com](mailto:mallampatigeethika@gmail.com) |
+# Original WISER Study
+
+The original BQP WISER study established the baseline Classical PINN and QAPINN implementations and investigated:
+
+- Encoding strategy
+- Qubit count
+- Circuit depth
+- Entanglement topology
+- Optimizer choice
+- Collocation density
+- Direct quantum input representation
+- Amplitude encoding with L-BFGS refinement
+
+The original study found that the classical PINN remained substantially stronger on the evaluated benchmark, while representation and optimization choices had large effects on QAPINN behaviour.
+
+The original WISER results are retained in the repository for historical comparison and reproducibility.
 
 ---
 
-## The Research Question
+## Original Experimental Summary
 
-> Can a quantum feature map, used as the input representation of a Physics-Informed Neural Network, reduce spectral bias and improve shock-region accuracy on the viscous Burgers' equation?
+### Model A — Classical PINN
 
-If not,
+- Fully connected MLP
+- 16,897 trainable parameters
+- Adam + L-BFGS
+- 10,000 collocation points in the main baseline
 
-> Which architectural and optimization factors explain the observed behavior?
+### Model B — QAPINN
 
-We are not building a CFD solver or a hypersonic flow simulator. Burgers' equation is a
-standard, well-characterized benchmark that produces a sharp shock — a simplified
-mathematical proxy for shock formation in transonic/hypersonic aerospace flow.
+- Hybrid quantum-classical PINN
+- Quantum input representation
+- Variational quantum circuit
+- 85 trainable parameters in the evaluated baseline configuration
+- PennyLane implementation
+
+### Original WISER Results
+
+| Metric | Classical PINN | QAPINN — Baseline | QAPINN — Amplitude + L-BFGS |
+|---|---:|---:|---:|
+| Global L2 error | 4.01% | 98.36% | 55.47% |
+| Shock-region L2 error | 11.83% | 99.85% | 89.12% |
+| Fourier-spectrum L2 error | 1.35% | 88.90% | 53.99% |
+| Trainable parameters | 16,897 | 85 | 85 |
+
+These values describe the original WISER configurations and are kept separate from the later parameter-matched experiments.
 
 ---
 
-## Problem
+# Extended Experimental Validation
 
-Viscous Burgers' equation (Raissi et al., 2019 benchmark):
+Following the original study, additional experiments were conducted to investigate questions raised by the initial results.
 
+The extended experiments are maintained on the separate branch:
+
+```text
+experiments/indoml-round2
 ```
-u_t + u·u_x - ν·u_xx = 0,      x ∈ [-1, 1], t ∈ [0, 1]
-u(x, 0) = -sin(πx)
-u(-1, t) = u(1, t) = 0
-ν = 0.01/π
+
+The branch contains:
+
+1. Parameter-matched classical validation.
+2. Three-seed validation.
+3. A 2×2 preprocessing experiment.
+4. Frequency-domain spectral comparison.
+5. Spatial snapshot comparison.
+
+These experiments extend the mechanistic investigation without modifying the original validated WISER baseline.
+
+---
+
+## Experiment 1 — Parameter-Matched Classical Validation
+
+The original QAPINN configurations operated at substantially smaller parameter counts than the full classical PINN.
+
+To separate model-capacity effects from representation effects, smaller classical baselines were constructed at parameter counts corresponding to the QAPINN configurations.
+
+The extended validation uses three random seeds:
+
+```text
+42
+7
+99
 ```
----
 
-# Key Contributions
-
-This work makes the following contributions:
-
-- Developed a controlled comparison framework for Classical PINNs and QAPINNs, including direct and preprocessed quantum input representations, with parameter-matched classical baselines to isolate model-capacity effects.
-
-- Performed systematic controlled ablations across:
-  - Data encoding
-  - Optimizer
-  - Qubit count
-  - Circuit depth
-  - Entanglement
-  - Collocation density
-
-- Demonstrated that, under the evaluated settings, **representation and optimization strategy** had larger effects on QAPINN performance than increasing circuit resources.
-
-- Showed that **encoding choice** is the dominant architectural factor under the evaluated settings.
-
-- Identified an optimizer–representation interaction in which amplitude encoding benefits significantly from L-BFGS refinement whereas angle re-uploading shows minimal improvement.
+Repeated seeds reduce dependence on a single initialization and provide an estimate of run-to-run variability.
 
 ---
 
-## Repository Structure
+## Experiment 2 — 2×2 Preprocessing Ablation
+
+The main extended experiment compares four configurations:
+
+|  | No preprocessing | Preprocessing |
+|---|---:|---:|
+| **Classical** | 85 parameters | 107 parameters |
+| **QAPINN** | 85 parameters | 107 parameters |
+
+The four cells are:
+
+- **A:** Classical, no preprocessing, 85 parameters
+- **B:** Classical, preprocessing, 107 parameters
+- **C:** QAPINN, direct input, 85 parameters
+- **D:** QAPINN, preprocessing, 107 parameters
+
+The QAPINN configurations use the amplitude + L-BFGS configuration used in the extended comparison.
+
+The current 2×2 summary was extended to three seeds for the reported comparison.
+
+---
+
+## Current 3-Seed Results
+
+All values are relative L2 errors reported as percentages.
+
+**Lower is better.**
+
+| Configuration | Parameters | Global L2 | Shock-region L2 | Fourier L2 |
+|---|---:|---:|---:|---:|
+| Classical — no preprocessing | 85 | **18.33 ± 2.38%** | **34.92 ± 15.66%** | **5.79 ± 2.33%** |
+| Classical — preprocessing | 107 | 25.30 ± 5.39% | 36.54 ± 11.69% | 9.44 ± 2.81% |
+| QAPINN — direct input | 85 | 51.32 ± 3.30% | 84.72 ± 4.39% | 43.72 ± 7.44% |
+| QAPINN — preprocessed input | 107 | 43.90 ± 0.75% | 72.46 ± 3.56% | 24.66 ± 0.75% |
+
+---
+
+# Main Findings
+
+## 1. Classical PINN Remains Stronger Overall
+
+At the tested parameter budgets, the classical configurations have lower global, shock-region, and Fourier errors than the corresponding QAPINN configurations.
+
+Therefore:
+
+> **The current study does not claim quantum advantage.**
+
+Instead, the results reinforce the need for controlled classical baselines when evaluating QAPINNs.
+
+---
+
+## 2. Preprocessing Improves the Tested QAPINN Configuration
+
+Within the QAPINN configurations:
+
+| Metric | Direct QAPINN — 85p | Preprocessed QAPINN — 107p |
+|---|---:|---:|
+| Global L2 | 51.32 ± 3.30% | **43.90 ± 0.75%** |
+| Shock-region L2 | 84.72 ± 4.39% | **72.46 ± 3.56%** |
+| Fourier L2 | 43.72 ± 7.44% | **24.66 ± 0.75%** |
+
+The preprocessed configuration therefore shows lower error across all three reported metrics.
+
+The largest relative reduction occurs in the Fourier-spectrum error.
+
+However, this comparison changes **both preprocessing and parameter count**:
+
+```text
+Direct QAPINN
+85 parameters
+      │
+      │ preprocessing + additional parameters
+      ▼
+Preprocessed QAPINN
+107 parameters
+```
+
+Therefore, the observed improvement cannot yet be attributed to preprocessing alone.
+
+---
+
+## 3. The Classical Comparison Does Not Show the Same Improvement
+
+For the classical configurations:
+
+| Metric | Classical — 85p | Classical — 107p |
+|---|---:|---:|
+| Global L2 | **18.33 ± 2.38%** | 25.30 ± 5.39% |
+| Shock-region L2 | **34.92 ± 15.66%** | 36.54 ± 11.69% |
+| Fourier L2 | **5.79 ± 2.33%** | 9.44 ± 2.81% |
+
+The 107-parameter preprocessed classical configuration does not show the same improvement pattern as the preprocessed QAPINN.
+
+This is an observed difference between the tested configurations, but it does **not** establish that the difference is caused by the quantum representation.
+
+---
+
+# Important Experimental Limitation
+
+The current preprocessing comparison contains a capacity confound.
+
+The QAPINN changes from:
+
+```text
+85 → 107 trainable parameters
+```
+
+when preprocessing is introduced.
+
+Therefore, the current experiment cannot independently determine the contribution of:
+
+- preprocessing,
+- parameter capacity,
+- quantum representation,
+- optimization dynamics,
+- or interactions between these factors.
+
+This is an unresolved experimental question.
+
+---
+
+# Frequency-Domain Analysis
+
+A frequency-domain comparison was performed using:
+
+```text
+outputs/figures/spectral_comparison_all_models.png
+```
+
+The comparison includes the reference solution and the evaluated classical and QAPINN configurations.
+
+The direct QAPINN shows pronounced deviations from the reference spectrum, including irregular behaviour in parts of the low-to-mid frequency range.
+
+The preprocessed QAPINN has a substantially lower Fourier-spectrum error:
+
+```text
+43.72 ± 7.44%
+        ↓
+24.66 ± 0.75%
+```
+
+The spectrum also indicates that the preprocessed QAPINN does not simply recover all reference high-frequency content. Some high-frequency components are attenuated relative to the reference.
+
+Therefore, the current result should **not** be interpreted as proof that preprocessing removes spectral bias or that the quantum representation learns high-frequency information better.
+
+A cautious interpretation is:
+
+> **Preprocessing substantially changes the frequency distribution learned by the QAPINN and reduces its Fourier-spectrum error, but the resulting spectrum also shows attenuation of higher-frequency components relative to the reference.**
+
+This motivates a more quantitative frequency-domain investigation.
+
+---
+
+# Spatial-Domain Analysis
+
+Solution snapshots were examined at:
+
+```text
+t = 0.25
+t = 0.50
+t = 0.75
+t = 0.99
+```
+
+The current visual comparisons show different reconstruction behaviour.
+
+### Classical — 85 Parameters
+
+The parameter-matched classical model tracks the reference solution substantially more closely, including the shock transition.
+
+### Direct QAPINN — 85 Parameters
+
+The direct QAPINN shows stronger smoothing and amplitude mismatch around the shock region.
+
+### Preprocessed QAPINN — 107 Parameters
+
+The preprocessed QAPINN improves over the direct QAPINN in overall reconstruction, but the shock remains smoother and less sharply resolved than the reference.
+
+This leads to an important distinction:
+
+> **A lower Fourier-spectrum error does not necessarily imply better localized shock reconstruction.**
+
+Frequency-domain and spatial-domain metrics therefore need to be interpreted together.
+
+---
+
+# What We Can and Cannot Conclude
+
+## Supported by the Current Experiments
+
+- The classical PINN remains substantially stronger overall at the tested parameter budgets.
+- The direct QAPINN has substantially higher errors than the parameter-matched classical model.
+- The tested preprocessed QAPINN configuration has lower global, shock-region, and Fourier errors than the tested direct QAPINN configuration.
+- The largest relative QAPINN improvement occurs in the Fourier-spectrum metric.
+- The preprocessed QAPINN still under-resolves the sharp shock.
+- Preprocessing changes the learned QAPINN frequency spectrum substantially.
+- The current evidence does not establish quantum advantage.
+
+## Not Established Yet
+
+We cannot currently conclude that:
+
+- quantum representations outperform classical representations;
+- preprocessing alone causes the QAPINN improvement;
+- the improvement is caused by the additional parameters;
+- preprocessing removes spectral bias;
+- the QAPINN learns high-frequency shock information better;
+- the observed spectral changes are uniquely caused by the quantum representation.
+
+These require additional controlled experiments.
+
+---
+
+# Evolving Research Question
+
+The project began with:
+
+> **Can a quantum feature map help a PINN learn shock regions better?**
+
+The current evidence leads to a more precise question:
+
+> **Under controlled parameter capacity, how do representation and preprocessing interact to change what a PINN learns in the spatial and frequency domains?**
+
+This reframes the study from simply comparing:
+
+```text
+Quantum vs Classical
+```
+
+toward understanding the interaction between:
+
+```text
+Representation
+      +
+Preprocessing
+      +
+Model Capacity
+      +
+Optimization
+      +
+Frequency Content
+```
+
+---
+
+# Next Experiments
+
+## 1. Fixed-Parameter Preprocessing Ablation
+
+The immediate next experiment is to keep the total number of trainable parameters fixed while varying preprocessing:
+
+```text
+Preprocessing OFF
+        vs.
+Preprocessing ON
+```
+
+for the same parameter budget.
+
+This will help separate the effect of preprocessing from the effect of model capacity.
+
+---
+
+## 2. Classical Capacity-Controlled Comparison
+
+Additional classical architectures can be constructed at the same parameter budgets as the QAPINN configurations.
+
+The goal is to determine whether observed behaviour can be explained by:
+
+- parameter capacity,
+- architecture,
+- representation,
+- or their interaction.
+
+---
+
+## 3. Quantitative Frequency-Domain Analysis
+
+The current spectrum provides qualitative evidence.
+
+The next stage will quantify frequency-dependent behaviour using:
+
+- low-frequency error,
+- mid-frequency error,
+- high-frequency error,
+- spectral energy distribution,
+- frequency-dependent reconstruction error.
+
+This will help determine which parts of the spectrum are improved, attenuated, or redistributed.
+
+---
+
+# Reproducibility
+
+The original WISER experiments and the extended experiments are maintained through Git branches and separate experiment files.
+
+The extended validation is contained in:
+
+```text
+experiments/indoml-round2
+```
+
+### Important Experiment Scripts
+
+```text
+exp1_matched_seeds.py
+exp2_preprocessing_ablation.py
+exp2b_preprocessed_seeds.py
+exp2_full_summary.py
+spectral_comparison.py
+model_a_preprocessed.py
+config_a_preprocessed_107.py
+```
+
+### Important Extended Metrics
+
+```text
+outputs/metrics/
+├── exp1_matched_seeds_summary.json
+├── exp1_matched_seeds_summary.csv
+├── exp2_2x2_summary.json
+└── exp2_2x2_summary_3seed.json
+```
+
+Seed-level metric files are also stored under:
+
+```text
+outputs/metrics/
+```
+
+The main spectral comparison is:
+
+```text
+outputs/figures/spectral_comparison_all_models.png
+```
+
+---
+
+# Repository Structure
 
 ```text
 QAPINN/
@@ -160,9 +613,13 @@ QAPINN/
 ├── config.py
 ├── config_a_matched.py
 ├── config_a_matched_107.py
+├── config_a_preprocessed_107.py
 ├── config_b.py
+│
 ├── model.py
 ├── model_b.py
+├── model_a_preprocessed.py
+│
 ├── train.py
 ├── evaluate.py
 ├── visualize.py
@@ -176,7 +633,12 @@ QAPINN/
 ├── main_a_matched_107.py
 ├── main_b.py
 ├── ablation_runner.py
-├── evaluate_saved_model_b.py
+│
+├── exp1_matched_seeds.py
+├── exp2_preprocessing_ablation.py
+├── exp2b_preprocessed_seeds.py
+├── exp2_full_summary.py
+├── spectral_comparison.py
 │
 ├── outputs/
 │   ├── checkpoints/
@@ -186,222 +648,114 @@ QAPINN/
 │   └── reference/
 │
 ├── report/
-│
 ├── presentation/
-│
 ├── requirements.txt
-│
 └── README.md
 ```
 
-Detailed descriptions of the major source files and experimental workflow are provided in the accompanying technical report.
+---
+
+# Development Environment
+
+| Component | Version / Specification |
+|---|---|
+| Python | 3.13.7 |
+| PyTorch | 2.13.0 (CPU) |
+| PennyLane | 0.45.1 |
+| PennyLane-Qiskit | 0.45.0 |
+| NumPy | Compatible version |
+| SciPy | Compatible version |
+| Matplotlib | Compatible version |
+| Operating System | Windows 11 |
+| Quantum Backend | PennyLane `default.qubit` simulator |
+| GPU | None — CPU execution |
+| Validation Seeds | 42, 7, 99 |
 
 ---
 
-## Development Environment
-
-| Component        | Version / Specification             |
-| ---------------- | ----------------------------------- |
-| Python           | 3.13.7                              |
-| PyTorch          | 2.13.0 (CPU)                        |
-| PennyLane        | 0.45.1                              |
-| PennyLane-Qiskit | 0.45.0                              |
-| NumPy            | Latest compatible                   |
-| SciPy            | Latest compatible                   |
-| Matplotlib       | Latest compatible                   |
-| Operating System | Microsoft Windows 11 Home           |
-| Processor        | 13th Gen Intel Core i7-1355U        |
-| RAM              | 16 GB                               |
-| Quantum Backend  | PennyLane `default.qubit` simulator |
-| GPU              | None (CPU-only execution)           |
-| Validation Seeds | 42, 7, 99 (3-seed validation; SMARTT 2026 extension) |
-| Git Version      | Latest                              |
-
-
----
-
-## Reproducibility
-
-Every experiment in this repository is reproducible using the provided source code, configuration files, and documented execution commands. Outputs (metrics, figures, checkpoints, and logs) are organized by experiment name using MODEL_NAME or --run_name, ensuring that independent experiments do not overwrite one another. Git version control and tagged milestones were used throughout development to preserve the complete research history.
-
----
-
-## Setup
+# Setup
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Run Model A (classical baseline)
+---
+
+# Run Model A — Classical PINN
 
 ```bash
-python main.py                                                   # full run (~10-20 min CPU)
-python main.py --adam_epochs 200 --lbfgs_iters 50 --collocation 1000   # quick smoke test (~30s)
+python main.py
 ```
 
-## Run Model B (quantum-assisted)
+### Quick Smoke Test
 
 ```bash
-python main_b.py                                                 # official baseline (reduced budget, see config_b.py)
+python main.py --adam_epochs 200 --lbfgs_iters 50 --collocation 1000
+```
+
+---
+
+# Run Model B — QAPINN
+
+```bash
+python main_b.py
+```
+
+### Example Amplitude-Encoding Configuration
+
+```bash
 python main_b.py --qubits 6 --depth 4 --encoding amplitude --entanglement full
-python main_b.py --match_model_a                                 # Model A's exact training budget (slow)
 ```
 
-## Controlled Ablation Study
+---
+
+# Controlled Ablation Study
 
 ```bash
-python ablation_runner.py                                        # full qubit/encoding/depth/entanglement sweep
+python ablation_runner.py
 ```
 
-## Evaluate a Saved Model
-
-```bash
-python evaluate_saved_model_b.py                                 # re-evaluate a saved checkpoint without retraining
-```
-
-**Always pass `--run_name <something>` for any run that isn't meant to replace the official
-baseline** — e.g. `python main_b.py --encoding amplitude --run_name amplitude_followup`.
-Without it, a new run silently overwrites the previous one's checkpoint, metrics, and logs,
-since they all share the same default filenames.
+This performs the configured encoding, qubit-count, circuit-depth, and entanglement experiments.
 
 ---
 
-# Experimental Summary
+# Experimental Outputs
 
-Two models were investigated.
+Generated outputs are organized under:
 
-All reported comparisons use identical evaluation metrics. Unless explicitly stated, experiments were performed under controlled conditions so that only the intended architectural variable changed.
-
-## Model A
-
-- Classical PINN
-- Fully-connected MLP
-- 16,897 trainable parameters
-- Adam + L-BFGS
-- 10,000 collocation points
-
----
-
-## Model B
-
-- Quantum-Assisted PINN
-- Direct quantum input representation
-- 4-qubit variational circuit
-- 85 trainable parameters
-- PennyLane implementation
-
----
-
-
-## Main Findings
-
-The controlled experiments showed that:
-
-- Encoding strategy produced the largest measurable improvement.
-
-- Increasing qubit count alone did not consistently improve performance.
-
-- Increasing circuit depth alone did not consistently improve performance.
-
-- Changing entanglement topology alone produced little measurable effect.
-
-- Amplitude encoding substantially outperformed the default angle-based encodings under identical experimental settings.
-
-- L-BFGS refinement benefited amplitude encoding much more strongly than angle re-uploading.
-
-- Under the evaluated settings, representation and optimization strategy showed larger effects on QAPINN performance than increasing qubit count, circuit depth, or changing entanglement topology.
-
-> **Note:** The table below reflects the original WISER BQP Challenge 2026 submission (tagged `wiser-bqp-submission`) and is superseded by the validated extended results in the section below. Retained here for historical/reproducibility reference.
-
-| Metric | Model A | Model B (baseline config) | Model B (amplitude + L-BFGS, reduced budget) |
-|---|---|---|---|
-| L2 relative error (global) | 4.01% | 98.36% | 55.47% |
-| L2 relative error (shock region) | 11.83% | 99.85% | 89.12% |
-| Fourier spectrum L2 error | 1.35% | 88.90% | 53.99% |
-| Trainable parameters | 16,897 | 85 | 85 |
-
-These results demonstrate that representation and optimization strategy had a substantially greater influence on QAPINN performance than increasing quantum circuit resources. Although the classical PINN remained the strongest performer on the evaluated benchmark, controlled experiments identified encoding choice as the dominant architectural factor affecting performance.
-
----
-
-## Extended Results — Post-Submission Validation (SMARTT 2026)
-
-The results below extend the original submission with seed-variance
-validation and parameter-controlled baselines, conducted after the
-WISER BQP Challenge 2026 submission. See "Post-Submission Extension"
-section above for scope and file provenance.
-
-| Configuration | Parameters | Global L2 | Shock-region L2 | Fourier L2 |
-|---|---|---|---|---|
-| Full Classical PINN | 16,897 | 4.01% | 11.83% | — *(not re-validated in this extension)* |
-| Direct QAPINN (amplitude + L-BFGS, mean ± std, n=3 seeds) | 85 | 54.14 ± 1.95% | 88.17 ± 1.76% | 50.57 ± 3.59% |
-| Parameter-matched Classical | 85 | 21.31% | 53.71% | 8.80% |
-| Preprocessed QAPINN (amplitude + L-BFGS, mean ± std, n=3 seeds) | 107 | 43.90 ± 0.75% | 72.46 ± 3.56% | 24.66 ± 0.75% |
-| Parameter-matched Classical | 107 | 32.89% | 79.57% | 10.52% |
-
-**Interpretation:**
-- The classical PINN remains substantially stronger overall — this work does not claim quantum advantage.
-- At equal parameter count (85), the classical model outperforms QAPINN on every reported metric.
-- At equal parameter count (107), the classical model outperforms QAPINN on global and Fourier error.
-- At 107 parameters, however, the preprocessed QAPINN configuration achieves lower shock-region error than its parameter-matched classical counterpart (72.46 ± 3.56% vs. 79.57%).
-- Note: the direct (85-param) vs. preprocessed (107-param) QAPINN comparison is not parameter-matched to each other. The preprocessed configuration consistently outperformed the direct-input configuration across three seeds, but the separate contributions of the added preprocessing layer versus the added parameter capacity remain unresolved by this experiment. This should be read as a localized result, not a general finding about quantum advantage or about preprocessing in isolation.
-
-**Ablation budget disclosure:** the encoding/qubit-count/depth/entanglement ablation sweep used a reduced per-run budget — 300 Adam epochs, 800 collocation points, no L-BFGS — to keep the full multi-factor sweep tractable. These results identify directional trends across configurations and are not intended to represent maximum achievable performance for any single configuration. Detailed ablation results are reported in the technical report.
-
----
-
-## Experimental Outputs
-
-Generated outputs are available under:
-
+```text
 outputs/
+├── checkpoints/
+├── figures/
+├── logs/
+├── metrics/
+└── reference/
+```
 
-including
-
-- checkpoints
-- metrics
-- logs
-- figures
-- reference solutions
-
-The figures included in the report and presentation were generated from the corresponding experiment outputs stored in this repository.
-
-Each experiment produces its own checkpoint, metrics,
-logs and figures using unique MODEL_NAME or run_name
-identifiers to ensure complete reproducibility.
+The reference solution is generated numerically and is used only for evaluation.
 
 ---
 
-# Submission Documents
+# Data and Reference Solution
 
+This research is equation-driven rather than based on a conventional machine-learning dataset.
 
-## Presentation
+The viscous Burgers' equation serves as the mathematical benchmark.
 
-- [Presentation (PDF)](presentation/QAPINN_Research_Presentation.pdf)
+The reference solution is generated numerically using the project's numerical solver and is used only for evaluation. It is not supplied to the neural network during physics-informed training.
 
-- [Presentation (PPTX)](presentation/QAPINN_Research_Presentation.pptx)
+The networks are trained using:
 
----
-
-## Technical Report
-
-- [Technical Report (PDF)](report/QAPINN_Research_Report.pdf)
-
-- [Technical Report (DOCX)](report/QAPINN_Research_Report.docx)
+- the governing PDE residual;
+- initial conditions;
+- boundary conditions;
+- collocation points.
 
 ---
 
-## Data and External Tools
+# Software and Libraries
 
-### Dataset
-
-This research is equation-driven rather than data-driven.
-
-Instead, the viscous Burgers' equation serves as the mathematical benchmark problem. Ground truth solutions are generated numerically within the project using the Method of Lines with an implicit Backward Differentiation Formula (BDF) solver. This reference solution is used only for evaluation and is never used during model training.
-
-Software and Libraries
-
-The implementation was developed using:
+The implementation uses:
 
 - Python
 - PyTorch
@@ -410,26 +764,99 @@ The implementation was developed using:
 - NumPy
 - SciPy
 - Matplotlib
-- Git & GitHub
+- Git
+- GitHub
 
 ---
 
-## References
+# Original WISER Status
+
+- [x] Classical PINN implementation
+- [x] QAPINN implementation
+- [x] Controlled architecture comparison
+- [x] Encoding ablation
+- [x] Qubit-count experiments
+- [x] Circuit-depth experiments
+- [x] Entanglement experiments
+- [x] Optimizer × representation analysis
+- [x] Collocation-density sensitivity study
+- [x] Technical report
+- [x] Final presentation
+- [x] BQP WISER Summer Challenge 2026 submission
+
+---
+
+# Extended Validation Status
+
+- [x] Three-seed matched validation
+- [x] 2×2 preprocessing experiment
+- [x] Three-seed validation of the 2×2 configurations
+- [x] Frequency-domain comparison
+- [x] Spatial snapshot comparison
+- [ ] Fixed-parameter preprocessing ablation
+- [ ] Quantitative frequency-band analysis
+- [ ] Final mechanistic interpretation
+
+---
+
+# Design Notes
+
+## Physics-Informed Training
+
+The network is trained using the governing PDE residual together with initial and boundary conditions.
+
+## LHS Sampling
+
+Latin Hypercube Sampling is used to improve coverage of the input domain.
+
+## Automatic Differentiation
+
+The PDE residual is calculated using automatic differentiation rather than finite-difference approximations of the neural network.
+
+## Adam → L-BFGS
+
+A two-stage optimization strategy is used. Adam provides the initial optimization stage and L-BFGS provides refinement.
+
+## Independent Reference Solution
+
+The numerical reference solution is generated independently and is used only for evaluation.
+
+## Parameter-Matched Validation
+
+Smaller classical models are constructed to compare QAPINN behaviour under similar parameter budgets.
+
+## Repeated Seeds
+
+Three random seeds are used in the extended validation to reduce dependence on a single initialization.
+
+## Spectral Analysis
+
+Fourier-spectrum comparisons are used alongside spatial-domain error metrics to investigate frequency-dependent learning behaviour.
+
+## Capacity Confound
+
+The current preprocessing comparison changes both the preprocessing architecture and the number of trainable parameters. A fixed-capacity ablation is therefore required before attributing the observed improvement to preprocessing itself.
+
+---
+
+# References
 
 - Raissi, M., Perdikaris, P., & Karniadakis, G. E. (2019). Physics-informed neural networks. *Journal of Computational Physics*, 378, 686–707.
 - Rahaman, N., et al. (2019). On the Spectral Bias of Neural Networks. *ICML*.
 - Schuld, M., Sweke, R., & Meyer, J. J. (2021). Effect of data encoding on the expressive power of variational quantum-machine-learning models. *Physical Review A*, 103, 032430.
 - Wang, S., Teng, Y., & Perdikaris, P. (2021). Understanding and mitigating gradient pathologies in physics-informed neural networks. *SIAM Journal on Scientific Computing*, 43(5), A3055–A3081.
 
-## Design Notes
+---
 
-- **LHS sampling** instead of uniform random: better coverage of the thin shock region for a fixed point budget.
-- **Autograd-based PDE residual**, not finite differences: the network satisfies the PDE at *any* point, not just grid points.
-- **Adam → L-BFGS**: standard two-phase PINN schedule. Repeatedly found to matter more for Model B than for Model A — L-BFGS consistently recovered accuracy Adam alone couldn't reach, most dramatically when paired with amplitude encoding.
-- **Reference solution is independent numerical ground truth** (method-of-lines + implicit BDF), never used in training — evaluation is never contaminated by what the network was trained on.
-- **Model B's default training budget is deliberately reduced** from Model A's (quantum circuit simulation is more expensive per point) — a disclosed deviation, documented in `config_b.py` and the report, being directly tested via the matched-budget experiment above rather than left as an assumption.
-- **Every output file is named from `cfg.MODEL_NAME`** (checkpoints, metrics, logs, and — as of this update — figures, saved to their own subfolder) so that no two runs collide by default.
-- **Direct quantum input representation:** The classical input layer was replaced by the quantum encoding layer, allowing the quantum circuit to directly represent the spatial-temporal coordinates instead of operating on preprocessed classical features.
+# Current Research Position
+
+The current evidence does **not** support the claim that quantum input provides a general advantage for PINNs.
+
+Instead, the experiments indicate that:
+
+> **Representation, preprocessing, model capacity, optimization, and frequency-dependent learning interact in determining QAPINN behaviour.**
+
+The ongoing investigation therefore focuses on understanding **when, why, and under what controlled conditions a quantum component changes scientific machine-learning behaviour**, rather than attempting to demonstrate quantum advantage by default.
 
 ---
 
@@ -443,8 +870,4 @@ This work was completed as part of the **BQP WISER Summer Challenge 2026**, expl
 
 This repository is released for academic and research purposes.
 
-Please cite the accompanying report if this work is used in future research.
-
----
-
-
+Please cite the accompanying technical report if this work is used in future research.
