@@ -1,0 +1,34 @@
+{
+  "A_classical_no_preproc_85": {
+    "l2_relative_error_mean_pct": 18.33,
+    "shock_region_l2_relative_error_mean_pct": 34.92,
+    "fourier_spectrum_l2_relative_error_mean_pct": 5.79,
+    "l2_relative_error_sd_pct": 2.38,
+    "shock_region_l2_relative_error_sd_pct": 15.66,
+    "fourier_spectrum_l2_relative_error_sd_pct": 2.33
+  },
+  "B_classical_preproc_107": {
+    "l2_relative_error_mean_pct": 25.3,
+    "shock_region_l2_relative_error_mean_pct": 36.54,
+    "fourier_spectrum_l2_relative_error_mean_pct": 9.44,
+    "l2_relative_error_sd_pct": 5.39,
+    "shock_region_l2_relative_error_sd_pct": 11.69,
+    "fourier_spectrum_l2_relative_error_sd_pct": 2.81
+  },
+  "C_quantum_no_preproc_85": {
+    "l2_relative_error_mean_pct": 51.32,
+    "shock_region_l2_relative_error_mean_pct": 84.72,
+    "fourier_spectrum_l2_relative_error_mean_pct": 43.72,
+    "l2_relative_error_sd_pct": 3.3,
+    "shock_region_l2_relative_error_sd_pct": 4.39,
+    "fourier_spectrum_l2_relative_error_sd_pct": 7.44
+  },
+  "D_quantum_preproc_107": {
+    "l2_relative_error_mean_pct": 43.9,
+    "shock_region_l2_relative_error_mean_pct": 72.46,
+    "fourier_spectrum_l2_relative_error_mean_pct": 24.66,
+    "l2_relative_error_sd_pct": 0.75,
+    "shock_region_l2_relative_error_sd_pct": 3.56,
+    "fourier_spectrum_l2_relative_error_sd_pct": 0.75
+  }
+}
