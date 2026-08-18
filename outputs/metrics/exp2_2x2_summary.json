@@ -23,22 +23,40 @@
       "best_loss": 0.024703428149223328
     }
   },
-  "D_quantum_preproc_107": {
-    "l2_relative_error": 0.9836032016378127,
-    "max_abs_error": 1.006117367290873,
-    "mean_abs_error": 0.5260988092803175,
-    "shock_region_l2_relative_error": 0.9985123430526043,
-    "shock_region_max_abs_error": 0.9558588621880475,
-    "pde_residual_mean_abs": 0.12205374985933304,
-    "pde_residual_max_abs": 0.8352504372596741,
-    "pde_residual_rmse": 0.17848102748394012,
-    "fourier_spectrum_l2_relative_error": 0.8890436404691031,
+  "C_quantum_no_preproc_85": {
+    "l2_relative_error": 0.4702401234220131,
+    "max_abs_error": 0.9454593175139968,
+    "mean_abs_error": 0.17579535768551924,
+    "shock_region_l2_relative_error": 0.7878788179230325,
+    "shock_region_max_abs_error": 0.9047969984280088,
+    "pde_residual_mean_abs": 0.14694096148014069,
+    "pde_residual_max_abs": 0.9918904304504395,
+    "pde_residual_rmse": 0.20217061042785645,
+    "fourier_spectrum_l2_relative_error": 0.33454085769527714,
     "num_trainable_parameters": 85,
     "training": {
-      "adam_time_sec": 9387.21017620014,
-      "lbfgs_time_sec": 669.9640885000117,
-      "total_time_sec": 10057.936684000306,
-      "best_loss": 0.4385482966899872
+      "adam_time_sec": 5728.885915099643,
+      "lbfgs_time_sec": 1184.7702119001187,
+      "total_time_sec": 6913.930750599597,
+      "best_loss": 0.09475359320640564
+    }
+  },
+  "D_quantum_preproc_107": {
+    "l2_relative_error": 0.4284402444618817,
+    "max_abs_error": 0.9593380896573261,
+    "mean_abs_error": 0.1592635424062689,
+    "shock_region_l2_relative_error": 0.6777483019659063,
+    "shock_region_max_abs_error": 0.9165126489864804,
+    "pde_residual_mean_abs": 0.13538354635238647,
+    "pde_residual_max_abs": 1.7308217287063599,
+    "pde_residual_rmse": 0.19730307161808014,
+    "fourier_spectrum_l2_relative_error": 0.24425512916579273,
+    "num_trainable_parameters": 107,
+    "training": {
+      "adam_time_sec": 2299.5782944001257,
+      "lbfgs_time_sec": 271.585343899671,
+      "total_time_sec": 2571.5665911003016,
+      "best_loss": 0.0878274142742157
     }
   }
 }

@@ -12,8 +12,8 @@ from visualize import generate_all_figures
 # Fill these in with your actual existing metrics filenames:
 EXISTING = {
     "A_classical_no_preproc_85": "outputs/metrics/model_a_matched_85params_metrics.json",
-    "C_quantum_no_preproc_85":  "outputs/metrics/<YOUR_DIRECT_85_QAPINN_METRICS>.json",
-    "D_quantum_preproc_107":    "outputs/metrics/model_b_qapinn_metrics.json",
+    "C_quantum_no_preproc_85":  "outputs/metrics/amplitude_matched_budget_metrics.json",
+    "D_quantum_preproc_107":    "outputs/metrics/preprocessed_amplitude_metrics.json",
 }
 
 def main():

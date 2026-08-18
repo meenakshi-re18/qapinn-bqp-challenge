@@ -10,7 +10,7 @@ from evaluate import predict_on_grid
 # label, config module, cfg class name, model module, checkpoint path
 MODELS = [
     ("Classical (matched, 85p)", "config_a_matched", "Config", "model", "outputs/checkpoints/model_a_matched_85params.pt"),
-    ("QAPINN direct (85p)", "config_b", "ConfigB", "model_b", "outputs/checkpoints/<YOUR_DIRECT_85_CHECKPOINT>.pt"),
+    ("QAPINN direct (85p)", "config_b", "ConfigB", "model_b", "outputs/checkpoints/amplitude_matched_budget.pt"),
     ("QAPINN preprocessed (107p)", "config_b", "ConfigB", "model_b", "outputs/checkpoints/model_b_qapinn.pt"),
 ]
 
