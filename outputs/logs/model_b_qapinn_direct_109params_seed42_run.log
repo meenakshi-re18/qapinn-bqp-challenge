@@ -1,0 +1,119 @@
+14:40:07 | INFO    | Loaded cached reference solution from outputs\reference\burgers_reference.npz
+14:40:07 | INFO    | Direct QAPINN params=109 (target: 109), seed=42
+14:40:10 | INFO    | Phase 1/2: Adam — epochs 1..8000, lr=0.001 | early stopping: disabled
+14:40:11 | INFO    | [Adam     1/8000] total=5.977e-01 pde=2.964e-02 ic=5.633e-01 bc=4.759e-03 lr=1.00e-03 q_grad_norm=1.467e-01 t=3.6s
+14:40:50 | INFO    | [Adam   100/8000] total=3.941e-01 pde=3.364e-02 ic=3.521e-01 bc=8.317e-03 lr=1.00e-03 q_grad_norm=1.340e-01 t=42.7s
+14:41:33 | INFO    | [Adam   200/8000] total=3.113e-01 pde=5.187e-02 ic=2.359e-01 bc=2.351e-02 lr=1.00e-03 q_grad_norm=1.084e-01 t=85.8s
+14:42:19 | INFO    | [Adam   300/8000] total=2.483e-01 pde=7.033e-02 ic=1.625e-01 bc=1.548e-02 lr=1.00e-03 q_grad_norm=8.129e-02 t=131.7s
+14:43:07 | INFO    | [Adam   400/8000] total=2.221e-01 pde=8.500e-02 ic=1.280e-01 bc=9.179e-03 lr=1.00e-03 q_grad_norm=3.825e-02 t=179.8s
+14:43:56 | INFO    | [Adam   500/8000] total=2.118e-01 pde=8.448e-02 ic=1.191e-01 bc=8.266e-03 lr=1.00e-03 q_grad_norm=2.752e-02 t=229.0s
+14:44:46 | INFO    | [Adam   600/8000] total=2.028e-01 pde=8.125e-02 ic=1.131e-01 bc=8.428e-03 lr=1.00e-03 q_grad_norm=2.851e-02 t=278.4s
+14:45:40 | INFO    | [Adam   700/8000] total=1.908e-01 pde=7.535e-02 ic=1.072e-01 bc=8.188e-03 lr=1.00e-03 q_grad_norm=3.374e-02 t=332.4s
+14:47:27 | INFO    | [Adam   800/8000] total=1.783e-01 pde=7.147e-02 ic=1.004e-01 bc=6.395e-03 lr=1.00e-03 q_grad_norm=3.086e-02 t=439.5s
+14:49:14 | INFO    | [Adam   900/8000] total=1.691e-01 pde=6.912e-02 ic=9.537e-02 bc=4.649e-03 lr=1.00e-03 q_grad_norm=2.500e-02 t=546.3s
+14:51:00 | INFO    | [Adam  1000/8000] total=1.624e-01 pde=6.706e-02 ic=9.173e-02 bc=3.643e-03 lr=1.00e-03 q_grad_norm=1.755e-02 t=652.4s
+14:52:45 | INFO    | [Adam  1100/8000] total=1.583e-01 pde=6.575e-02 ic=8.930e-02 bc=3.203e-03 lr=1.00e-03 q_grad_norm=1.257e-02 t=757.7s
+14:54:31 | INFO    | [Adam  1200/8000] total=1.553e-01 pde=6.504e-02 ic=8.733e-02 bc=2.948e-03 lr=1.00e-03 q_grad_norm=1.050e-02 t=864.0s
+14:56:19 | INFO    | [Adam  1300/8000] total=1.530e-01 pde=6.464e-02 ic=8.562e-02 bc=2.753e-03 lr=1.00e-03 q_grad_norm=8.499e-03 t=971.6s
+14:58:05 | INFO    | [Adam  1400/8000] total=1.514e-01 pde=6.436e-02 ic=8.434e-02 bc=2.684e-03 lr=1.00e-03 q_grad_norm=6.273e-03 t=1078.1s
+14:59:51 | INFO    | [Adam  1500/8000] total=1.503e-01 pde=6.408e-02 ic=8.351e-02 bc=2.670e-03 lr=1.00e-03 q_grad_norm=4.928e-03 t=1183.6s
+15:01:36 | INFO    | [Adam  1600/8000] total=1.494e-01 pde=6.375e-02 ic=8.297e-02 bc=2.642e-03 lr=1.00e-03 q_grad_norm=4.143e-03 t=1289.1s
+15:03:29 | INFO    | [Adam  1700/8000] total=1.486e-01 pde=6.336e-02 ic=8.262e-02 bc=2.588e-03 lr=1.00e-03 q_grad_norm=3.568e-03 t=1402.2s
+15:04:22 | INFO    | [Adam  1800/8000] total=1.478e-01 pde=6.288e-02 ic=8.240e-02 bc=2.525e-03 lr=1.00e-03 q_grad_norm=3.130e-03 t=1455.0s
+15:05:08 | INFO    | [Adam  1900/8000] total=1.470e-01 pde=6.231e-02 ic=8.227e-02 bc=2.462e-03 lr=1.00e-03 q_grad_norm=2.843e-03 t=1501.2s
+15:05:53 | INFO    | [Adam  2000/8000] total=1.462e-01 pde=6.165e-02 ic=8.218e-02 bc=2.405e-03 lr=5.00e-04 q_grad_norm=2.648e-03 t=1545.4s
+15:06:38 | INFO    | [Adam  2100/8000] total=1.458e-01 pde=6.130e-02 ic=8.213e-02 bc=2.379e-03 lr=5.00e-04 q_grad_norm=2.530e-03 t=1590.7s
+15:07:25 | INFO    | [Adam  2200/8000] total=1.454e-01 pde=6.094e-02 ic=8.207e-02 bc=2.355e-03 lr=5.00e-04 q_grad_norm=2.372e-03 t=1637.8s
+15:08:23 | INFO    | [Adam  2300/8000] total=1.449e-01 pde=6.060e-02 ic=8.200e-02 bc=2.336e-03 lr=5.00e-04 q_grad_norm=2.185e-03 t=1695.7s
+15:09:16 | INFO    | [Adam  2400/8000] total=1.445e-01 pde=6.026e-02 ic=8.191e-02 bc=2.320e-03 lr=5.00e-04 q_grad_norm=2.001e-03 t=1749.1s
+15:10:12 | INFO    | [Adam  2500/8000] total=1.441e-01 pde=5.995e-02 ic=8.181e-02 bc=2.309e-03 lr=5.00e-04 q_grad_norm=1.806e-03 t=1804.6s
+15:11:06 | INFO    | [Adam  2600/8000] total=1.436e-01 pde=5.964e-02 ic=8.169e-02 bc=2.301e-03 lr=5.00e-04 q_grad_norm=1.636e-03 t=1858.8s
+15:11:59 | INFO    | [Adam  2700/8000] total=1.432e-01 pde=5.935e-02 ic=8.157e-02 bc=2.294e-03 lr=5.00e-04 q_grad_norm=1.478e-03 t=1912.1s
+15:12:49 | INFO    | [Adam  2800/8000] total=1.428e-01 pde=5.908e-02 ic=8.143e-02 bc=2.286e-03 lr=5.00e-04 q_grad_norm=1.354e-03 t=1962.2s
+15:13:39 | INFO    | [Adam  2900/8000] total=1.424e-01 pde=5.882e-02 ic=8.128e-02 bc=2.275e-03 lr=5.00e-04 q_grad_norm=1.265e-03 t=2011.7s
+15:14:29 | INFO    | [Adam  3000/8000] total=1.420e-01 pde=5.859e-02 ic=8.110e-02 bc=2.261e-03 lr=5.00e-04 q_grad_norm=1.189e-03 t=2061.6s
+15:15:17 | INFO    | [Adam  3100/8000] total=1.415e-01 pde=5.838e-02 ic=8.091e-02 bc=2.243e-03 lr=5.00e-04 q_grad_norm=1.160e-03 t=2110.0s
+15:16:06 | INFO    | [Adam  3200/8000] total=1.411e-01 pde=5.821e-02 ic=8.068e-02 bc=2.219e-03 lr=5.00e-04 q_grad_norm=1.187e-03 t=2158.7s
+15:16:55 | INFO    | [Adam  3300/8000] total=1.407e-01 pde=5.807e-02 ic=8.043e-02 bc=2.187e-03 lr=5.00e-04 q_grad_norm=1.316e-03 t=2207.5s
+15:17:43 | INFO    | [Adam  3400/8000] total=1.402e-01 pde=5.797e-02 ic=8.013e-02 bc=2.145e-03 lr=5.00e-04 q_grad_norm=1.576e-03 t=2255.7s
+15:18:33 | INFO    | [Adam  3500/8000] total=1.398e-01 pde=5.790e-02 ic=7.980e-02 bc=2.092e-03 lr=5.00e-04 q_grad_norm=1.977e-03 t=2305.8s
+15:19:21 | INFO    | [Adam  3600/8000] total=1.393e-01 pde=5.784e-02 ic=7.943e-02 bc=2.023e-03 lr=5.00e-04 q_grad_norm=2.495e-03 t=2353.9s
+15:20:11 | INFO    | [Adam  3700/8000] total=1.387e-01 pde=5.776e-02 ic=7.901e-02 bc=1.939e-03 lr=5.00e-04 q_grad_norm=3.055e-03 t=2403.5s
+15:21:02 | INFO    | [Adam  3800/8000] total=1.380e-01 pde=5.763e-02 ic=7.854e-02 bc=1.848e-03 lr=5.00e-04 q_grad_norm=3.469e-03 t=2454.5s
+15:21:55 | INFO    | [Adam  3900/8000] total=1.372e-01 pde=5.744e-02 ic=7.803e-02 bc=1.764e-03 lr=5.00e-04 q_grad_norm=3.684e-03 t=2508.3s
+15:22:45 | INFO    | [Adam  4000/8000] total=1.364e-01 pde=5.727e-02 ic=7.745e-02 bc=1.696e-03 lr=2.50e-04 q_grad_norm=1.015e-02 t=2557.6s
+15:23:34 | INFO    | [Adam  4100/8000] total=1.360e-01 pde=5.715e-02 ic=7.720e-02 bc=1.671e-03 lr=2.50e-04 q_grad_norm=2.699e-03 t=2607.0s
+15:24:24 | INFO    | [Adam  4200/8000] total=1.356e-01 pde=5.706e-02 ic=7.693e-02 bc=1.644e-03 lr=2.50e-04 q_grad_norm=2.490e-03 t=2657.2s
+15:25:13 | INFO    | [Adam  4300/8000] total=1.352e-01 pde=5.698e-02 ic=7.665e-02 bc=1.615e-03 lr=2.50e-04 q_grad_norm=2.446e-03 t=2706.2s
+15:26:04 | INFO    | [Adam  4400/8000] total=1.348e-01 pde=5.689e-02 ic=7.635e-02 bc=1.584e-03 lr=2.50e-04 q_grad_norm=2.560e-03 t=2756.3s
+15:26:53 | INFO    | [Adam  4500/8000] total=1.343e-01 pde=5.680e-02 ic=7.600e-02 bc=1.548e-03 lr=2.50e-04 q_grad_norm=2.744e-03 t=2805.4s
+15:27:42 | INFO    | [Adam  4600/8000] total=1.338e-01 pde=5.671e-02 ic=7.560e-02 bc=1.509e-03 lr=2.50e-04 q_grad_norm=2.948e-03 t=2854.3s
+15:28:31 | INFO    | [Adam  4700/8000] total=1.332e-01 pde=5.660e-02 ic=7.517e-02 bc=1.466e-03 lr=2.50e-04 q_grad_norm=3.075e-03 t=2904.1s
+15:29:20 | INFO    | [Adam  4800/8000] total=1.326e-01 pde=5.648e-02 ic=7.473e-02 bc=1.417e-03 lr=2.50e-04 q_grad_norm=3.166e-03 t=2953.0s
+15:30:10 | INFO    | [Adam  4900/8000] total=1.320e-01 pde=5.635e-02 ic=7.428e-02 bc=1.365e-03 lr=2.50e-04 q_grad_norm=3.171e-03 t=3002.9s
+15:31:01 | INFO    | [Adam  5000/8000] total=1.314e-01 pde=5.622e-02 ic=7.382e-02 bc=1.312e-03 lr=2.50e-04 q_grad_norm=3.084e-03 t=3053.6s
+15:31:52 | INFO    | [Adam  5100/8000] total=1.307e-01 pde=5.611e-02 ic=7.337e-02 bc=1.261e-03 lr=2.50e-04 q_grad_norm=2.881e-03 t=3104.4s
+15:32:41 | INFO    | [Adam  5200/8000] total=1.302e-01 pde=5.603e-02 ic=7.292e-02 bc=1.213e-03 lr=2.50e-04 q_grad_norm=3.608e-03 t=3153.7s
+15:33:30 | INFO    | [Adam  5300/8000] total=1.296e-01 pde=5.595e-02 ic=7.251e-02 bc=1.177e-03 lr=2.50e-04 q_grad_norm=7.749e-03 t=3203.1s
+15:34:21 | INFO    | [Adam  5400/8000] total=1.292e-01 pde=5.588e-02 ic=7.215e-02 bc=1.144e-03 lr=2.50e-04 q_grad_norm=3.103e-03 t=3253.8s
+15:35:10 | INFO    | [Adam  5500/8000] total=1.287e-01 pde=5.577e-02 ic=7.184e-02 bc=1.120e-03 lr=2.50e-04 q_grad_norm=3.339e-03 t=3302.7s
+15:36:00 | INFO    | [Adam  5600/8000] total=1.283e-01 pde=5.566e-02 ic=7.156e-02 bc=1.098e-03 lr=2.50e-04 q_grad_norm=1.200e-02 t=3353.2s
+15:36:52 | INFO    | [Adam  5700/8000] total=1.279e-01 pde=5.547e-02 ic=7.136e-02 bc=1.088e-03 lr=2.50e-04 q_grad_norm=1.257e-02 t=3404.4s
+15:37:42 | INFO    | [Adam  5800/8000] total=1.275e-01 pde=5.527e-02 ic=7.115e-02 bc=1.075e-03 lr=2.50e-04 q_grad_norm=1.252e-02 t=3454.8s
+15:38:33 | INFO    | [Adam  5900/8000] total=1.271e-01 pde=5.506e-02 ic=7.095e-02 bc=1.070e-03 lr=2.50e-04 q_grad_norm=5.714e-03 t=3505.3s
+15:39:21 | INFO    | [Adam  6000/8000] total=1.266e-01 pde=5.483e-02 ic=7.075e-02 bc=1.066e-03 lr=1.25e-04 q_grad_norm=3.040e-03 t=3554.0s
+15:40:11 | INFO    | [Adam  6100/8000] total=1.264e-01 pde=5.470e-02 ic=7.065e-02 bc=1.066e-03 lr=1.25e-04 q_grad_norm=1.128e-03 t=3603.5s
+15:40:59 | INFO    | [Adam  6200/8000] total=1.262e-01 pde=5.458e-02 ic=7.055e-02 bc=1.067e-03 lr=1.25e-04 q_grad_norm=1.060e-03 t=3652.2s
+15:41:49 | INFO    | [Adam  6300/8000] total=1.260e-01 pde=5.444e-02 ic=7.044e-02 bc=1.069e-03 lr=1.25e-04 q_grad_norm=1.013e-03 t=3701.4s
+15:42:38 | INFO    | [Adam  6400/8000] total=1.257e-01 pde=5.431e-02 ic=7.033e-02 bc=1.072e-03 lr=1.25e-04 q_grad_norm=1.012e-03 t=3750.4s
+15:43:26 | INFO    | [Adam  6500/8000] total=1.255e-01 pde=5.417e-02 ic=7.022e-02 bc=1.076e-03 lr=1.25e-04 q_grad_norm=9.617e-04 t=3798.6s
+15:44:15 | INFO    | [Adam  6600/8000] total=1.252e-01 pde=5.403e-02 ic=7.010e-02 bc=1.081e-03 lr=1.25e-04 q_grad_norm=9.465e-04 t=3847.8s
+15:45:04 | INFO    | [Adam  6700/8000] total=1.250e-01 pde=5.388e-02 ic=6.998e-02 bc=1.087e-03 lr=1.25e-04 q_grad_norm=9.588e-04 t=3896.5s
+15:45:53 | INFO    | [Adam  6800/8000] total=1.247e-01 pde=5.373e-02 ic=6.986e-02 bc=1.092e-03 lr=1.25e-04 q_grad_norm=9.192e-04 t=3945.7s
+15:46:43 | INFO    | [Adam  6900/8000] total=1.244e-01 pde=5.358e-02 ic=6.974e-02 bc=1.098e-03 lr=1.25e-04 q_grad_norm=9.301e-04 t=3996.0s
+15:47:33 | INFO    | [Adam  7000/8000] total=1.242e-01 pde=5.344e-02 ic=6.962e-02 bc=1.102e-03 lr=1.25e-04 q_grad_norm=9.131e-04 t=4046.1s
+15:48:23 | INFO    | [Adam  7100/8000] total=1.239e-01 pde=5.329e-02 ic=6.949e-02 bc=1.105e-03 lr=1.25e-04 q_grad_norm=9.147e-04 t=4095.3s
+15:49:12 | INFO    | [Adam  7200/8000] total=1.236e-01 pde=5.315e-02 ic=6.936e-02 bc=1.107e-03 lr=1.25e-04 q_grad_norm=4.991e-03 t=4144.4s
+15:50:01 | INFO    | [Adam  7300/8000] total=1.234e-01 pde=5.302e-02 ic=6.923e-02 bc=1.105e-03 lr=1.25e-04 q_grad_norm=2.266e-03 t=4194.0s
+15:50:50 | INFO    | [Adam  7400/8000] total=1.231e-01 pde=5.290e-02 ic=6.910e-02 bc=1.101e-03 lr=1.25e-04 q_grad_norm=1.069e-03 t=4242.8s
+15:51:40 | INFO    | [Adam  7500/8000] total=1.229e-01 pde=5.278e-02 ic=6.897e-02 bc=1.094e-03 lr=1.25e-04 q_grad_norm=2.027e-03 t=4292.7s
+15:52:30 | INFO    | [Adam  7600/8000] total=1.226e-01 pde=5.268e-02 ic=6.885e-02 bc=1.085e-03 lr=1.25e-04 q_grad_norm=2.392e-03 t=4343.0s
+15:53:22 | INFO    | [Adam  7700/8000] total=1.224e-01 pde=5.258e-02 ic=6.873e-02 bc=1.074e-03 lr=1.25e-04 q_grad_norm=1.309e-03 t=4394.8s
+15:54:12 | INFO    | [Adam  7800/8000] total=1.222e-01 pde=5.249e-02 ic=6.861e-02 bc=1.062e-03 lr=1.25e-04 q_grad_norm=1.108e-03 t=4445.0s
+15:55:02 | INFO    | [Adam  7900/8000] total=1.219e-01 pde=5.240e-02 ic=6.850e-02 bc=1.048e-03 lr=1.25e-04 q_grad_norm=5.303e-03 t=4494.7s
+15:55:52 | INFO    | [Adam  8000/8000] total=1.217e-01 pde=5.232e-02 ic=6.839e-02 bc=1.034e-03 lr=6.25e-05 q_grad_norm=3.643e-03 t=4544.3s
+15:55:52 | INFO    | Phase 2/2: L-BFGS — up to 2000 iterations
+15:55:52 | INFO    | [LBFGS     1] total=1.217e-01 pde=5.231e-02 ic=6.839e-02 bc=1.034e-03 q_grad_norm=2.532e-03 t=0.6s
+15:56:42 | INFO    | [LBFGS   100] total=1.189e-01 pde=5.167e-02 ic=6.630e-02 bc=9.520e-04 q_grad_norm=2.499e-02 t=50.0s
+15:57:31 | INFO    | [LBFGS   200] total=1.171e-01 pde=5.074e-02 ic=6.559e-02 bc=8.018e-04 q_grad_norm=1.436e-02 t=99.4s
+15:58:22 | INFO    | [LBFGS   300] total=1.142e-01 pde=4.746e-02 ic=6.612e-02 bc=6.086e-04 q_grad_norm=1.310e-01 t=150.5s
+15:59:13 | INFO    | [LBFGS   400] total=1.110e-01 pde=4.668e-02 ic=6.396e-02 bc=4.000e-04 q_grad_norm=2.244e-02 t=201.7s
+16:00:04 | INFO    | [LBFGS   500] total=1.098e-01 pde=4.640e-02 ic=6.301e-02 bc=3.427e-04 q_grad_norm=2.019e-02 t=252.0s
+16:00:54 | INFO    | [LBFGS   600] total=1.092e-01 pde=4.618e-02 ic=6.272e-02 bc=2.974e-04 q_grad_norm=1.449e-02 t=302.3s
+16:01:44 | INFO    | [LBFGS   700] total=1.085e-01 pde=4.561e-02 ic=6.250e-02 bc=3.735e-04 q_grad_norm=1.665e-02 t=352.7s
+16:02:35 | INFO    | [LBFGS   800] total=1.056e-01 pde=4.388e-02 ic=6.142e-02 bc=3.396e-04 q_grad_norm=1.334e-02 t=403.3s
+16:03:26 | INFO    | [LBFGS   900] total=1.039e-01 pde=4.128e-02 ic=6.238e-02 bc=2.402e-04 q_grad_norm=2.181e-02 t=454.9s
+16:04:17 | INFO    | [LBFGS  1000] total=1.025e-01 pde=4.146e-02 ic=6.086e-02 bc=1.745e-04 q_grad_norm=6.683e-02 t=505.0s
+16:05:06 | INFO    | [LBFGS  1100] total=1.007e-01 pde=3.982e-02 ic=6.079e-02 bc=1.307e-04 q_grad_norm=2.576e-02 t=554.8s
+16:05:57 | INFO    | [LBFGS  1200] total=9.905e-02 pde=3.979e-02 ic=5.916e-02 bc=9.844e-05 q_grad_norm=1.134e-02 t=605.0s
+16:06:46 | INFO    | [LBFGS  1300] total=9.820e-02 pde=3.931e-02 ic=5.879e-02 bc=9.611e-05 q_grad_norm=3.727e-02 t=654.9s
+16:07:36 | INFO    | [LBFGS  1400] total=9.760e-02 pde=3.899e-02 ic=5.850e-02 bc=9.686e-05 q_grad_norm=7.674e-03 t=704.4s
+16:08:27 | INFO    | [LBFGS  1500] total=9.697e-02 pde=3.867e-02 ic=5.820e-02 bc=9.781e-05 q_grad_norm=1.494e-02 t=755.2s
+16:09:16 | INFO    | [LBFGS  1600] total=9.666e-02 pde=3.823e-02 ic=5.834e-02 bc=9.609e-05 q_grad_norm=9.454e-03 t=804.9s
+16:10:07 | INFO    | [LBFGS  1700] total=9.643e-02 pde=3.833e-02 ic=5.798e-02 bc=1.113e-04 q_grad_norm=6.797e-03 t=855.0s
+16:10:57 | INFO    | [LBFGS  1800] total=9.597e-02 pde=3.795e-02 ic=5.789e-02 bc=1.297e-04 q_grad_norm=1.170e-02 t=905.9s
+16:11:48 | INFO    | [LBFGS  1900] total=9.547e-02 pde=3.733e-02 ic=5.797e-02 bc=1.733e-04 q_grad_norm=1.468e-02 t=956.8s
+16:12:38 | INFO    | [LBFGS  2000] total=9.494e-02 pde=3.688e-02 ic=5.791e-02 bc=1.533e-04 q_grad_norm=1.590e-02 t=1006.7s
+16:13:11 | INFO    | Training complete. Total time: 5583.8s (Adam: 4544.3s, LBFGS: 1039.3s). Best total loss: 9.457e-02
+16:13:16 | INFO    | Evaluation metrics:
+16:13:16 | INFO    |   l2_relative_error: 0.4757346090877284
+16:13:16 | INFO    |   max_abs_error: 0.9622705505158144
+16:13:16 | INFO    |   mean_abs_error: 0.1793156808012423
+16:13:16 | INFO    |   shock_region_l2_relative_error: 0.7911918246498416
+16:13:16 | INFO    |   shock_region_max_abs_error: 0.929028432296417
+16:13:16 | INFO    |   pde_residual_mean_abs: 0.13886041939258575
+16:13:16 | INFO    |   pde_residual_max_abs: 0.9292637705802917
+16:13:16 | INFO    |   pde_residual_rmse: 0.1940523087978363
+16:13:16 | INFO    |   fourier_spectrum_l2_relative_error: 0.33680391847079033
+16:13:16 | INFO    |   num_trainable_parameters: 109
+16:13:16 | INFO    | Metrics saved to outputs\metrics\model_b_qapinn_direct_109params_seed42_metrics.json
