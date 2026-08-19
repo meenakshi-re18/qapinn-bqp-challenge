@@ -134,18 +134,24 @@ Optimizer × Representation Analysis
 Collocation-Density Study
         │
         ▼
-Parameter-Matched Validation
+Parameter-Matched Classical Validation
         │
         ▼
 3-Seed Preprocessing Ablation
         │
         ▼
+3-Seed Direct 109p QAPINN Validation
+        │
+        ▼
+Capacity-Effect Decomposition
+        │
+        ▼
 Frequency-Domain Analysis
         │
         ▼
-Next: Fixed-Capacity Preprocessing Study
-```
+Next: Exact Fixed-Capacity Quantum Ablation
 
+```
 ---
 
 ## Key Contributions
@@ -300,7 +306,12 @@ All values are relative L2 errors reported as percentages.
 | Classical — no preprocessing | 85 | **18.33 ± 2.38%** | **34.92 ± 15.66%** | **5.79 ± 2.33%** |
 | Classical — preprocessing | 107 | 25.30 ± 5.39% | 36.54 ± 11.69% | 9.44 ± 2.81% |
 | QAPINN — direct input | 85 | 51.32 ± 3.30% | 84.72 ± 4.39% | 43.72 ± 7.44% |
-| QAPINN — preprocessed input | 107 | 43.90 ± 0.75% | 72.46 ± 3.56% | 24.66 ± 0.75% |
+| QAPINN — direct input | 109 | 45.98 ± 1.44% | 76.02 ± 3.36% | 29.92 ± 3.08% |
+| QAPINN — preprocessed input | 107 | **43.90 ± 0.75%** | **72.46 ± 3.56%** | **24.66 ± 0.75%** |
+
+The 109-parameter direct QAPINN uses the same 4-qubit, depth-3, amplitude-encoding, circular-entanglement circuit as the other extended QAPINN configurations, with a larger classical head (4 → 12 → 1) and no preprocessing.
+
+It is used as an **approximately capacity-matched comparison point** to the 107-parameter preprocessed QAPINN. An exact 107-parameter 4 → h → 1 head is not achievable with a single hidden layer, so 109 parameters is the closest available configuration for this comparison.
 
 ---
 
@@ -318,37 +329,45 @@ Instead, the results reinforce the need for controlled classical baselines when 
 
 ---
 
-## 2. Preprocessing Improves the Tested QAPINN Configuration
+## 2. Capacity Explains a Substantial Part of the Original QAPINN Improvement
 
-Within the QAPINN configurations:
+A new experiment adds a **Direct QAPINN configuration at 109 parameters**, used as an approximately capacity-matched comparison point to the 107-parameter preprocessed QAPINN.
 
-| Metric | Direct QAPINN — 85p | Preprocessed QAPINN — 107p |
-|---|---:|---:|
-| Global L2 | 51.32 ± 3.30% | **43.90 ± 0.75%** |
-| Shock-region L2 | 84.72 ± 4.39% | **72.46 ± 3.56%** |
-| Fourier L2 | 43.72 ± 7.44% | **24.66 ± 0.75%** |
+| Metric | Direct QAPINN — 85p | Direct QAPINN — 109p | Preprocessed QAPINN — 107p |
+|---|---:|---:|---:|
+| Global L2 | 51.32 ± 3.30% | 45.98 ± 1.44% | **43.90 ± 0.75%** |
+| Shock-region L2 | 84.72 ± 4.39% | 76.02 ± 3.36% | **72.46 ± 3.56%** |
+| Fourier L2 | 43.72 ± 7.44% | 29.92 ± 3.08% | **24.66 ± 0.75%** |
 
-The preprocessed configuration therefore shows lower error across all three reported metrics.
+The original 85p → 107p QAPINN difference can be decomposed into two observed steps.
 
-The largest relative reduction occurs in the Fourier-spectrum error.
+**Step 1 — Direct 85p → Direct 109p: capacity effect without preprocessing**
 
-However, this comparison changes **both preprocessing and parameter count**:
+- Global L2: −5.34 percentage points
+- Shock-region L2: −8.70 percentage points
+- Fourier L2: −13.80 percentage points
 
-```text
-Direct QAPINN
-85 parameters
-      │
-      │ preprocessing + additional parameters
-      ▼
-Preprocessed QAPINN
-107 parameters
-```
+**Step 2 — Direct 109p → Preprocessed 107p: residual difference after approximately matching capacity**
 
-Therefore, the observed improvement cannot yet be attributed to preprocessing alone.
+- Global L2: −2.08 percentage points
+- Shock-region L2: −3.56 percentage points
+- Fourier L2: −5.26 percentage points
+
+Increasing model capacity therefore accounts for a substantial part of the improvement originally observed between the 85p direct and 107p preprocessed QAPINNs, with the capacity effect consistent in direction across all three metrics.
+
+A smaller residual difference remains after approximately controlling for capacity. The Fourier-spectrum ranges (29.92 ± 3.08% versus 24.66 ± 0.75%) are clearly separated, making the Fourier-spectrum reduction the strongest-supported residual difference in this comparison.
+
+The residual global difference (45.98 ± 1.44% versus 43.90 ± 0.75%) and shock-region difference (76.02 ± 3.36% versus 72.46 ± 3.56%) have overlapping mean ± SD ranges at n = 3 seeds and should therefore be treated as weaker evidence rather than established effects.
+
+We describe this as an **observed error-reduction decomposition**, not formal causal attribution. The 109p versus 107p comparison is approximately, rather than exactly, parameter-matched, and three seeds provide limited statistical power.
+
+Therefore:
+
+> **A substantial part of the original 85p → 107p QAPINN improvement is explained by increased model capacity. A smaller residual difference remains after approximately matching capacity, with the clearest remaining signal appearing in Fourier-spectrum error.**
 
 ---
 
-## 3. The Classical Comparison Does Not Show the Same Improvement
+## 3. The Classical Comparison Does Not Show the Same Improvement Pattern
 
 For the classical configurations:
 
@@ -358,33 +377,36 @@ For the classical configurations:
 | Shock-region L2 | **34.92 ± 15.66%** | 36.54 ± 11.69% |
 | Fourier L2 | **5.79 ± 2.33%** | 9.44 ± 2.81% |
 
-The 107-parameter preprocessed classical configuration does not show the same improvement pattern as the preprocessed QAPINN.
+The 107-parameter preprocessed classical configuration does not show the same improvement pattern as the preprocessed QAPINN when compared with the corresponding 85-parameter direct configuration.
 
-This is an observed difference between the tested configurations, but it does **not** establish that the difference is caused by the quantum representation.
+However, this 85p versus 107p classical comparison changes both preprocessing and parameter capacity and therefore should **not** be interpreted as a preprocessing-only comparison.
+
+Importantly, an additional 107-parameter classical configuration with preprocessing and without preprocessing provides an exact fixed-capacity comparison on the classical side. This allows the classical preprocessing effect to be examined independently of parameter count.
+
+The observed difference between the classical and QAPINN comparisons does **not** establish that the effect is caused by the quantum representation.
+
+Note that the classical fixed-capacity comparison is an **exact** parameter match, whereas the quantum-side 109p versus 107p comparison is only an **approximate** parameter match because an exact 107-parameter 4 → h → 1 quantum-side head is not achievable with a single hidden layer.
 
 ---
 
 # Important Experimental Limitation
 
-The current preprocessing comparison contains a capacity confound.
+The original 85p direct → 107p preprocessed QAPINN comparison was confounded by both preprocessing and increased parameter capacity, since introducing preprocessing increased the QAPINN from 85 to 107 trainable parameters.
 
-The QAPINN changes from:
+This confound has now been **substantially, but not completely, addressed**.
 
-```text
-85 → 107 trainable parameters
-```
+- **Classical side:** preprocessing can be evaluated at fixed capacity using the existing 107-parameter classical configurations with and without preprocessing. The separate 85p versus 107p comparison still reflects a capacity change and should not be interpreted as a preprocessing-only comparison.
 
-when preprocessing is introduced.
+- **Quantum side:** the new Direct QAPINN — 109p experiment provides an approximately capacity-matched comparison point to the 107p preprocessed QAPINN. Both use the same quantum circuit configuration, while the direct 109p model uses a larger classical head. An exact 107-parameter 4 → h → 1 head is not achievable with a single hidden layer.
 
-Therefore, the current experiment cannot independently determine the contribution of:
+The remaining limitations are therefore narrower:
 
-- preprocessing,
-- parameter capacity,
-- quantum representation,
-- optimization dynamics,
-- or interactions between these factors.
+- The quantum-side 109p versus 107p comparison is approximately, not exactly, capacity-matched.
+- At n = 3 seeds, the residual global and shock-region differences between the 109p direct and 107p preprocessed QAPINNs have overlapping mean ± SD ranges and should be treated as weaker evidence.
+- The residual Fourier-spectrum difference is the most clearly supported residual difference, but does not by itself establish that preprocessing removes spectral bias.
+- The current experiments do not establish that the observed residual difference is uniquely caused by the quantum representation.
 
-This is an unresolved experimental question.
+The current evidence therefore supports an **observed error-reduction decomposition** in which increased capacity explains a substantial part of the original QAPINN improvement, while a smaller and metric-dependent residual difference remains.
 
 ---
 
@@ -460,7 +482,10 @@ Frequency-domain and spatial-domain metrics therefore need to be interpreted tog
 - The classical PINN remains substantially stronger overall at the tested parameter budgets.
 - The direct QAPINN has substantially higher errors than the parameter-matched classical model.
 - The tested preprocessed QAPINN configuration has lower global, shock-region, and Fourier errors than the tested direct QAPINN configuration.
-- The largest relative QAPINN improvement occurs in the Fourier-spectrum metric.
+- Increasing QAPINN capacity from 85 to 109 parameters, without preprocessing, produces consistent error reductions across global, shock-region, and Fourier metrics.
+- This capacity increase accounts for a substantial part of the original 85p → 107p QAPINN improvement.
+- A smaller residual difference remains between the approximately capacity-matched direct QAPINN (109p) and preprocessed QAPINN (107p).
+- The residual Fourier-spectrum difference is the clearest remaining signal in the current three-seed comparison.
 - The preprocessed QAPINN still under-resolves the sharp shock.
 - Preprocessing changes the learned QAPINN frequency spectrum substantially.
 - The current evidence does not establish quantum advantage.
@@ -470,13 +495,15 @@ Frequency-domain and spatial-domain metrics therefore need to be interpreted tog
 We cannot currently conclude that:
 
 - quantum representations outperform classical representations;
-- preprocessing alone causes the QAPINN improvement;
-- the improvement is caused by the additional parameters;
+- preprocessing universally improves QAPINN configurations;
+- the residual global or shock-region differences between the approximately capacity-matched 109p direct and 107p preprocessed QAPINNs are established effects at n = 3 seeds;
 - preprocessing removes spectral bias;
 - the QAPINN learns high-frequency shock information better;
-- the observed spectral changes are uniquely caused by the quantum representation.
+- the observed spectral changes are uniquely caused by the quantum representation;
+- the 109p versus 107p quantum comparison is an exact parameter match;
+- the observed capacity/residual decomposition constitutes formal causal attribution.
 
-These require additional controlled experiments.
+Further controlled experiments, particularly stronger fixed-capacity quantum-side preprocessing ablations and larger seed counts, are required before making stronger claims.
 
 ---
 
@@ -514,49 +541,61 @@ Frequency Content
 
 # Next Experiments
 
-## 1. Fixed-Parameter Preprocessing Ablation
+## 1. Stronger Fixed-Capacity Quantum Preprocessing Ablation
 
-The immediate next experiment is to keep the total number of trainable parameters fixed while varying preprocessing:
+The next major experiment is to construct a quantum-side comparison in which the total number of trainable parameters is held exactly fixed while preprocessing is varied.
+
+The goal is:
 
 ```text
-Preprocessing OFF
-        vs.
-Preprocessing ON
+Same QAPINN parameter budget
+
+        │
+        ├── Preprocessing OFF
+        │
+        └── Preprocessing ON
+
 ```
+This would isolate preprocessing more cleanly than the current 109p versus 107p approximate match.
 
-for the same parameter budget.
+## 2. Larger Seed Validation
 
-This will help separate the effect of preprocessing from the effect of model capacity.
-
----
-
-## 2. Classical Capacity-Controlled Comparison
-
-Additional classical architectures can be constructed at the same parameter budgets as the QAPINN configurations.
-
-The goal is to determine whether observed behaviour can be explained by:
-
-- parameter capacity,
-- architecture,
-- representation,
-- or their interaction.
-
----
+The current decomposition uses three seeds:
+```text
+42
+7
+99
+```
+Additional seeds would provide a stronger estimate of run-to-run variability and help determine whether the residual global, shock-region, and Fourier differences persist beyond the current n = 3 comparison.
 
 ## 3. Quantitative Frequency-Domain Analysis
 
-The current spectrum provides qualitative evidence.
+The current spectrum comparison provides frequency-domain evidence, but the next stage should quantify frequency-dependent behaviour using:
 
-The next stage will quantify frequency-dependent behaviour using:
-
-- low-frequency error,
-- mid-frequency error,
-- high-frequency error,
-- spectral energy distribution,
+- low-frequency error;
+- mid-frequency error;
+- high-frequency error;
+- spectral energy distribution;
 - frequency-dependent reconstruction error.
 
 This will help determine which parts of the spectrum are improved, attenuated, or redistributed.
 
+## 4. Mechanistic Interpretation
+
+The final stage is to connect the controlled parameter, preprocessing, spatial, and frequency-domain experiments into a unified explanation of QAPINN behaviour.
+
+The objective is not to establish quantum advantage by default, but to determine:
+
+```text
+What changes?
+      ↓
+When does it change?
+      ↓
+Which factor explains the change?
+      ↓
+Does the effect survive capacity and seed controls?
+
+```
 ---
 
 # Reproducibility
@@ -791,10 +830,14 @@ The implementation uses:
 - [x] Three-seed matched validation
 - [x] 2×2 preprocessing experiment
 - [x] Three-seed validation of the 2×2 configurations
+- [x] Three-seed direct 109-parameter QAPINN validation
 - [x] Frequency-domain comparison
 - [x] Spatial snapshot comparison
-- [ ] Fixed-parameter preprocessing ablation
+- [x] Capacity-effect decomposition
+- [x] Classical fixed-capacity preprocessing comparison
+- [ ] Exact fixed-parameter quantum-side preprocessing ablation
 - [ ] Quantitative frequency-band analysis
+- [ ] Larger-seed validation
 - [ ] Final mechanistic interpretation
 
 ---
@@ -835,7 +878,17 @@ Fourier-spectrum comparisons are used alongside spatial-domain error metrics to 
 
 ## Capacity Confound
 
-The current preprocessing comparison changes both the preprocessing architecture and the number of trainable parameters. A fixed-capacity ablation is therefore required before attributing the observed improvement to preprocessing itself.
+The original 85p direct → 107p preprocessed QAPINN comparison changed both preprocessing and parameter capacity.
+
+The extended validation now separates these effects more carefully:
+
+- a 3-seed 85p → 109p direct QAPINN comparison measures the effect of increased capacity without preprocessing;
+- a 109p direct → 107p preprocessed comparison provides an approximately capacity-matched residual comparison;
+- the classical side also contains fixed-capacity 107-parameter configurations with and without preprocessing.
+
+The quantum-side 109p versus 107p comparison is not an exact parameter match, so the residual difference should be interpreted cautiously rather than as formal causal evidence.
+
+An exact fixed-capacity quantum-side preprocessing ablation remains an open experiment.
 
 ---
 
